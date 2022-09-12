@@ -20,14 +20,12 @@
 		BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */; };
 		BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51B28CF162500E8D68B /* SettingViewController.swift */; };
 		BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51D28CF162F00E8D68B /* TabBarController.swift */; };
-		BD9FA52028CF165900E8D68B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA51F28CF165900E8D68B /* .gitkeep */; };
-		BD9FA52228CF166300E8D68B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA52128CF166300E8D68B /* .gitkeep */; };
-		BD9FA52528CF16E600E8D68B /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA52428CF16E600E8D68B /* .gitkeep */; };
 		BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA52728CF171600E8D68B /* SnapKit */; };
 		BD9FA52B28CF174B00E8D68B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA52A28CF174B00E8D68B /* Then */; };
 		BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA52D28CF17AB00E8D68B /* FSCalendar */; };
 		BD9FA53128CF180C00E8D68B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53028CF180C00E8D68B /* Realm */; };
 		BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53228CF180C00E8D68B /* RealmSwift */; };
+		BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +66,7 @@
 		BD9FA51F28CF165900E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA52128CF166300E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA52428CF16E600E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +102,7 @@
 		BD9FA4C628CF135100E8D68B = {
 			isa = PBXGroup;
 			children = (
+				BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */,
 				BD9FA4D128CF135100E8D68B /* OOTD */,
 				BD9FA4E828CF135600E8D68B /* OOTDTests */,
 				BD9FA4F228CF135600E8D68B /* OOTDUITests */,
@@ -309,6 +309,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD9FA4F928CF135600E8D68B /* Build configuration list for PBXNativeTarget "OOTD" */;
 			buildPhases = (
+				BD9FA53628CF1C5E00E8D68B /* SwiftLint */,
 				BD9FA4CB28CF135100E8D68B /* Sources */,
 				BD9FA4CC28CF135100E8D68B /* Frameworks */,
 				BD9FA4CD28CF135100E8D68B /* Resources */,
@@ -419,11 +420,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9FA52028CF165900E8D68B /* .gitkeep in Resources */,
+				BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */,
 				BD9FA4DF28CF135600E8D68B /* LaunchScreen.storyboard in Resources */,
-				BD9FA52528CF16E600E8D68B /* .gitkeep in Resources */,
 				BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */,
-				BD9FA52228CF166300E8D68B /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +441,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD9FA53628CF1C5E00E8D68B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BD9FA4CB28CF135100E8D68B /* Sources */ = {
