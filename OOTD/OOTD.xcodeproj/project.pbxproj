@@ -51,6 +51,9 @@
 		BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAAD28CF4A5200668B70 /* UIColor+.swift */; };
 		BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAB728CF4E5A00668B70 /* Spacing.swift */; };
 		BDD8CABA28CF4E9F00668B70 /* Radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAB928CF4E9F00668B70 /* Radius.swift */; };
+		BDD8CABD28CF73E900668B70 /* ODSNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CABC28CF73E900668B70 /* ODSNavigationBar.swift */; };
+		BDD8CAC028CF7DB500668B70 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDD8CABF28CF7DB500668B70 /* SnapKit */; };
+		BDD8CAC228CF7DB900668B70 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDD8CAC128CF7DB900668B70 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +147,7 @@
 		BDD8CAAD28CF4A5200668B70 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		BDD8CAB728CF4E5A00668B70 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		BDD8CAB928CF4E9F00668B70 /* Radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radius.swift; sourceTree = "<group>"; };
+		BDD8CABC28CF73E900668B70 /* ODSNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8CAC028CF7DB500668B70 /* SnapKit in Frameworks */,
+				BDD8CAC228CF7DB900668B70 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +208,7 @@
 				BDD8CA2828CF1FD100668B70 /* OOTD-Core */,
 				BDD8CA5228CF30EC00668B70 /* OOTD-UIKit */,
 				BD9FA4D028CF135100E8D68B /* Products */,
+				BDD8CABE28CF7DB500668B70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -456,6 +463,7 @@
 				BDD8CA9F28CF40D600668B70 /* Fonts */,
 				BDD8CA9A28CF37DC00668B70 /* Images */,
 				BDD8CAB628CF4E5200668B70 /* Metric */,
+				BDD8CABB28CF73A400668B70 /* ODSNavigationBar */,
 			);
 			path = "OOTD-UIKit";
 			sourceTree = "<group>";
@@ -496,6 +504,21 @@
 				BDD8CAB928CF4E9F00668B70 /* Radius.swift */,
 			);
 			path = Metric;
+			sourceTree = "<group>";
+		};
+		BDD8CABB28CF73A400668B70 /* ODSNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8CABC28CF73E900668B70 /* ODSNavigationBar.swift */,
+			);
+			path = ODSNavigationBar;
+			sourceTree = "<group>";
+		};
+		BDD8CABE28CF7DB500668B70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,6 +639,10 @@
 			dependencies = (
 			);
 			name = "OOTD-UIKit";
+			packageProductDependencies = (
+				BDD8CABF28CF7DB500668B70 /* SnapKit */,
+				BDD8CAC128CF7DB900668B70 /* Then */,
+			);
 			productName = "OOTD-UIKit";
 			productReference = BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -802,6 +829,7 @@
 				BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */,
 				BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */,
 				BDD8CAA928CF41A600668B70 /* Font.swift in Sources */,
+				BDD8CABD28CF73E900668B70 /* ODSNavigationBar.swift in Sources */,
 				BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */,
 				BDD8CABA28CF4E9F00668B70 /* Radius.swift in Sources */,
 			);
@@ -1345,6 +1373,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BDD8CABF28CF7DB500668B70 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD9FA52628CF171600E8D68B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		BDD8CAC128CF7DB900668B70 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD9FA52928CF174B00E8D68B /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
