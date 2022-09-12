@@ -40,6 +40,9 @@
 		BDD8CA5428CF30EC00668B70 /* OOTD_UIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */; };
 		BDD8CA5828CF30EC00668B70 /* OOTD_UIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BDD8CA9928CF378700668B70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD8CA9828CF378700668B70 /* Images.xcassets */; };
+		BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA9B28CF37E800668B70 /* UIImage+.swift */; };
+		BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA9D28CF3D5100668B70 /* ODSBundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +125,9 @@
 		BDD8CA4828CF29FE00668B70 /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_UIKit.h; sourceTree = "<group>"; };
+		BDD8CA9828CF378700668B70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BDD8CA9B28CF37E800668B70 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		BDD8CA9D28CF3D5100668B70 /* ODSBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSBundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,8 +435,19 @@
 			isa = PBXGroup;
 			children = (
 				BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */,
+				BDD8CA9D28CF3D5100668B70 /* ODSBundle.swift */,
+				BDD8CA9A28CF37DC00668B70 /* Images */,
 			);
 			path = "OOTD-UIKit";
+			sourceTree = "<group>";
+		};
+		BDD8CA9A28CF37DC00668B70 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8CA9828CF378700668B70 /* Images.xcassets */,
+				BDD8CA9B28CF37E800668B70 /* UIImage+.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,6 +599,7 @@
 					};
 					BDD8CA5028CF30EC00668B70 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -649,6 +667,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8CA9928CF378700668B70 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +746,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */,
+				BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,6 +1106,7 @@
 		BDD8CA5928CF30EC00668B70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1107,6 +1129,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1117,6 +1140,7 @@
 		BDD8CA5A28CF30EC00668B70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
