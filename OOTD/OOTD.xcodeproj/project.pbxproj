@@ -37,6 +37,9 @@
 		BDD8CA4228CF21B800668B70 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA4128CF21B800668B70 /* UIStackView+.swift */; };
 		BDD8CA4628CF291900668B70 /* Adjusted+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA4528CF291900668B70 /* Adjusted+.swift */; };
 		BDD8CA4928CF29FE00668B70 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA4828CF29FE00668B70 /* Collection+.swift */; };
+		BDD8CA5428CF30EC00668B70 /* OOTD_UIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */; };
+		BDD8CA5828CF30EC00668B70 /* OOTD_UIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,13 @@
 			remoteGlobalIDString = BDD8CA2628CF1FD100668B70;
 			remoteInfo = "OOTD-Core";
 		};
+		BDD8CA5528CF30EC00668B70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD9FA4C728CF135100E8D68B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDD8CA5028CF30EC00668B70;
+			remoteInfo = "OOTD-UIKit";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +81,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */,
+				BDD8CA5828CF30EC00668B70 /* OOTD_UIKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +120,8 @@
 		BDD8CA4128CF21B800668B70 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		BDD8CA4528CF291900668B70 /* Adjusted+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjusted+.swift"; sourceTree = "<group>"; };
 		BDD8CA4828CF29FE00668B70 /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_UIKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +131,7 @@
 			files = (
 				BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */,
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
+				BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */,
 				BD9FA53128CF180C00E8D68B /* Realm in Frameworks */,
 				BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */,
 				BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */,
@@ -146,6 +160,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDD8CA4E28CF30EC00668B70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -157,6 +178,7 @@
 				BD9FA4E828CF135600E8D68B /* OOTDTests */,
 				BD9FA4F228CF135600E8D68B /* OOTDUITests */,
 				BDD8CA2828CF1FD100668B70 /* OOTD-Core */,
+				BDD8CA5228CF30EC00668B70 /* OOTD-UIKit */,
 				BD9FA4D028CF135100E8D68B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,6 +190,7 @@
 				BD9FA4E528CF135600E8D68B /* OOTDTests.xctest */,
 				BD9FA4EF28CF135600E8D68B /* OOTDUITests.xctest */,
 				BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */,
+				BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,6 +425,14 @@
 			path = "Foundation+";
 			sourceTree = "<group>";
 		};
+		BDD8CA5228CF30EC00668B70 /* OOTD-UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */,
+			);
+			path = "OOTD-UIKit";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -410,6 +441,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD8CA4C28CF30EC00668B70 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD8CA5428CF30EC00668B70 /* OOTD_UIKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +469,7 @@
 			);
 			dependencies = (
 				BDD8CA2C28CF1FD100668B70 /* PBXTargetDependency */,
+				BDD8CA5628CF30EC00668B70 /* PBXTargetDependency */,
 			);
 			name = OOTD;
 			packageProductDependencies = (
@@ -497,6 +537,24 @@
 			productReference = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		BDD8CA5028CF30EC00668B70 /* OOTD-UIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD8CA5B28CF30EC00668B70 /* Build configuration list for PBXNativeTarget "OOTD-UIKit" */;
+			buildPhases = (
+				BDD8CA4C28CF30EC00668B70 /* Headers */,
+				BDD8CA4D28CF30EC00668B70 /* Sources */,
+				BDD8CA4E28CF30EC00668B70 /* Frameworks */,
+				BDD8CA4F28CF30EC00668B70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OOTD-UIKit";
+			productName = "OOTD-UIKit";
+			productReference = BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -521,6 +579,9 @@
 					BDD8CA2628CF1FD100668B70 = {
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1340;
+					};
+					BDD8CA5028CF30EC00668B70 = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
@@ -547,6 +608,7 @@
 				BD9FA4E428CF135600E8D68B /* OOTDTests */,
 				BD9FA4EE28CF135600E8D68B /* OOTDUITests */,
 				BDD8CA2628CF1FD100668B70 /* OOTD-Core */,
+				BDD8CA5028CF30EC00668B70 /* OOTD-UIKit */,
 			);
 		};
 /* End PBXProject section */
@@ -577,6 +639,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BDD8CA2528CF1FD100668B70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD8CA4F28CF30EC00668B70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -654,6 +723,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDD8CA4D28CF30EC00668B70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -671,6 +747,11 @@
 			isa = PBXTargetDependency;
 			target = BDD8CA2628CF1FD100668B70 /* OOTD-Core */;
 			targetProxy = BDD8CA2B28CF1FD100668B70 /* PBXContainerItemProxy */;
+		};
+		BDD8CA5628CF30EC00668B70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDD8CA5028CF30EC00668B70 /* OOTD-UIKit */;
+			targetProxy = BDD8CA5528CF30EC00668B70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1001,6 +1082,70 @@
 			};
 			name = Release;
 		};
+		BDD8CA5928CF30EC00668B70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W7P3R7ZL78;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.OOTD-UIKit";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BDD8CA5A28CF30EC00668B70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W7P3R7ZL78;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.OOTD-UIKit";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1045,6 +1190,15 @@
 			buildConfigurations = (
 				BDD8CA3028CF1FD100668B70 /* Debug */,
 				BDD8CA3128CF1FD100668B70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD8CA5B28CF30EC00668B70 /* Build configuration list for PBXNativeTarget "OOTD-UIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD8CA5928CF30EC00668B70 /* Debug */,
+				BDD8CA5A28CF30EC00668B70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
