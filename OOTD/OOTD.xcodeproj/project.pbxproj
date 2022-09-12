@@ -50,6 +50,7 @@
 		BDD8CAA928CF41A600668B70 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAA828CF41A600668B70 /* Font.swift */; };
 		BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAAD28CF4A5200668B70 /* UIColor+.swift */; };
 		BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAB728CF4E5A00668B70 /* Spacing.swift */; };
+		BDD8CABA28CF4E9F00668B70 /* Radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAB928CF4E9F00668B70 /* Radius.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		BDD8CAA828CF41A600668B70 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		BDD8CAAD28CF4A5200668B70 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		BDD8CAB728CF4E5A00668B70 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		BDD8CAB928CF4E9F00668B70 /* Radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radius.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD8CAB728CF4E5A00668B70 /* Spacing.swift */,
+				BDD8CAB928CF4E9F00668B70 /* Radius.swift */,
 			);
 			path = Metric;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */,
 				BDD8CAA928CF41A600668B70 /* Font.swift in Sources */,
 				BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */,
+				BDD8CABA28CF4E9F00668B70 /* Radius.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
