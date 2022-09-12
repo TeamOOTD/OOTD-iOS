@@ -55,6 +55,7 @@
 		BDD8CAC028CF7DB500668B70 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDD8CABF28CF7DB500668B70 /* SnapKit */; };
 		BDD8CAC228CF7DB900668B70 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDD8CAC128CF7DB900668B70 /* Then */; };
 		BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAC428CF825800668B70 /* ODSTagView.swift */; };
+		BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		BDD8CAB928CF4E9F00668B70 /* Radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radius.swift; sourceTree = "<group>"; };
 		BDD8CABC28CF73E900668B70 /* ODSNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSNavigationBar.swift; sourceTree = "<group>"; };
 		BDD8CAC428CF825800668B70 /* ODSTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTagView.swift; sourceTree = "<group>"; };
+		BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSBasicBlockCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -465,6 +467,7 @@
 				BDD8CA9F28CF40D600668B70 /* Fonts */,
 				BDD8CA9A28CF37DC00668B70 /* Images */,
 				BDD8CAB628CF4E5200668B70 /* Metric */,
+				BDD8CAC928CF8B8C00668B70 /* ODSBasicBlockCell */,
 				BDD8CABB28CF73A400668B70 /* ODSNavigationBar */,
 				BDD8CAC328CF824800668B70 /* ODSTagView */,
 			);
@@ -530,6 +533,14 @@
 				BDD8CAC428CF825800668B70 /* ODSTagView.swift */,
 			);
 			path = ODSTagView;
+			sourceTree = "<group>";
+		};
+		BDD8CAC928CF8B8C00668B70 /* ODSBasicBlockCell */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */,
+			);
+			path = ODSBasicBlockCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -838,6 +849,7 @@
 			files = (
 				BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */,
 				BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */,
+				BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */,
 				BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */,
 				BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */,
 				BDD8CAA928CF41A600668B70 /* Font.swift in Sources */,
