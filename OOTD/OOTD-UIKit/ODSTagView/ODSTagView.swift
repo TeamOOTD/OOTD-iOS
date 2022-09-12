@@ -21,7 +21,7 @@ public final class ODSTagView: BaseView {
     }
     
     public override func configureAttributes() {
-        makeRounded(radius: 2)
+        makeRounded(radius: Radii.r2)
         
         contentLabel.do {
             $0.textColor = .white
