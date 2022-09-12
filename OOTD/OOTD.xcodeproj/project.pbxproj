@@ -43,6 +43,11 @@
 		BDD8CA9928CF378700668B70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD8CA9828CF378700668B70 /* Images.xcassets */; };
 		BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA9B28CF37E800668B70 /* UIImage+.swift */; };
 		BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CA9D28CF3D5100668B70 /* ODSBundle.swift */; };
+		BDD8CAA428CF415900668B70 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD8CAA028CF415900668B70 /* Pretendard-SemiBold.ttf */; };
+		BDD8CAA528CF415900668B70 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD8CAA128CF415900668B70 /* Pretendard-Medium.ttf */; };
+		BDD8CAA628CF415900668B70 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD8CAA228CF415900668B70 /* Pretendard-Regular.ttf */; };
+		BDD8CAA728CF415900668B70 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD8CAA328CF415900668B70 /* Pretendard-Bold.ttf */; };
+		BDD8CAA928CF41A600668B70 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAA828CF41A600668B70 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +133,11 @@
 		BDD8CA9828CF378700668B70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BDD8CA9B28CF37E800668B70 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		BDD8CA9D28CF3D5100668B70 /* ODSBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSBundle.swift; sourceTree = "<group>"; };
+		BDD8CAA028CF415900668B70 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		BDD8CAA128CF415900668B70 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		BDD8CAA228CF415900668B70 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		BDD8CAA328CF415900668B70 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		BDD8CAA828CF41A600668B70 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +446,7 @@
 			children = (
 				BDD8CA5328CF30EC00668B70 /* OOTD_UIKit.h */,
 				BDD8CA9D28CF3D5100668B70 /* ODSBundle.swift */,
+				BDD8CA9F28CF40D600668B70 /* Fonts */,
 				BDD8CA9A28CF37DC00668B70 /* Images */,
 			);
 			path = "OOTD-UIKit";
@@ -448,6 +459,18 @@
 				BDD8CA9B28CF37E800668B70 /* UIImage+.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		BDD8CA9F28CF40D600668B70 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8CAA828CF41A600668B70 /* Font.swift */,
+				BDD8CAA328CF415900668B70 /* Pretendard-Bold.ttf */,
+				BDD8CAA128CF415900668B70 /* Pretendard-Medium.ttf */,
+				BDD8CAA228CF415900668B70 /* Pretendard-Regular.ttf */,
+				BDD8CAA028CF415900668B70 /* Pretendard-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -667,7 +690,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8CAA428CF415900668B70 /* Pretendard-SemiBold.ttf in Resources */,
+				BDD8CAA728CF415900668B70 /* Pretendard-Bold.ttf in Resources */,
 				BDD8CA9928CF378700668B70 /* Images.xcassets in Resources */,
+				BDD8CAA628CF415900668B70 /* Pretendard-Regular.ttf in Resources */,
+				BDD8CAA528CF415900668B70 /* Pretendard-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */,
+				BDD8CAA928CF41A600668B70 /* Font.swift in Sources */,
 				BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
