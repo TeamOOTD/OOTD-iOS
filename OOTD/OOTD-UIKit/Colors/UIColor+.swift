@@ -35,10 +35,10 @@ extension UIColor {
     
     // MARK: - Block Colors
     
-    public static let algorithm = makeColor(from: "#F95454")
-    public static let commit = makeColor(from: "#F95454")
-    public static let blog = makeColor(from: "#F95454")
-    public static let study = makeColor(from: "#F95454")
+    public static let algorithm = makeColor(from: "#E5E3C9")
+    public static let commit = makeColor(from: "#B4CFB0")
+    public static let blog = makeColor(from: "#94B49F")
+    public static let study = makeColor(from: "#789395")
     
     // MARK: - Grey Scale
     
