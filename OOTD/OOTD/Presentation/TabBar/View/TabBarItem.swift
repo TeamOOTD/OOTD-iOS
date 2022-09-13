@@ -26,17 +26,17 @@ extension TabBarItem {
     
     var inactiveIcon: UIImage? {
         switch self {
-        case .todo:     return UIImage.icnTabCheckList?.withTintColor(.grey400, renderingMode: .alwaysTemplate)
-        case .project:  return UIImage.icnTabProjectList.withTintColor(.grey400, renderingMode: .alwaysTemplate)
-        case .profile:  return UIImage.icnTabProfile.withTintColor(.grey400, renderingMode: .alwaysTemplate)
+        case .todo:     return UIImage.icnTabCheckList
+        case .project:  return UIImage.icnTabProjectList
+        case .profile:  return UIImage.icnTabProfile
         }
     }
     
     var activeIcon: UIImage? {
         switch self {
-        case .todo:     return UIImage.icnTabCheckList?.withTintColor(.grey900, renderingMode: .alwaysTemplate)
-        case .project:  return UIImage.icnTabProjectList.withTintColor(.grey900, renderingMode: .alwaysTemplate)
-        case .profile:  return UIImage.icnTabProfile.withTintColor(.grey900, renderingMode: .alwaysTemplate)
+        case .todo:     return UIImage.icnTabCheckList
+        case .project:  return UIImage.icnTabProjectList
+        case .profile:  return UIImage.icnTabProfile
         }
     }
 }
