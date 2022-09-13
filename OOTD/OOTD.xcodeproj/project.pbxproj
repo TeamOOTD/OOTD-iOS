@@ -32,6 +32,7 @@
 		BDB65B8728D0713E00679C02 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8C28D079A100679C02 /* ODSTextField.swift */; };
 		BDB65B9028D0B5BC00679C02 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8F28D0B5BC00679C02 /* Device.swift */; };
+		BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -154,6 +155,7 @@
 		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BDB65B8C28D079A100679C02 /* ODSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTextField.swift; sourceTree = "<group>"; };
 		BDB65B8F28D0B5BC00679C02 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB65B8F28D0B5BC00679C02 /* Device.swift */,
+				BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 				BD15700028D05ACE00155712 /* ODSButton.swift in Sources */,
 				BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */,
 				BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */,
+				BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */,
 				BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */,
 				BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */,
 				BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */,
