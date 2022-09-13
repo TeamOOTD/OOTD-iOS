@@ -48,7 +48,6 @@ public final class ODSSegmentedControl: BaseView {
                 UIView.animate(withDuration: 0.2) {
                     self.selectorView.frame.origin.x = selectorPosition + Spacing.s4
                 }
-                
             }
         }
     }
