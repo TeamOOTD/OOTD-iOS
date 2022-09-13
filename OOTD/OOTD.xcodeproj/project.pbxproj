@@ -30,6 +30,7 @@
 		BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */; };
 		BDB65B8628D0713E00679C02 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDB65B8728D0713E00679C02 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8C28D079A100679C02 /* ODSTextField.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -150,6 +151,7 @@
 		BD9FA52128CF166300E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA52428CF16E600E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		BDB65B8C28D079A100679C02 /* ODSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTextField.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -451,6 +453,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		BDB65B8B28D0799100679C02 /* ODSTextField */ = {
+			isa = PBXGroup;
+			children = (
+				BDB65B8C28D079A100679C02 /* ODSTextField.swift */,
+			);
+			path = ODSTextField;
+			sourceTree = "<group>";
+		};
 		BDD8CA2828CF1FD100668B70 /* OOTD-Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +523,7 @@
 				BDD8CABB28CF73A400668B70 /* ODSNavigationBar */,
 				BD15700128D0650400155712 /* ODSSegmentedControl */,
 				BDD8CAC328CF824800668B70 /* ODSTagView */,
+				BDB65B8B28D0799100679C02 /* ODSTextField */,
 			);
 			path = "OOTD-UIKit";
 			sourceTree = "<group>";
@@ -893,6 +904,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */,
 				BD15700028D05ACE00155712 /* ODSButton.swift in Sources */,
 				BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */,
 				BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */,
