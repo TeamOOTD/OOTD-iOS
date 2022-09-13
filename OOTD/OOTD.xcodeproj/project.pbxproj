@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D228CF135100E8D68B /* AppDelegate.swift */; };
 		BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */; };
 		BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA4DB28CF135600E8D68B /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD9FA4CF28CF135100E8D68B /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9FA4D228CF135100E8D68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD156FFE28D05ABC00155712 /* ODSButton */ = {
+			isa = PBXGroup;
+			children = (
+				BD156FFF28D05ACE00155712 /* ODSButton.swift */,
+			);
+			path = ODSButton;
+			sourceTree = "<group>";
+		};
 		BD9FA4C628CF135100E8D68B = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +478,7 @@
 				BDD8CA9A28CF37DC00668B70 /* Images */,
 				BDD8CAB628CF4E5200668B70 /* Metric */,
 				BDD8CAC928CF8B8C00668B70 /* ODSBasicBlockCell */,
+				BD156FFE28D05ABC00155712 /* ODSButton */,
 				BDD8CABB28CF73A400668B70 /* ODSNavigationBar */,
 				BDD8CAC328CF824800668B70 /* ODSTagView */,
 			);
@@ -847,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD15700028D05ACE00155712 /* ODSButton.swift in Sources */,
 				BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */,
 				BDD8CA9E28CF3D5100668B70 /* ODSBundle.swift in Sources */,
 				BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */,
