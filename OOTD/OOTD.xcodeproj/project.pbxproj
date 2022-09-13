@@ -33,6 +33,7 @@
 		BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8C28D079A100679C02 /* ODSTextField.swift */; };
 		BDB65B9028D0B5BC00679C02 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8F28D0B5BC00679C02 /* Device.swift */; };
 		BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */; };
+		BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9328D0BE8100679C02 /* TabBarItem.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -156,6 +157,7 @@
 		BDB65B8C28D079A100679C02 /* ODSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTextField.swift; sourceTree = "<group>"; };
 		BDB65B8F28D0B5BC00679C02 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		BDB65B9328D0BE8100679C02 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9FA51D28CF162F00E8D68B /* TabBarController.swift */,
+				BDB65B9328D0BE8100679C02 /* TabBarItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
+				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoViewController.swift in Sources */,
