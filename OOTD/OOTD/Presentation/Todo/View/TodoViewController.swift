@@ -88,7 +88,7 @@ extension TodoViewController {
     }
 }
 
-extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.date = date
@@ -98,4 +98,31 @@ extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource {
         date = calendar.currentPage
         calendar.select(date)
     }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        return 2
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        return [.green800, .yellow800]
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        let commitColor: UIColor = [UIColor.green800, UIColor.green600].randomElement()!.withAlphaComponent(0.5 * CGFloat.random(in: 1...2))
+        let yellowColor: UIColor = [UIColor.yellow800, UIColor.yellow600].randomElement()!.withAlphaComponent(0.5 * CGFloat.random(in: 1...2))
+        
+        return [commitColor, yellowColor]
+    }
 }
+
+// MARK: - Preview
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct Preview: PreviewProvider {
+    static var previews: some View {
+        TabBarController().showPreview(.iPhone13Mini)
+    }
+}
+#endif
