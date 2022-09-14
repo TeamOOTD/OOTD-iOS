@@ -38,7 +38,7 @@ final class TodoViewController: BaseViewController {
         configureCalendarView()
         
         dateFormatter.do {
-            $0.dateFormat = "YYYY년 M월"
+            $0.dateFormat = "YYYY년 M월 d일"
             $0.locale = Locale(identifier: "ko_KR")
             $0.timeZone = TimeZone(identifier: "ko_KR")
         }
@@ -69,6 +69,9 @@ final class TodoViewController: BaseViewController {
 extension TodoViewController {
     
     private func configureCalendarView() {
+        calendarView.delegate = self
+        calendarView.dataSource = self
+        
         calendarView.select(Date())
         calendarView.headerHeight = 0
         calendarView.firstWeekday = 2
@@ -82,5 +85,17 @@ extension TodoViewController {
         calendarView.appearance.weekdayFont = .ootdFont(.regular, size: 10)
         calendarView.appearance.titleFont = .ootdFont(.medium, size: 14)
         calendarView.appearance.selectionColor = .clear
+    }
+}
+
+extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource {
+
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.date = date
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        date = calendar.currentPage
+        calendar.select(date)
     }
 }
