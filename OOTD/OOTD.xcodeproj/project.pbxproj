@@ -65,6 +65,7 @@
 		BDD8CAC228CF7DB900668B70 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDD8CAC128CF7DB900668B70 /* Then */; };
 		BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAC428CF825800668B70 /* ODSTagView.swift */; };
 		BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */; };
+		BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,7 @@
 		BDD8CABC28CF73E900668B70 /* ODSNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSNavigationBar.swift; sourceTree = "<group>"; };
 		BDD8CAC428CF825800668B70 /* ODSTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTagView.swift; sourceTree = "<group>"; };
 		BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSBasicBlockCell.swift; sourceTree = "<group>"; };
+		BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
+				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
 				BD9FA51128CF156800E8D68B /* TodoViewController.swift */,
 			);
 			path = View;
@@ -882,6 +885,7 @@
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
 				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
+				BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoViewController.swift in Sources */,
