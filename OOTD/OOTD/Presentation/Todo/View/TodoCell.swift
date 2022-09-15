@@ -52,7 +52,7 @@ final class TodoCell: BaseCollectionViewCell {
         contentView.addSubviews(checkBoxButton, contentLabel, tagHStackView, optionButton)
         
         checkBoxButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(Spacing.s20)
+            $0.leading.equalToSuperview()
             $0.size.equalTo(24)
             $0.centerY.equalToSuperview()
         }
@@ -69,7 +69,7 @@ final class TodoCell: BaseCollectionViewCell {
         
         optionButton.snp.makeConstraints {
             $0.size.equalTo(24)
-            $0.trailing.equalToSuperview().inset(Spacing.s20)
+            $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
     }
