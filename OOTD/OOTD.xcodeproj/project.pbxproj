@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
+		BD92EF9A28D2CBF0000C4A4F /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */; };
 		BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D228CF135100E8D68B /* AppDelegate.swift */; };
 		BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */; };
 		BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA4DB28CF135600E8D68B /* Assets.xcassets */; };
@@ -136,6 +137,7 @@
 /* Begin PBXFileReference section */
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
+		BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		BD9FA4CF28CF135100E8D68B /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9FA4D228CF135100E8D68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -511,9 +513,10 @@
 		BDD8CA3528CF202600668B70 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */,
+				BDD8CA3B28CF20B700668B70 /* BaseCollectionViewCell.swift */,
 				BDD8CA3728CF207000668B70 /* BaseView.swift */,
 				BDD8CA3928CF208700668B70 /* BaseViewController.swift */,
-				BDD8CA3B28CF20B700668B70 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -924,6 +927,7 @@
 				BDD8CA4228CF21B800668B70 /* UIStackView+.swift in Sources */,
 				BDD8CA4928CF29FE00668B70 /* Collection+.swift in Sources */,
 				BDD8CA3828CF207000668B70 /* BaseView.swift in Sources */,
+				BD92EF9A28D2CBF0000C4A4F /* BaseCollectionView.swift in Sources */,
 				BDD8CA3A28CF208700668B70 /* BaseViewController.swift in Sources */,
 				BDD8CA3C28CF20B700668B70 /* BaseCollectionViewCell.swift in Sources */,
 				BDD8CA4028CF219F00668B70 /* UIView+.swift in Sources */,
