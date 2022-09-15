@@ -101,7 +101,7 @@ final class TodoViewController: BaseViewController {
         }
         
         collectionView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(Spacing.s24)
         }
     }
 }
@@ -142,6 +142,17 @@ extension TodoViewController {
         collectionView.collectionViewLayout = generateLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func presentBottomSheetViewController() {
+        let todoBottomSheetViewController = TodoBottomSheetViewController()
+        present(todoBottomSheetViewController, animated: true)
+    }
+}
+
+extension TodoViewController: TodoHeaderViewDelegate {
+    func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView) {
+        presentBottomSheetViewController()
     }
 }
 
@@ -194,7 +205,9 @@ extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSour
         ) as? TodoHeaderView else {
             return UICollectionReusableView()
         }
-
+        headerView.title = "🌱 오늘의 할 일"
+        headerView.rightIcon = .icnPlusCircle
+        headerView.delegate = self
         return headerView
     }
 }
@@ -237,15 +250,3 @@ extension TodoViewController {
         return headerElement
     }
 }
-
-// MARK: - Preview
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct Preview: PreviewProvider {
-    static var previews: some View {
-        TabBarController().showPreview(.iPhone13Mini)
-    }
-}
-#endif

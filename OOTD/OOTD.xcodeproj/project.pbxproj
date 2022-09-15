@@ -10,6 +10,7 @@
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD92EF9A28D2CBF0000C4A4F /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */; };
+		BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */; };
 		BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D228CF135100E8D68B /* AppDelegate.swift */; };
 		BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */; };
 		BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA4DB28CF135600E8D68B /* Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
+		BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetViewController.swift; sourceTree = "<group>"; };
 		BD9FA4CF28CF135100E8D68B /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9FA4D228CF135100E8D68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 		BD9FA51028CF154D00E8D68B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */,
 				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
 				BDDAB6DE28D2142400C021BC /* TodoCell.swift */,
 				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
@@ -887,6 +890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
+				BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
 				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
