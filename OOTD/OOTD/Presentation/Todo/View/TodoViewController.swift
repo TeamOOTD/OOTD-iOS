@@ -13,6 +13,7 @@ import OOTD_UIKit
 
 final class TodoViewController: BaseViewController {
     
+    private let navigationBar = ODSNavigationBar()
     private lazy var headerView = TodoCalendarHeaderView()
     private lazy var scrollView = UIScrollView()
     private lazy var containerStackView = UIStackView()
@@ -35,6 +36,8 @@ final class TodoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func configureAttributes() {
@@ -45,6 +48,10 @@ final class TodoViewController: BaseViewController {
             $0.dateFormat = "YYYY년 M월 d일"
             $0.locale = Locale(identifier: "ko_KR")
             $0.timeZone = TimeZone(identifier: "ko_KR")
+        }
+        
+        navigationBar.do {
+            $0.rightBarItem = .timer
         }
         
         headerView.do {
@@ -64,12 +71,17 @@ final class TodoViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        view.addSubviews(headerView, scrollView)
+        view.addSubviews(navigationBar, headerView, scrollView)
         scrollView.addSubview(containerStackView)
         containerStackView.addArrangedSubviews(calendarView, collectionView)
         
+        navigationBar.snp.makeConstraints {
+            $0.top.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
         headerView.snp.makeConstraints {
-            $0.top.directionalHorizontalEdges.equalToSuperview()
+            $0.top.equalTo(navigationBar.snp.bottom).offset(Spacing.s8)
+            $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(70)
         }
         
