@@ -14,7 +14,7 @@ import OOTD_UIKit
 
 final class TodoCell: BaseCollectionViewCell {
     
-    private let checkBoxButton = UIButton()
+    private lazy var checkBoxButton = UIButton()
     private let contentLabel = UILabel()
     private lazy var tagHStackView = UIStackView()
     private let optionButton = UIImageView()
@@ -23,9 +23,14 @@ final class TodoCell: BaseCollectionViewCell {
         didSet { createTagView(with: tags) }
     }
     
+    var isChecked: Bool = false {
+        didSet { checkBoxButton.setImage(isChecked ? .icnCheckBoxFill :  .icnCheckBox, for: .normal) }
+    }
+    
     override func configureAttributes() {
         checkBoxButton.do {
             $0.setImage(.icnCheckBox, for: .normal)
+            $0.addTarget(self, action: #selector(checkBoxButtonTapped), for: .touchUpInside)
         }
         
         contentLabel.do {
@@ -79,5 +84,9 @@ extension TodoCell {
             tagView.backgroundColor = tag.1
             tagHStackView.addArrangedSubview(tagView)
         }
+    }
+    
+    @objc private func checkBoxButtonTapped(_ sender: UIButton) {
+        isChecked.toggle()
     }
 }
