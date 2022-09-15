@@ -13,8 +13,11 @@ import OOTD_UIKit
 
 final class TodoViewController: BaseViewController {
     
-    lazy var headerView = TodoCalendarHeaderView()
-    let calendarView = FSCalendar()
+    private lazy var headerView = TodoCalendarHeaderView()
+    private lazy var scrollView = UIScrollView()
+    private lazy var containerStackView = UIStackView()
+    private let calendarView = FSCalendar()
+    private let collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let dateFormatter = DateFormatter()
     
@@ -35,6 +38,7 @@ final class TodoViewController: BaseViewController {
     }
     
     override func configureAttributes() {
+        view.backgroundColor = .systemBackground
         configureCalendarView()
         
         dateFormatter.do {
@@ -48,20 +52,44 @@ final class TodoViewController: BaseViewController {
             $0.commitCount = commitCount
             $0.todoPercent = todoPercent
         }
+        
+        containerStackView.do {
+            $0.axis = .vertical
+            $0.distribution = .fill
+            $0.alignment = .center
+            $0.spacing = Spacing.s16
+        }
+        
+        configureCollectionView()
     }
     
     override func configureLayout() {
-        view.addSubviews(headerView, calendarView)
+        view.addSubviews(headerView, scrollView)
+        scrollView.addSubview(containerStackView)
+        containerStackView.addArrangedSubviews(calendarView, collectionView)
         
         headerView.snp.makeConstraints {
             $0.top.directionalHorizontalEdges.equalToSuperview()
             $0.height.equalTo(70)
         }
         
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.trailing.bottom.leading.equalToSuperview()
+        }
+        
+        containerStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+        
         calendarView.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom).offset(Spacing.s8)
             $0.directionalHorizontalEdges.equalToSuperview().inset(Spacing.s16)
             $0.height.equalTo(280.adjustedHeight)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
         }
     }
 }
@@ -85,6 +113,23 @@ extension TodoViewController {
         calendarView.appearance.weekdayFont = .ootdFont(.regular, size: 10)
         calendarView.appearance.titleFont = .ootdFont(.medium, size: 14)
         calendarView.appearance.selectionColor = .clear
+    }
+    
+    private func configureCollectionView() {
+        collectionView.register(
+            TodoHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TodoHeaderView.reuseIdentifier
+        )
+        
+        collectionView.register(
+            TodoCell.self,
+            forCellWithReuseIdentifier: TodoCell.reuseIdentifier
+        )
+        
+        collectionView.collectionViewLayout = generateLayout()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
@@ -112,6 +157,72 @@ extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         let yellowColor: UIColor = [UIColor.yellow800, UIColor.yellow600].randomElement()!.withAlphaComponent(0.5 * CGFloat.random(in: 1...2))
         
         return [commitColor, yellowColor]
+    }
+}
+
+extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCell.reuseIdentifier, for: indexPath) as? TodoCell else {
+            return UICollectionViewCell()
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: TodoHeaderView.reuseIdentifier,
+            for: indexPath
+        ) as? TodoHeaderView else {
+            return UICollectionReusableView()
+        }
+
+        return headerView
+    }
+}
+
+extension TodoViewController {
+    private func generateLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(44)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(44)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: item,
+            count: 1
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [generateHeader()]
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+    
+    private func generateHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(40)
+        )
+        let headerElement = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        return headerElement
     }
 }
 
