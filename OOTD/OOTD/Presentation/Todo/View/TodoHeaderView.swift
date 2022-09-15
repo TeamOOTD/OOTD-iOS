@@ -12,6 +12,14 @@ import Then
 import OOTD_Core
 import OOTD_UIKit
 
+protocol TodoHeaderViewDelegate: AnyObject {
+    func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView)
+}
+
+extension TodoHeaderViewDelegate {
+    func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView) {}
+}
+
 final class TodoHeaderView: UICollectionReusableView, Reusable {
     
     static var reuseIdentifier: String {
@@ -19,7 +27,9 @@ final class TodoHeaderView: UICollectionReusableView, Reusable {
     }
 
     private let titleLabel = UILabel()
-    private let createButton = UIButton()
+    private lazy var createButton = UIButton()
+    
+    weak var delegate: TodoHeaderViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,6 +55,7 @@ extension TodoHeaderView {
         
         createButton.do {
             $0.setImage(.icnPlusCircle, for: .normal)
+            $0.addTarget(self, action: #selector(createButtonDidTap), for: .touchUpInside)
         }
     }
     
@@ -62,5 +73,9 @@ extension TodoHeaderView {
             $0.trailing.equalToSuperview().inset(Spacing.s4)
             $0.size.equalTo(48)
         }
+    }
+    
+    @objc func createButtonDidTap(_ sender: UIButton) {
+        delegate?.todoHeaderViewCreateButtonDidTap(self)
     }
 }
