@@ -9,9 +9,14 @@ import UIKit
 
 import SnapKit
 import Then
+import OOTD_Core
 import OOTD_UIKit
 
-final class TodoHeaderView: UICollectionReusableView {
+final class TodoHeaderView: UICollectionReusableView, Reusable {
+    
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
 
     private let titleLabel = UILabel()
     private let createButton = UIButton()
