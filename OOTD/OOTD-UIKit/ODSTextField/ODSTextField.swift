@@ -72,6 +72,7 @@ public final class ODSTextField: UITextField {
     
     private func configureInitial() {
         delegate = self
+        configureLayout()
         configureAttributes()
         updateBorder()
         updatePlaceholder()
@@ -84,7 +85,7 @@ public final class ODSTextField: UITextField {
     }
     
     private func configureLayout() {
-        self.superview?.addSubview(placeholderLabel)
+        self.addSubview(placeholderLabel)
         placeholderLabel.snp.makeConstraints {
             $0.left.equalTo(self.snp.left).offset(Spacing.s8)
             $0.centerY.equalTo(self.snp.centerY)
@@ -120,11 +121,7 @@ extension ODSTextField: UITextFieldDelegate {
 }
 
 extension ODSTextField {
-    
-    public override func didMoveToSuperview() {
-        configureLayout()
-    }
-    
+
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: commonInsets)
     }
