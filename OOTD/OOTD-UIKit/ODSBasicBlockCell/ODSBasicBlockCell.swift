@@ -13,10 +13,16 @@ import SnapKit
 import Then
 import OOTD_Core
 
+public protocol ODSBasicBlockCellDelegate: AnyObject {
+    func basicBlockCell(_ cell: ODSBasicBlockCell, index: Int)
+}
+
 public final class ODSBasicBlockCell: BaseCollectionViewCell {
     
-    private let contentLabel = UILabel()
+    private lazy var contentButton = UIButton()
     private let checkImageView = UIImageView()
+    
+    public weak var delegate: ODSBasicBlockCellDelegate?
     
     public enum BasicBlockType: String {
         case algorithm  = "알고리즘 문제 풀이"
@@ -37,23 +43,23 @@ public final class ODSBasicBlockCell: BaseCollectionViewCell {
     public var blockType: BasicBlockType? {
         didSet {
             contentView.backgroundColor = blockType?.color
-            contentLabel.text = blockType?.rawValue
+            contentButton.setTitle(blockType?.rawValue, for: .normal)
         }
     }
     
-    public override var isSelected: Bool {
-        get { !checkImageView.isHidden }
-        set { checkImageView.isHidden = !newValue }
+    public var index: Int?
+    public var isChoosen: Bool = false {
+        didSet { checkImageView.isHidden = !isChoosen }
     }
-    
+
     public override func configureAttributes() {
         backgroundColor = .clear
         makeRounded(radius: Radii.r5)
         
-        contentLabel.do {
-            $0.textColor = .white
-            $0.font = .ootdFont(.bold, size: 16)
-            $0.textAlignment = .center
+        contentButton.do {
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .ootdFont(.bold, size: 16)
+            $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         }
         
         checkImageView.do {
@@ -64,9 +70,9 @@ public final class ODSBasicBlockCell: BaseCollectionViewCell {
     }
     
     public override func configureLayout() {
-        contentView.addSubviews(contentLabel, checkImageView)
+        contentView.addSubviews(contentButton, checkImageView)
         
-        contentLabel.snp.makeConstraints {
+        contentButton.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(Spacing.s8)
             $0.leading.trailing.equalToSuperview().inset(Spacing.s4)
         }
@@ -74,5 +80,12 @@ public final class ODSBasicBlockCell: BaseCollectionViewCell {
         checkImageView.snp.makeConstraints {
             $0.top.trailing.bottom.equalToSuperview().inset(Spacing.s8)
         }
+    }
+}
+
+extension ODSBasicBlockCell {
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        delegate?.basicBlockCell(self, index: index ?? 0)
     }
 }
