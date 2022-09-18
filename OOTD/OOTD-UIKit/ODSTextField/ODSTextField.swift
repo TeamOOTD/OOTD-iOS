@@ -11,7 +11,13 @@ import SnapKit
 import Then
 import OOTD_Core
 
+public protocol ODSTextFieldDelegate: AnyObject {
+    func odsTextFieldDidChange(_ textField: ODSTextField)
+}
+
 public final class ODSTextField: UITextField {
+    
+    public weak var odsDelegate: ODSTextFieldDelegate?
 
     public var borderSize: CGFloat = 2.0 {
         didSet { updateBorder() }
@@ -117,6 +123,10 @@ extension ODSTextField: UITextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField) {
         updateBorder()
         updatePlaceholder()
+    }
+    
+    public func textFieldDidChangeSelection(_ textField: UITextField) {
+        odsDelegate?.odsTextFieldDidChange(self)
     }
 }
 
