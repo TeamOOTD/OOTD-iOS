@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
+		BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408728D4558E00A4E810 /* PriorityCell.swift */; };
+		BD8B408B28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */; };
+		BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408C28D46C7100A4E810 /* InputCell.swift */; };
+		BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */; };
 		BD92EF9A28D2CBF0000C4A4F /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */; };
 		BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */; };
 		BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D228CF135100E8D68B /* AppDelegate.swift */; };
@@ -138,6 +142,10 @@
 /* Begin PBXFileReference section */
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
+		BD8B408728D4558E00A4E810 /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
+		BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoBottomSheetViewController+Layout.swift"; sourceTree = "<group>"; };
+		BD8B408C28D46C7100A4E810 /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
+		BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCategoryCell.swift; sourceTree = "<group>"; };
 		BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetViewController.swift; sourceTree = "<group>"; };
 		BD9FA4CF28CF135100E8D68B /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +267,18 @@
 				BD15700228D0651A00155712 /* ODSSegmentedControl.swift */,
 			);
 			path = ODSSegmentedControl;
+			sourceTree = "<group>";
+		};
+		BD8B408928D458BD00A4E810 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				BD8B408C28D46C7100A4E810 /* InputCell.swift */,
+				BD8B408728D4558E00A4E810 /* PriorityCell.swift */,
+				BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */,
+				BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */,
+				BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		BD9FA4C628CF135100E8D68B = {
@@ -441,7 +461,7 @@
 		BD9FA51028CF154D00E8D68B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */,
+				BD8B408928D458BD00A4E810 /* BottomSheet */,
 				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
 				BDDAB6DE28D2142400C021BC /* TodoCell.swift */,
 				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
@@ -889,6 +909,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8B408B28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift in Sources */,
 				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
 				BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
@@ -897,7 +918,10 @@
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */,
+				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
+				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
+				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoViewController.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
