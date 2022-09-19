@@ -21,55 +21,23 @@ struct Todo {
 }
 
 final class TodoBottomSheetViewController: BaseViewController {
-    
-    private lazy var segmentedControl = ODSSegmentedControl(buttonTitles: ["기본 제공", "직접 입력"])
-    private let doneButton = UIButton()
+
     private lazy var collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var doneButton = ODSButton(.disabled)
     
     var todo: Todo = Todo() {
         didSet {
             collectionView.reloadData()
         }
     }
-    
-    var text: String? {
-        didSet {
-            guard let text = text else { return }
-            doneButton.isEnabled = !text.isEmpty
-        }
-    }
 
-    enum Mode {
-        case basic
-        case direct
-    }
-    
-    private var block: [ODSBasicBlockCell.BasicBlockType] = [.algorithm, .blog, .commit, .study]
-    var section: [TodoBottomSheetSection] = [.priority, .todo] {
+    private var block: [ODSBasicBlockCell.BasicBlockType] = [.algorithm, .blog, .commit, .study, .direct]
+    var section: [TodoBottomSheetSection] = [.priority, .todo, .project] {
         didSet { collectionView.reloadData() }
-    }
-    private var mode: Mode = .basic {
-        didSet {
-            section.removeAll()
-            section = mode == .basic ? [.priority, .todo] : [.priority, .input, .project]
-        }
     }
 
     override func configureAttributes() {
         view.backgroundColor = .systemBackground
-        
-        segmentedControl.do {
-            $0.backgroundColor = .grey200
-            $0.delegate = self
-        }
-        
-        doneButton.do {
-            $0.isEnabled = false
-            $0.setTitle("완료", for: .normal)
-            $0.setTitleColor(.grey500, for: .normal)
-            $0.titleLabel?.font = .ootdFont(.bold, size: 14)
-            $0.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
-        }
         
         collectionView.do {
             $0.register(
@@ -103,28 +71,26 @@ final class TodoBottomSheetViewController: BaseViewController {
             $0.collectionViewLayout = generateLayout()
         }
         
+        doneButton.do {
+            $0.title = "확인"
+        }
+
         setupSheet()
     }
     
     override func configureLayout() {
-        view.addSubviews(segmentedControl, doneButton, collectionView)
-        
-        segmentedControl.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(Spacing.s32)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(194)
-            $0.height.equalTo(28)
+        view.addSubviews(collectionView, doneButton)
+
+        collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(Spacing.s32)
+            $0.leading.bottom.trailing.equalToSuperview().inset(Spacing.s24)
         }
         
         doneButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(Spacing.s20)
-            $0.centerY.equalTo(segmentedControl)
+            $0.leading.bottom.trailing.equalToSuperview().inset(Spacing.s24)
+            $0.height.equalTo(50)
         }
         
-        collectionView.snp.makeConstraints {
-            $0.top.equalTo(segmentedControl.snp.bottom).offset(Spacing.s24)
-            $0.leading.bottom.trailing.equalToSuperview().inset(Spacing.s24)
-        }
     }
     
     private func setupSheet() {
@@ -135,11 +101,6 @@ final class TodoBottomSheetViewController: BaseViewController {
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = Radii.r20
         }
-    }
-    
-    @objc func doneButtonTapped(_ sender: UIButton) {
-        todo.studyName = text
-        print(todo)
     }
 }
 
@@ -153,7 +114,7 @@ extension TodoBottomSheetViewController: UICollectionViewDelegate, UICollectionV
         
         switch self.section[section] {
         case .priority:  return 6
-        case .todo:      return 4
+        case .todo:      return block.count
         case .input:     return 1
         case .project:   return 1
         }
@@ -182,8 +143,7 @@ extension TodoBottomSheetViewController: UICollectionViewDelegate, UICollectionV
             todoCell.isChoosen = todoCell.index == todo.basicTodo
             return todoCell
         case .input:
-            inputCell.textField.placeholder = mode == .basic ? "어떤 스터디인가요?" : "투두의 내용을 적어주세요."
-            inputCell.textField.odsDelegate = self
+            inputCell.textField.placeholder = todo.basicTodo == 3 ? "어떤 스터디인가요?" : "투두의 내용을 적어주세요."
             return inputCell
         case .project:
             return projectCell
@@ -201,8 +161,8 @@ extension TodoBottomSheetViewController: UICollectionViewDelegate, UICollectionV
         
         switch self.section[indexPath.section] {
         case .priority: headerView.title = "우선 순위"
-        case .todo:     headerView.title = "기본 투두"
-        case .input:    headerView.title = mode == .basic ? "스터디 *" : "투두 *"
+        case .todo:     headerView.title = "투두 타입"
+        case .input:    headerView.title = "컨텐츠"
         case .project:  headerView.title = "관련 프로젝트"
         }
         
@@ -221,22 +181,12 @@ extension TodoBottomSheetViewController: ODSBasicBlockCellDelegate {
     
     func basicBlockCell(_ cell: OOTD_UIKit.ODSBasicBlockCell, index: Int) {
         todo.basicTodo = index
-        section = index == 3 ? [.priority, .todo, .input] : [.priority, .todo]
-    }
-}
-
-extension TodoBottomSheetViewController: ODSSegmentedControlDelegate {
-    
-    func segmentedControl(_ segmentedControl: OOTD_UIKit.ODSSegmentedControl, to index: Int) {
-        mode = index == 0 ? .basic : .direct
-        todo = Todo()
-    }
-}
-
-extension TodoBottomSheetViewController: ODSTextFieldDelegate {
-    
-    func odsTextFieldDidChange(_ textField: ODSTextField) {
-        self.text = textField.text
+        
+        if index == 3 || index == 4 {
+            section = [.priority, .todo, .input, .project]
+        } else {
+            section = [.priority, .todo, .project]
+        }
     }
 }
 
