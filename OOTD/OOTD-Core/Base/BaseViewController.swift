@@ -25,6 +25,8 @@ open class BaseViewController: UIViewController {
         configureLayout()
     }
 
-    open func configureAttributes() {}
+    open func configureAttributes() {
+        navigationController?.navigationBar.isHidden = true
+    }
     open func configureLayout() {}
 }
