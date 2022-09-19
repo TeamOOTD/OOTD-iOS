@@ -77,6 +77,10 @@ final class TodoCell: BaseCollectionViewCell {
 
 extension TodoCell {
     
+    func configure(with data: Todo) {
+        contentLabel.text = data.contents
+    }
+    
     private func createTagView(with tags: [(String, UIColor)]) {
         tags.forEach { tag in
             let tagView = ODSTagView()
