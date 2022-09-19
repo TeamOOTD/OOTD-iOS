@@ -11,11 +11,21 @@ import OOTD_Core
 
 final class ProjectViewController: BaseViewController {
     
+    private let rootView = ProjectView()
+    
+    override func loadView() {
+        self.view = rootView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func configureAttributes() {
+        super.configureAttributes()
     }
 }
 
 extension ProjectViewController {
-    
+
 }
