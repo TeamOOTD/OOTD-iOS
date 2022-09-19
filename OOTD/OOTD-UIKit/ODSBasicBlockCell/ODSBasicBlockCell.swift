@@ -29,6 +29,7 @@ public final class ODSBasicBlockCell: BaseCollectionViewCell {
         case commit     = "커밋"
         case blog       = "블로그 작성"
         case study      = "스터디"
+        case direct     = "직접 입력"
         
         var color: UIColor? {
             switch self {
@@ -36,6 +37,7 @@ public final class ODSBasicBlockCell: BaseCollectionViewCell {
             case .commit:    return .commit
             case .blog:      return .blog
             case .study:     return .study
+            case .direct:    return .grey700
             }
         }
     }
