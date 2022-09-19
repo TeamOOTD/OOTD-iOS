@@ -15,6 +15,8 @@ public final class ODSButton: BaseView {
     
     public var button = UIButton()
     
+    public var actionHandler: (() -> Void)?
+    
     public enum ButtonState {
         case enabled
         case sub
@@ -65,6 +67,7 @@ public final class ODSButton: BaseView {
         
         button.do {
             $0.titleLabel?.font = .ootdFont(.bold, size: 18)
+            $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         }
     }
     
@@ -80,6 +83,10 @@ public final class ODSButton: BaseView {
         button.backgroundColor = buttonState.backgroundColor
         button.setTitleColor(buttonState.titleColor, for: .normal)
         button.isEnabled = buttonState.isEnabled
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        actionHandler?()
     }
 }
 
