@@ -5,6 +5,7 @@ disabled_rules:
   - nesting
   - function_body_length
   - function_parameter_count
+  - force_try
 
 opt_in_rules:
   - let_var_whitespace
