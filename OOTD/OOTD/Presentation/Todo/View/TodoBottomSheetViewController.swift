@@ -12,20 +12,14 @@ import Then
 import OOTD_Core
 import OOTD_UIKit
 
-struct Todo {
-    var priority: Int = 0
-    var basicTodo: Int = 0
-    var contentName: String = ""
-    var studyName: String?
-    var project: Int?
-}
-
 final class TodoBottomSheetViewController: BaseViewController {
 
     private lazy var collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private lazy var doneButton = ODSButton(.disabled)
+    private lazy var doneButton = ODSButton(.enabled)
     
-    var todo: Todo = Todo() {
+    private let repository = StorageRepository<Todo>()
+    
+    var todo: Todo = Todo(isDone: false, todoType: 0, contents: "", priority: 0) {
         didSet {
             collectionView.reloadData()
         }
@@ -34,6 +28,10 @@ final class TodoBottomSheetViewController: BaseViewController {
     private var block: [ODSBasicBlockCell.BasicBlockType] = [.algorithm, .blog, .commit, .study, .direct]
     var section: [TodoBottomSheetSection] = [.priority, .todo, .project] {
         didSet { collectionView.reloadData() }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 
     override func configureAttributes() {
@@ -73,6 +71,9 @@ final class TodoBottomSheetViewController: BaseViewController {
         
         doneButton.do {
             $0.title = "확인"
+            $0.actionHandler = { [weak self] in
+                self?.createTodo()
+            }
         }
 
         setupSheet()
@@ -140,10 +141,10 @@ extension TodoBottomSheetViewController: UICollectionViewDelegate, UICollectionV
             todoCell.delegate = self
             todoCell.index = indexPath.row
             todoCell.blockType = block[indexPath.row]
-            todoCell.isChoosen = todoCell.index == todo.basicTodo
+            todoCell.isChoosen = todoCell.index == todo.todoType
             return todoCell
         case .input:
-            inputCell.textField.placeholder = todo.basicTodo == 3 ? "어떤 스터디인가요?" : "투두의 내용을 적어주세요."
+            inputCell.textField.placeholder = todo.todoType == 3 ? "어떤 스터디인가요?" : "투두의 내용을 적어주세요."
             return inputCell
         case .project:
             return projectCell
@@ -180,12 +181,25 @@ extension TodoBottomSheetViewController: PriorityCellDelegate {
 extension TodoBottomSheetViewController: ODSBasicBlockCellDelegate {
     
     func basicBlockCell(_ cell: OOTD_UIKit.ODSBasicBlockCell, index: Int) {
-        todo.basicTodo = index
+        todo.todoType = index
         
         if index == 3 || index == 4 {
             section = [.priority, .todo, .input, .project]
         } else {
             section = [.priority, .todo, .project]
+        }
+    }
+}
+
+extension TodoBottomSheetViewController {
+    
+    func createTodo() {
+        do {
+            todo.contents = block[todo.todoType].rawValue
+            try repository.create(item: todo)
+            dismiss(animated: true)
+        } catch {
+            print(error)
         }
     }
 }
