@@ -11,6 +11,11 @@
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABD28D81C8A0063DE18 /* ProjectView.swift */; };
 		BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */; };
+		BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0428D8AAC80063DE18 /* Entity.swift */; };
+		BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0628D8AB4D0063DE18 /* Repository.swift */; };
+		BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0828D8AC4F0063DE18 /* Todo.swift */; };
+		BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0A28D8AC5D0063DE18 /* StorableTodo.swift */; };
+		BD70EB0E28D8B2800063DE18 /* StorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0D28D8B2800063DE18 /* StorageRepository.swift */; };
 		BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408728D4558E00A4E810 /* PriorityCell.swift */; };
 		BD8B408B28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */; };
 		BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408C28D46C7100A4E810 /* InputCell.swift */; };
@@ -146,6 +151,11 @@
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD70EABD28D81C8A0063DE18 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCell.swift; sourceTree = "<group>"; };
+		BD70EB0428D8AAC80063DE18 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		BD70EB0628D8AB4D0063DE18 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		BD70EB0828D8AC4F0063DE18 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		BD70EB0A28D8AC5D0063DE18 /* StorableTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableTodo.swift; sourceTree = "<group>"; };
+		BD70EB0D28D8B2800063DE18 /* StorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRepository.swift; sourceTree = "<group>"; };
 		BD8B408728D4558E00A4E810 /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
 		BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoBottomSheetViewController+Layout.swift"; sourceTree = "<group>"; };
 		BD8B408C28D46C7100A4E810 /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
@@ -284,6 +294,32 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		BD70EB0028D8A8990063DE18 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BD70EB0828D8AC4F0063DE18 /* Todo.swift */,
+				BD70EB0A28D8AC5D0063DE18 /* StorableTodo.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BD70EB0128D8A9B90063DE18 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				BD70EB0428D8AAC80063DE18 /* Entity.swift */,
+				BD70EB0628D8AB4D0063DE18 /* Repository.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		BD70EB0C28D8B2750063DE18 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BD70EB0D28D8B2800063DE18 /* StorageRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		BD9FA4C628CF135100E8D68B = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +419,9 @@
 		BD9FA50628CF14D500E8D68B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BD70EB0C28D8B2750063DE18 /* Repository */,
+				BD70EB0128D8A9B90063DE18 /* Interface */,
+				BD70EB0028D8A8990063DE18 /* Entity */,
 				BD9FA52128CF166300E8D68B /* .gitkeep */,
 			);
 			path = Domain;
@@ -921,17 +960,22 @@
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
 				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
+				BD70EB0E28D8B2800063DE18 /* StorageRepository.swift in Sources */,
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
+				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
+				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoViewController.swift in Sources */,
+				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
+				BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */,
 				BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */,
 				BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */,
 			);
