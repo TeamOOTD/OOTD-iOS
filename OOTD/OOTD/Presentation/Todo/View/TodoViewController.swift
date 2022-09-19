@@ -20,6 +20,9 @@ final class TodoViewController: BaseViewController {
     private let calendarView = FSCalendar()
     private let collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    private let repository = StorageRepository<Todo>()
+    private var dataSource: [Todo] = [] { didSet { collectionView.reloadData() } }
+    
     private let dateFormatter = DateFormatter()
     
     private var date = Date() {
@@ -38,6 +41,21 @@ final class TodoViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
+        
+        print(#function)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.dataSource = repository.fetchAll()
+        
+        print(#function)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(#function)
     }
     
     override func configureAttributes() {
@@ -186,14 +204,14 @@ extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
 extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCell.reuseIdentifier, for: indexPath) as? TodoCell else {
             return UICollectionViewCell()
         }
-        
+        cell.configure(with: dataSource[indexPath.row])
         return cell
     }
     
