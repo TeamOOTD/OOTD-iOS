@@ -283,17 +283,6 @@
 			path = ODSSegmentedControl;
 			sourceTree = "<group>";
 		};
-		BD70EAFF28D88F6A0063DE18 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				BD8B408C28D46C7100A4E810 /* InputCell.swift */,
-				BD8B408728D4558E00A4E810 /* PriorityCell.swift */,
-				BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */,
-				BDDAB6DE28D2142400C021BC /* TodoCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		BD70EB0028D8A8990063DE18 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +307,26 @@
 				BD70EB0D28D8B2800063DE18 /* StorageRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		BD70EB1128D985050063DE18 /* TodoBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				BD70EB1228D9851E0063DE18 /* View */,
+			);
+			path = TodoBottomSheet;
+			sourceTree = "<group>";
+		};
+		BD70EB1228D9851E0063DE18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD8B408C28D46C7100A4E810 /* InputCell.swift */,
+				BD8B408728D4558E00A4E810 /* PriorityCell.swift */,
+				BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */,
+				BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */,
+				BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BD9FA4C628CF135100E8D68B = {
@@ -404,6 +413,7 @@
 				BD9FA50728CF14EB00E8D68B /* TabBar */,
 				BD9FA51328CF156B00E8D68B /* Timer */,
 				BD9FA50828CF14EE00E8D68B /* Todo */,
+				BD70EB1128D985050063DE18 /* TodoBottomSheet */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -438,7 +448,6 @@
 		BD9FA50828CF14EE00E8D68B /* Todo */ = {
 			isa = PBXGroup;
 			children = (
-				BD70EAFF28D88F6A0063DE18 /* Cell */,
 				BD9FA51028CF154D00E8D68B /* View */,
 			);
 			path = Todo;
@@ -506,8 +515,7 @@
 		BD9FA51028CF154D00E8D68B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */,
-				BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */,
+				BDDAB6DE28D2142400C021BC /* TodoCell.swift */,
 				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
 				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
 				BD9FA51128CF156800E8D68B /* TodoViewController.swift */,
