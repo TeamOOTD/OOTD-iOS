@@ -17,6 +17,7 @@ protocol TodoListCollectionViewAdapterDataSource: AnyObject {
 
 protocol TodoListCollectionViewAdapterDelegate: AnyObject {
     func todoHeaderViewCreateButtonDidTap()
+    func todoTapped(_ todo: Todo, at index: Int)
 }
 
 final class TodoListCollectionViewAdapter: NSObject {
@@ -84,12 +85,19 @@ extension TodoListCollectionViewAdapter: UICollectionViewDataSource {
 }
 
 extension TodoListCollectionViewAdapter: TodoHeaderViewDelegate {
+    
     func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView) {
         delegate?.todoHeaderViewCreateButtonDidTap()
     }
 }
 
-extension TodoListCollectionViewAdapter: UICollectionViewDelegate {}
+extension TodoListCollectionViewAdapter: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let todo = adapterDataSource?.todo(at: indexPath.row) else { return }
+        delegate?.todoTapped(todo, at: indexPath.row)
+    }
+}
 
 extension TodoListCollectionViewAdapter {
 
