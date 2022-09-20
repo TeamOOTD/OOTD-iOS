@@ -21,7 +21,6 @@ protocol TodoListCollectionViewAdapterDelegate: AnyObject {
 
 final class TodoListCollectionViewAdapter: NSObject {
 
-    weak var collecionView: UICollectionView?
     weak var adapterDataSource: TodoListCollectionViewAdapterDataSource?
     weak var delegate: TodoListCollectionViewAdapterDelegate?
     
@@ -32,7 +31,6 @@ final class TodoListCollectionViewAdapter: NSObject {
     ) {
         super.init()
 
-        self.collecionView = collectionView
         self.adapterDataSource = adapterDataSource
         self.delegate = delegate
         
