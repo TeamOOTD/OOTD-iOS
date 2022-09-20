@@ -462,6 +462,7 @@
 		BD9FA50828CF14EE00E8D68B /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				BDB2016328D9C883003FF3A3 /* Helper */,
 				BD70EB1328D988230063DE18 /* ViewModel */,
 				BD9FA51028CF154D00E8D68B /* View */,
 			);
@@ -534,7 +535,6 @@
 				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
 				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
 				BD9FA51128CF156800E8D68B /* TodoListViewController.swift */,
-				BD70EB1628D9890C0063DE18 /* TodoListCollectionViewAdapter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -562,6 +562,14 @@
 				BDB2016128D99F16003FF3A3 /* Observable.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BDB2016328D9C883003FF3A3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BD70EB1628D9890C0063DE18 /* TodoListCollectionViewAdapter.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		BDB65B8B28D0799100679C02 /* ODSTextField */ = {
