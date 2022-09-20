@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
+		BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */; };
 		BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABD28D81C8A0063DE18 /* ProjectView.swift */; };
 		BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */; };
 		BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0428D8AAC80063DE18 /* Entity.swift */; };
@@ -154,6 +155,7 @@
 /* Begin PBXFileReference section */
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
+		BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetState.swift; sourceTree = "<group>"; };
 		BD70EABD28D81C8A0063DE18 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCell.swift; sourceTree = "<group>"; };
 		BD70EB0428D8AAC80063DE18 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 			children = (
 				BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */,
 				BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */,
+				BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
 				BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */,
+				BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
