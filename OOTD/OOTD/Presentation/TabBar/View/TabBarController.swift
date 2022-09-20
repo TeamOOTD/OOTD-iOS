@@ -49,7 +49,7 @@ extension TabBarController {
             
             switch tabBarItem {
             case .todo:
-                viewController = UINavigationController(rootViewController: TodoViewController())
+                viewController = UINavigationController(rootViewController: TodoListViewController())
             
             case .project:
                 viewController = UINavigationController(rootViewController: ProjectViewController())

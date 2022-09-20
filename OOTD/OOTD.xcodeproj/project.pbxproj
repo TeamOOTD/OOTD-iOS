@@ -29,7 +29,7 @@
 		BD9FA4EA28CF135600E8D68B /* OOTDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4E928CF135600E8D68B /* OOTDTests.swift */; };
 		BD9FA4F428CF135600E8D68B /* OOTDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */; };
 		BD9FA4F628CF135600E8D68B /* OOTDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */; };
-		BD9FA51228CF156800E8D68B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51128CF156800E8D68B /* TodoViewController.swift */; };
+		BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51128CF156800E8D68B /* TodoListViewController.swift */; };
 		BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51528CF157300E8D68B /* TimerViewController.swift */; };
 		BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51728CF160E00E8D68B /* GitHubRegistrationViewController.swift */; };
 		BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */; };
@@ -173,7 +173,7 @@
 		BD9FA4EF28CF135600E8D68B /* OOTDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OOTDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITests.swift; sourceTree = "<group>"; };
 		BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BD9FA51128CF156800E8D68B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		BD9FA51128CF156800E8D68B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		BD9FA51528CF157300E8D68B /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		BD9FA51728CF160E00E8D68B /* GitHubRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRegistrationViewController.swift; sourceTree = "<group>"; };
 		BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +329,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BD70EB1328D988230063DE18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BD9FA4C628CF135100E8D68B = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +455,7 @@
 		BD9FA50828CF14EE00E8D68B /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				BD70EB1328D988230063DE18 /* ViewModel */,
 				BD9FA51028CF154D00E8D68B /* View */,
 			);
 			path = Todo;
@@ -518,7 +526,7 @@
 				BDDAB6DE28D2142400C021BC /* TodoCell.swift */,
 				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
 				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
-				BD9FA51128CF156800E8D68B /* TodoViewController.swift */,
+				BD9FA51128CF156800E8D68B /* TodoListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -980,7 +988,7 @@
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
-				BD9FA51228CF156800E8D68B /* TodoViewController.swift in Sources */,
+				BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */,
 				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
 				BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */,
