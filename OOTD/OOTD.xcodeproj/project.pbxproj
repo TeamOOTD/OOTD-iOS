@@ -16,6 +16,7 @@
 		BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0828D8AC4F0063DE18 /* Todo.swift */; };
 		BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0A28D8AC5D0063DE18 /* StorableTodo.swift */; };
 		BD70EB0E28D8B2800063DE18 /* StorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0D28D8B2800063DE18 /* StorageRepository.swift */; };
+		BD70EB1528D988A80063DE18 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB1428D988A80063DE18 /* TodoListViewModel.swift */; };
 		BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408728D4558E00A4E810 /* PriorityCell.swift */; };
 		BD8B408B28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */; };
 		BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408C28D46C7100A4E810 /* InputCell.swift */; };
@@ -156,6 +157,7 @@
 		BD70EB0828D8AC4F0063DE18 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		BD70EB0A28D8AC5D0063DE18 /* StorableTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableTodo.swift; sourceTree = "<group>"; };
 		BD70EB0D28D8B2800063DE18 /* StorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRepository.swift; sourceTree = "<group>"; };
+		BD70EB1428D988A80063DE18 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		BD8B408728D4558E00A4E810 /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
 		BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoBottomSheetViewController+Layout.swift"; sourceTree = "<group>"; };
 		BD8B408C28D46C7100A4E810 /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 		BD70EB1328D988230063DE18 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BD70EB1428D988A80063DE18 /* TodoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -994,6 +997,7 @@
 				BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */,
 				BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */,
 				BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */,
+				BD70EB1528D988A80063DE18 /* TodoListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
