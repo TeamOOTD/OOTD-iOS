@@ -112,7 +112,6 @@ final class TodoListViewController: BaseViewController {
         
         collectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(Spacing.s24)
-            $0.height.equalTo(400.adjustedHeight)
         }
     }
 }
