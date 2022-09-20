@@ -169,6 +169,9 @@ extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
     
     private func presentBottomSheetViewController() {
         let todoBottomSheetViewController = TodoBottomSheetViewController()
+        todoBottomSheetViewController.completionHandler = { [weak self] in
+            self?.viewModel.fetchTodos()
+        }
         present(todoBottomSheetViewController, animated: true)
     }
 }

@@ -19,7 +19,6 @@
 		BD70EB1528D988A80063DE18 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB1428D988A80063DE18 /* TodoListViewModel.swift */; };
 		BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB1628D9890C0063DE18 /* TodoListCollectionViewAdapter.swift */; };
 		BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408728D4558E00A4E810 /* PriorityCell.swift */; };
-		BD8B408B28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */; };
 		BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408C28D46C7100A4E810 /* InputCell.swift */; };
 		BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */; };
 		BD92EF9A28D2CBF0000C4A4F /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */; };
@@ -44,6 +43,9 @@
 		BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53228CF180C00E8D68B /* RealmSwift */; };
 		BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */; };
 		BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016128D99F16003FF3A3 /* Observable.swift */; };
+		BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */; };
+		BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */; };
+		BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */; };
 		BDB65B8628D0713E00679C02 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDB65B8728D0713E00679C02 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8C28D079A100679C02 /* ODSTextField.swift */; };
@@ -162,7 +164,6 @@
 		BD70EB1428D988A80063DE18 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		BD70EB1628D9890C0063DE18 /* TodoListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		BD8B408728D4558E00A4E810 /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
-		BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoBottomSheetViewController+Layout.swift"; sourceTree = "<group>"; };
 		BD8B408C28D46C7100A4E810 /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
 		BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCategoryCell.swift; sourceTree = "<group>"; };
 		BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
@@ -189,6 +190,9 @@
 		BD9FA52428CF16E600E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BDB2016128D99F16003FF3A3 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetViewModel.swift; sourceTree = "<group>"; };
+		BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetSection.swift; sourceTree = "<group>"; };
 		BDB65B8C28D079A100679C02 /* ODSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTextField.swift; sourceTree = "<group>"; };
 		BDB65B8F28D0B5BC00679C02 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 		BD70EB1128D985050063DE18 /* TodoBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				BDB2016728D9CB12003FF3A3 /* Helper */,
+				BDB2016428D9C935003FF3A3 /* ViewModel */,
 				BD70EB1228D9851E0063DE18 /* View */,
 			);
 			path = TodoBottomSheet;
@@ -330,7 +336,6 @@
 				BD8B408728D4558E00A4E810 /* PriorityCell.swift */,
 				BD8B408E28D472A300A4E810 /* ProjectCategoryCell.swift */,
 				BD92EFA828D3777C000C4A4F /* TodoBottomSheetViewController.swift */,
-				BD8B408A28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -568,6 +573,23 @@
 			isa = PBXGroup;
 			children = (
 				BD70EB1628D9890C0063DE18 /* TodoListCollectionViewAdapter.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BDB2016428D9C935003FF3A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BDB2016728D9CB12003FF3A3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */,
+				BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -987,14 +1009,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8B408B28D458F900A4E810 /* TodoBottomSheetViewController+Layout.swift in Sources */,
+				BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */,
 				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
 				BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
+				BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */,
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
 				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
 				BD70EB0E28D8B2800063DE18 /* StorageRepository.swift in Sources */,
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
+				BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */,
