@@ -12,10 +12,21 @@ import Then
 import OOTD_Core
 import OOTD_UIKit
 
+protocol ProjectCategoryCellDelegate: AnyObject {
+    func projectCategoryCell(_ cell: ProjectCategoryCell, index: Int)
+}
+
 final class ProjectCategoryCell: BaseCollectionViewCell {
     
     let imageView = UIImageView()
     let titleLabel = UILabel()
+    
+    var index: Int?
+    var isChoosen: Bool = false {
+        didSet {
+            layer.borderColor = isChoosen ? UIColor.yellow800.cgColor : UIColor.grey200.cgColor
+        }
+    }
     
     override func configureAttributes() {
         backgroundColor = .clear
@@ -40,5 +51,13 @@ final class ProjectCategoryCell: BaseCollectionViewCell {
         titleLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Spacing.s4)
         }
+    }
+}
+
+extension ProjectCategoryCell {
+    
+    func configure(at indexPath: IndexPath, with todo: Todo?) {
+        self.index = indexPath.row
+        isChoosen = indexPath.row == todo?.projectID
     }
 }

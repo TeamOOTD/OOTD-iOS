@@ -124,10 +124,10 @@ extension ODSTextField: UITextFieldDelegate {
         updateBorder()
         updatePlaceholder()
     }
-    
-    public func textFieldDidChangeSelection(_ textField: UITextField) {
-        odsDelegate?.odsTextFieldDidChange(self)
-    }
+//
+//    public func textFieldDidChangeSelection(_ textField: UITextField) {
+//        odsDelegate?.odsTextFieldDidChange(self)
+//    }
 }
 
 extension ODSTextField {
