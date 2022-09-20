@@ -1,5 +1,5 @@
 //
-//  TodoViewController.swift
+//  TodoListViewController.swift
 //  OOTD
 //
 //  Created by taekki on 2022/09/12.
@@ -11,7 +11,7 @@ import FSCalendar
 import OOTD_Core
 import OOTD_UIKit
 
-final class TodoViewController: BaseViewController {
+final class TodoListViewController: BaseViewController {
     
     private let navigationBar = ODSNavigationBar()
     private lazy var headerView = TodoCalendarHeaderView()
@@ -124,7 +124,7 @@ final class TodoViewController: BaseViewController {
     }
 }
 
-extension TodoViewController {
+extension TodoListViewController {
     
     private func configureCalendarView() {
         calendarView.delegate = self
@@ -168,13 +168,13 @@ extension TodoViewController {
     }
 }
 
-extension TodoViewController: TodoHeaderViewDelegate {
+extension TodoListViewController: TodoHeaderViewDelegate {
     func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView) {
         presentBottomSheetViewController()
     }
 }
 
-extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+extension TodoListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.date = date
@@ -201,7 +201,7 @@ extension TodoViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     }
 }
 
-extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TodoListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
@@ -230,7 +230,7 @@ extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension TodoViewController {
+extension TodoListViewController {
     private func generateLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
