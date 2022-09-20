@@ -43,6 +43,7 @@
 		BD9FA53128CF180C00E8D68B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53028CF180C00E8D68B /* Realm */; };
 		BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53228CF180C00E8D68B /* RealmSwift */; };
 		BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */; };
+		BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016128D99F16003FF3A3 /* Observable.swift */; };
 		BDB65B8628D0713E00679C02 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDB65B8728D0713E00679C02 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8C28D079A100679C02 /* ODSTextField.swift */; };
@@ -187,6 +188,7 @@
 		BD9FA52128CF166300E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA52428CF16E600E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		BDB2016128D99F16003FF3A3 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BDB65B8C28D079A100679C02 /* ODSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTextField.swift; sourceTree = "<group>"; };
 		BDB65B8F28D0B5BC00679C02 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9FA52428CF16E600E8D68B /* .gitkeep */,
+				BDB2016128D99F16003FF3A3 /* Observable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
+				BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
