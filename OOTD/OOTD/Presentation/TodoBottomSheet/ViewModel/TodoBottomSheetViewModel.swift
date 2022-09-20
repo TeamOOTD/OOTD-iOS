@@ -10,7 +10,11 @@ import Foundation
 import OOTD_UIKit
 
 protocol TodoBottomSheetViewModelProtocol {
+    var state: Observable<TodoBottomSheetState> { get set }
     var section: Observable<[TodoBottomSheetSection]> { get set }
+    var priority: Observable<Int> { get set }
+    var todoType: Observable<Int> { get set }
+    var contents: Observable<String> { get set }
     
     func inputSection(isHidden: Bool)
     func createTodo(completion: (() -> Void)?)
@@ -20,14 +24,27 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     
     private let repository: StorageRepository<Todo>?
     
+    var state: Observable<TodoBottomSheetState> = Observable(.create)
     var section: Observable<[TodoBottomSheetSection]> = Observable([.priority, .todo, .project])
-
-    var priority = Observable(0)
-    var todoType = Observable(0)
-    var contents = Observable("")
+    var priority: Observable<Int> = Observable(0)
+    var todoType: Observable<Int> = Observable(0)
+    var contents: Observable<String> = Observable("")
     
-    init(repository: StorageRepository<Todo>? = StorageRepository<Todo>()) {
+    init(
+        repository: StorageRepository<Todo>? = StorageRepository<Todo>(),
+        state: TodoBottomSheetState = .create,
+        priority: Int = 0,
+        todoType: Int = 0,
+        contents: String = ""
+    ) {
+        let isHidden = todoType == 0 || todoType == 1 || todoType == 2
+        
         self.repository = repository
+        self.section.value = isHidden ? [.priority, .todo, .project] : [.priority, .todo, .input, .project]
+        self.state.value = state
+        self.priority.value = priority
+        self.todoType.value = todoType
+        self.contents.value = contents
     }
     
     func inputSection(isHidden: Bool) {

@@ -167,10 +167,22 @@ extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
     }
     
     private func presentBottomSheetViewController() {
-        let todoBottomSheetViewController = TodoBottomSheetViewController()
+        let viewModel = TodoBottomSheetViewModel()
+        let todoBottomSheetViewController = TodoBottomSheetViewController(viewModel: viewModel)
         todoBottomSheetViewController.completionHandler = { [weak self] in
             self?.viewModel.fetchTodos()
         }
+        present(todoBottomSheetViewController, animated: true)
+    }
+    
+    func todoTapped(_ todo: Todo, at index: Int) {
+        let viewModel = TodoBottomSheetViewModel(
+            state: .edit,
+            priority: todo.priority,
+            todoType: todo.todoType,
+            contents: todo.contents
+        )
+        let todoBottomSheetViewController = TodoBottomSheetViewController(viewModel: viewModel)
         present(todoBottomSheetViewController, animated: true)
     }
 }
