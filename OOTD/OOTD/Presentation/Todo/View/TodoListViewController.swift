@@ -13,52 +13,46 @@ import OOTD_UIKit
 
 final class TodoListViewController: BaseViewController {
     
+    // MARK: - Properties
+    
+    private let viewModel = TodoListViewModel()
+    private lazy var adapter: TodoListCollectionViewAdapter = {
+        let adapter = TodoListCollectionViewAdapter(collectionView: collectionView, adapterDataSource: viewModel, delegate: self)
+        return adapter
+    }()
+    
+    // MARK: - UI Properties
+    
     private let navigationBar = ODSNavigationBar()
-    private lazy var headerView = TodoCalendarHeaderView()
-    private lazy var scrollView = UIScrollView()
-    private lazy var containerStackView = UIStackView()
+    private let headerView = TodoCalendarHeaderView()
+    private let scrollView = UIScrollView()
+    private let containerStackView = UIStackView()
     private let calendarView = FSCalendar()
-    private let collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    
-    private let repository = StorageRepository<Todo>()
-    private var dataSource: [Todo] = [] { didSet { collectionView.reloadData() } }
-    
+    private let collectionView = BaseCollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    )
+
     private let dateFormatter = DateFormatter()
     
-    private var date = Date() {
-        didSet { headerView.date = dateFormatter.string(from: date) }
-    }
-    
-    private var commitCount = 0 {
-        didSet { headerView.commitCount = commitCount }
-    }
-    
-    private var todoPercent = 0 {
-        didSet { headerView.todoPercent = todoPercent }
-    }
-    
+    // MARK: - Life Cycles
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
-        
-        print(#function)
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.dataSource = repository.fetchAll()
-        
-        print(#function)
+        viewModel.fetchTodos()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print(#function)
-    }
-    
+    // MARK: - Override Functions
+
     override func configureAttributes() {
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .systemBackground
         configureCalendarView()
         
@@ -73,9 +67,9 @@ final class TodoListViewController: BaseViewController {
         }
         
         headerView.do {
-            $0.date = dateFormatter.string(from: date)
-            $0.commitCount = commitCount
-            $0.todoPercent = todoPercent
+            $0.date = dateFormatter.string(from: viewModel.currentDate.value)
+            $0.commitCount = viewModel.commitCount.value
+            $0.todoPercent = viewModel.todoPercent.value
         }
         
         containerStackView.do {
@@ -84,8 +78,6 @@ final class TodoListViewController: BaseViewController {
             $0.alignment = .center
             $0.spacing = Spacing.s16
         }
-        
-        configureCollectionView()
     }
     
     override func configureLayout() {
@@ -100,7 +92,7 @@ final class TodoListViewController: BaseViewController {
         headerView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom).offset(Spacing.s8)
             $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(70)
+            $0.height.equalTo(70.adjustedHeight)
         }
         
         scrollView.snp.makeConstraints {
@@ -120,11 +112,35 @@ final class TodoListViewController: BaseViewController {
         
         collectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(Spacing.s24)
+            $0.height.equalTo(400.adjustedHeight)
         }
     }
 }
 
 extension TodoListViewController {
+    
+    private func bind() {
+        adapter.adapterDataSource = viewModel
+        viewModel.fetchTodos()
+        
+        viewModel.todos.bind { [weak self] todos in
+            // reload를 그냥 여기서 해주면 되는 문제였음.
+            self?.collectionView.reloadData()
+            self?.headerView.todoPercent = todos.count
+        }
+        
+        viewModel.currentDate.bind { [weak self] date in
+            self?.headerView.date = self?.dateFormatter.string(from: date)
+        }
+        
+        viewModel.commitCount.bind { [weak self] count in
+            self?.headerView.commitCount = count
+        }
+        
+        viewModel.todoPercent.bind { [weak self] percent in
+            self?.headerView.todoPercent = percent
+        }
+    }
     
     private func configureCalendarView() {
         calendarView.delegate = self
@@ -144,22 +160,11 @@ extension TodoListViewController {
         calendarView.appearance.titleFont = .ootdFont(.medium, size: 14)
         calendarView.appearance.selectionColor = .clear
     }
-    
-    private func configureCollectionView() {
-        collectionView.register(
-            TodoHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TodoHeaderView.reuseIdentifier
-        )
-        
-        collectionView.register(
-            TodoCell.self,
-            forCellWithReuseIdentifier: TodoCell.reuseIdentifier
-        )
-        
-        collectionView.collectionViewLayout = generateLayout()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+}
+
+extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
+    func todoHeaderViewCreateButtonDidTap() {
+        presentBottomSheetViewController()
     }
     
     private func presentBottomSheetViewController() {
@@ -168,21 +173,15 @@ extension TodoListViewController {
     }
 }
 
-extension TodoListViewController: TodoHeaderViewDelegate {
-    func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView) {
-        presentBottomSheetViewController()
-    }
-}
-
 extension TodoListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.date = date
+        viewModel.currentDate.value = date
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        date = calendar.currentPage
-        calendar.select(date)
+        viewModel.currentDate.value = calendar.currentPage
+        calendar.select(viewModel.currentDate.value)
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
@@ -198,73 +197,5 @@ extension TodoListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         let yellowColor: UIColor = [UIColor.yellow800, UIColor.yellow600].randomElement()!.withAlphaComponent(0.5 * CGFloat.random(in: 1...2))
         
         return [commitColor, yellowColor]
-    }
-}
-
-extension TodoListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCell.reuseIdentifier, for: indexPath) as? TodoCell else {
-            return UICollectionViewCell()
-        }
-        cell.configure(with: dataSource[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: TodoHeaderView.reuseIdentifier,
-            for: indexPath
-        ) as? TodoHeaderView else {
-            return UICollectionReusableView()
-        }
-        headerView.title = "🌱 오늘의 할 일"
-        headerView.rightIcon = .icnPlusCircle
-        headerView.delegate = self
-        return headerView
-    }
-}
-
-extension TodoListViewController {
-    private func generateLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(44)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(44)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitem: item,
-            count: 1
-        )
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.boundarySupplementaryItems = [generateHeader()]
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
-    }
-    
-    private func generateHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(40)
-        )
-        let headerElement = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        return headerElement
     }
 }
