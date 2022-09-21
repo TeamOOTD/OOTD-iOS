@@ -10,6 +10,7 @@
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */; };
+		BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */; };
 		BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABD28D81C8A0063DE18 /* ProjectView.swift */; };
 		BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */; };
 		BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0428D8AAC80063DE18 /* Entity.swift */; };
@@ -156,6 +157,7 @@
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetState.swift; sourceTree = "<group>"; };
+		BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BD70EABD28D81C8A0063DE18 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCell.swift; sourceTree = "<group>"; };
 		BD70EB0428D8AAC80063DE18 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -629,9 +631,10 @@
 		BDD8CA3428CF202200668B70 /* UIKit+ */ = {
 			isa = PBXGroup;
 			children = (
-				BDD8CA3F28CF219F00668B70 /* UIView+.swift */,
-				BDD8CA4128CF21B800668B70 /* UIStackView+.swift */,
 				BDD8CA4528CF291900668B70 /* Adjusted+.swift */,
+				BDD8CA4128CF21B800668B70 /* UIStackView+.swift */,
+				BDD8CA3F28CF219F00668B70 /* UIView+.swift */,
+				BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -1068,6 +1071,7 @@
 			files = (
 				BDD8CA4628CF291900668B70 /* Adjusted+.swift in Sources */,
 				BDD8CA3E28CF20E700668B70 /* Reusable.swift in Sources */,
+				BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */,
 				BDD8CA4228CF21B800668B70 /* UIStackView+.swift in Sources */,
 				BDD8CA4928CF29FE00668B70 /* Collection+.swift in Sources */,
 				BDD8CA3828CF207000668B70 /* BaseView.swift in Sources */,
