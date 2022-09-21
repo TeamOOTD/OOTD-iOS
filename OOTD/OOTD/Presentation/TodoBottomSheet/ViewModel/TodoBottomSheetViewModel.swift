@@ -20,6 +20,7 @@ protocol TodoBottomSheetViewModelProtocol {
     func inputSection(isHidden: Bool)
     func createTodo(completion: (() -> Void)?)
     func deleteTodo(completion: (() -> Void)?)
+    func updateTodo(completion: (() -> Void)?)
 }
 
 final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
@@ -72,6 +73,21 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     func deleteTodo(completion: (() -> Void)? = nil) {
         do {
             try repository?.delete(item: item.value)
+            completion?()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func updateTodo(completion: (() -> Void)? = nil) {
+        do {
+            if todoType.value == 0 || todoType.value == 1 || todoType.value == 2 {
+                contents.value = block[todoType.value].rawValue
+            }
+            item.value.priority = priority.value
+            item.value.todoType = todoType.value
+            item.value.contents = contents.value
+            try repository?.update(item: item.value)
             completion?()
         } catch {
             print(error)

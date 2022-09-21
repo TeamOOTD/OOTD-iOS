@@ -55,12 +55,6 @@ final class TodoBottomSheetViewController: BaseViewController {
 
         doneButton.do {
             $0.title = "확인"
-            $0.actionHandler = { [weak self] in
-                self?.viewModel.createTodo {
-                    self?.dismiss(animated: true)
-                    self?.completionHandler?()
-                }
-            }
         }
         
         deleteButton.do {
@@ -93,6 +87,10 @@ final class TodoBottomSheetViewController: BaseViewController {
         
         viewModel.state.bind { [weak self] state in
             self?.deleteButton.isHidden = state == .create
+            self?.doneButton.title = state == .create ? "확인" : "수정"
+            self?.doneButton.actionHandler = {
+                state == .create ? self?.createTodo() : self?.updateTodo()
+            }
         }
         
         viewModel.section.bind { [weak self] _ in
@@ -124,6 +122,20 @@ extension TodoBottomSheetViewController {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = Radii.r20
+        }
+    }
+    
+    private func createTodo() {
+        viewModel.createTodo { [weak self] in
+            self?.dismiss(animated: true)
+            self?.completionHandler?()
+        }
+    }
+    
+    private func updateTodo() {
+        viewModel.updateTodo { [weak self] in
+            self?.dismiss(animated: true)
+            self?.completionHandler?()
         }
     }
     
