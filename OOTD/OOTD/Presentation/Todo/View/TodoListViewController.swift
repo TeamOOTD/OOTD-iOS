@@ -13,55 +13,46 @@ import OOTD_UIKit
 
 final class TodoListViewController: BaseViewController {
     
-    // MARK: - Properties
-    
-    private let viewModel = TodoListViewModel()
-    private lazy var adapter: TodoListCollectionViewAdapter = {
-        let adapter = TodoListCollectionViewAdapter(collectionView: collectionView, adapterDataSource: viewModel, delegate: self)
-        return adapter
-    }()
-    
     // MARK: - UI Properties
     
     private let navigationBar = ODSNavigationBar()
-    private let headerView = TodoCalendarHeaderView()
-    private lazy var calendarToggleControl = ODSSegmentedControl(buttonTitles: ["주간", "월간"])
+    private let headerView = TodoListHeaderView()
+    private let scopeSegmentedControl = ODSSegmentedControl(buttonTitles: ["주간", "월간"])
     private let scrollView = UIScrollView()
-    private let containerStackView = UIStackView()
+    private lazy var containerVStackView = UIStackView(arrangedSubviews: [calendarView, collectionView])
     private let calendarView = FSCalendar()
     private let collectionView = BaseCollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
-
+    
+    // MARK: - Properties
+    
+    private let viewModel = TodoListViewModel()
+    private lazy var adapter = TodoListCollectionViewAdapter(
+        collectionView: collectionView,
+        adapterDataSource: viewModel,
+        delegate: self
+    )
     private let dateFormatter = DateFormatter()
     private var calendarHeight: CGFloat = 280.0.adjustedHeight
-    
-    // MARK: - Life Cycles
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        bind()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.fetchTodos()
-    }
-    
     // MARK: - Override Functions
 
     override func configureAttributes() {
+        view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = .systemBackground
-        configureCalendarView()
         
         dateFormatter.do {
             $0.dateFormat = "YYYY년 M월 d일"
             $0.locale = Locale(identifier: "ko_KR")
             $0.timeZone = TimeZone(identifier: "ko_KR")
+        }
+        
+        scopeSegmentedControl.do {
+            $0.delegate = self
+            $0.selectorViewColor = .yellow600
+            $0.backgroundColor = .green600
         }
         
         navigationBar.do {
@@ -73,48 +64,64 @@ final class TodoListViewController: BaseViewController {
             $0.commitCount = viewModel.commitCount.value
             $0.todoPercent = viewModel.todoPercent.value
         }
-        
-        calendarToggleControl.do {
-            $0.delegate = self
-            $0.selectorViewColor = .yellow600
-            $0.backgroundColor = .green600
-        }
-        
-        containerStackView.do {
+
+        containerVStackView.do {
             $0.axis = .vertical
             $0.distribution = .fill
             $0.alignment = .center
             $0.spacing = Spacing.s16
         }
+        
+        calendarView.do {
+            $0.delegate = self
+            $0.dataSource = self
+            $0.select(Date())
+            $0.setScope(.week, animated: false)
+            $0.headerHeight = 0
+            $0.firstWeekday = 2
+            $0.placeholderType = .fillHeadTail
+            $0.locale = Locale(identifier: "ko_KR")
+            $0.appearance.weekdayTextColor = .grey700
+            $0.appearance.titleDefaultColor = .grey700
+            $0.appearance.titleTodayColor = .grey700
+            $0.appearance.titleSelectionColor = .yellow800
+            $0.appearance.todayColor = .clear
+            $0.appearance.weekdayFont = .ootdFont(.regular, size: 10)
+            $0.appearance.titleFont = .ootdFont(.medium, size: 14)
+            $0.appearance.selectionColor = .clear
+        }
+        
+        collectionView.do {
+            $0.backgroundColor = .clear
+        }
     }
     
     override func configureLayout() {
-        view.addSubviews(navigationBar, headerView, calendarToggleControl, scrollView)
-        scrollView.addSubview(containerStackView)
-        containerStackView.addArrangedSubviews(calendarView, collectionView)
+        view.addSubviews(navigationBar, headerView, scopeSegmentedControl, scrollView)
+        scrollView.addSubview(containerVStackView)
         
         navigationBar.snp.makeConstraints {
             $0.top.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        calendarToggleControl.snp.makeConstraints {
+        scopeSegmentedControl.snp.makeConstraints {
             $0.center.equalTo(navigationBar)
             $0.width.equalToSuperview().multipliedBy(0.3)
-            $0.height.equalTo(24)
+            $0.height.equalTo(24.adjustedHeight)
         }
         
         headerView.snp.makeConstraints {
-            $0.top.equalTo(calendarToggleControl.snp.bottom).offset(Spacing.s16)
+            $0.top.equalTo(scopeSegmentedControl.snp.bottom).offset(Spacing.s16)
             $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(70.adjustedHeight)
         }
 
         scrollView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
-            $0.trailing.bottom.leading.equalToSuperview()
+            $0.directionalHorizontalEdges.bottom.equalToSuperview()
         }
         
-        containerStackView.snp.makeConstraints {
+        containerVStackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
         }
@@ -125,19 +132,15 @@ final class TodoListViewController: BaseViewController {
         }
         
         collectionView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(Spacing.s24)
+            $0.directionalHorizontalEdges.equalToSuperview().inset(Spacing.s24)
         }
     }
-}
-
-extension TodoListViewController {
     
-    private func bind() {
+    override func bind() {
         adapter.adapterDataSource = viewModel
         viewModel.fetchTodos()
         
         viewModel.todos.bind { [weak self] todos in
-            // reload를 그냥 여기서 해주면 되는 문제였음.
             self?.collectionView.reloadData()
             self?.headerView.todoPercent = todos.count
         }
@@ -153,26 +156,6 @@ extension TodoListViewController {
         viewModel.todoPercent.bind { [weak self] percent in
             self?.headerView.todoPercent = percent
         }
-    }
-    
-    private func configureCalendarView() {
-        calendarView.delegate = self
-        calendarView.dataSource = self
-        
-        calendarView.select(Date())
-        calendarView.setScope(.week, animated: false)
-        calendarView.headerHeight = 0
-        calendarView.firstWeekday = 2
-        calendarView.placeholderType = .fillHeadTail
-        calendarView.locale = Locale(identifier: "ko_KR")
-        calendarView.appearance.weekdayTextColor = .grey700
-        calendarView.appearance.titleDefaultColor = .grey700
-        calendarView.appearance.titleTodayColor = .grey700
-        calendarView.appearance.titleSelectionColor = .yellow800
-        calendarView.appearance.todayColor = .clear
-        calendarView.appearance.weekdayFont = .ootdFont(.regular, size: 10)
-        calendarView.appearance.titleFont = .ootdFont(.medium, size: 14)
-        calendarView.appearance.selectionColor = .clear
     }
 }
 

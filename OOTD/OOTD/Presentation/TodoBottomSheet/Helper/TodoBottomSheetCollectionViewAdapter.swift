@@ -45,9 +45,9 @@ final class TodoBottomSheetCollectionViewAdapter: NSObject {
         collectionView.dataSource = self
         
         collectionView.register(
-            TodoHeaderView.self,
+            TodoSectionHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TodoHeaderView.reuseIdentifier
+            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier
         )
         
         collectionView.register(
@@ -127,9 +127,9 @@ extension TodoBottomSheetCollectionViewAdapter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
-            withReuseIdentifier: TodoHeaderView.reuseIdentifier,
+            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier,
             for: indexPath
-        ) as? TodoHeaderView else { return UICollectionReusableView() }
+        ) as? TodoSectionHeaderView else { return UICollectionReusableView() }
         
         let section = adapterDataSource?.fetchSection(section: indexPath.section)
         

@@ -14,10 +14,14 @@ import OOTD_UIKit
 
 final class TodoCell: BaseCollectionViewCell {
     
+    // MARK: - UI Properties
+    
     private lazy var checkBoxButton = UIButton()
     private let contentLabel = UILabel()
     private lazy var tagHStackView = UIStackView()
     private let optionButton = UIImageView()
+    
+    // MARK: - Properties
     
     var tags: [(String, UIColor)] = [] {
         didSet { createTagView(with: tags) }
@@ -26,6 +30,8 @@ final class TodoCell: BaseCollectionViewCell {
     var isChecked: Bool = false {
         didSet { checkBoxButton.setImage(isChecked ? .icnCheckBoxFill :  .icnCheckBox, for: .normal) }
     }
+    
+    // MARK: - Override Functions
     
     override func configureAttributes() {
         checkBoxButton.do {
@@ -53,7 +59,7 @@ final class TodoCell: BaseCollectionViewCell {
         
         checkBoxButton.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.size.equalTo(24)
+            $0.size.equalTo(24.adjustedWidth)
             $0.centerY.equalToSuperview()
         }
         
@@ -68,12 +74,23 @@ final class TodoCell: BaseCollectionViewCell {
         }
         
         optionButton.snp.makeConstraints {
-            $0.size.equalTo(24)
+            $0.size.equalTo(24.adjustedWidth)
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
     }
 }
+
+// MARK: - Private Functions
+
+extension TodoCell {
+    
+    @objc private func checkBoxButtonTapped(_ sender: UIButton) {
+        isChecked.toggle()
+    }
+}
+
+// MARK: - Public Functions
 
 extension TodoCell {
     
@@ -88,9 +105,5 @@ extension TodoCell {
             tagView.backgroundColor = tag.1
             tagHStackView.addArrangedSubview(tagView)
         }
-    }
-    
-    @objc private func checkBoxButtonTapped(_ sender: UIButton) {
-        isChecked.toggle()
     }
 }
