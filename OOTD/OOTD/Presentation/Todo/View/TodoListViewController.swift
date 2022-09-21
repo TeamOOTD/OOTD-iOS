@@ -25,6 +25,7 @@ final class TodoListViewController: BaseViewController {
     
     private let navigationBar = ODSNavigationBar()
     private let headerView = TodoCalendarHeaderView()
+    private lazy var calendarToggleControl = ODSSegmentedControl(buttonTitles: ["주간", "월간"])
     private let scrollView = UIScrollView()
     private let containerStackView = UIStackView()
     private let calendarView = FSCalendar()
@@ -34,6 +35,7 @@ final class TodoListViewController: BaseViewController {
     )
 
     private let dateFormatter = DateFormatter()
+    private var calendarHeight: CGFloat = 280.0.adjustedHeight
     
     // MARK: - Life Cycles
 
@@ -72,6 +74,12 @@ final class TodoListViewController: BaseViewController {
             $0.todoPercent = viewModel.todoPercent.value
         }
         
+        calendarToggleControl.do {
+            $0.delegate = self
+            $0.selectorViewColor = .yellow600
+            $0.backgroundColor = .green600
+        }
+        
         containerStackView.do {
             $0.axis = .vertical
             $0.distribution = .fill
@@ -81,7 +89,7 @@ final class TodoListViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        view.addSubviews(navigationBar, headerView, scrollView)
+        view.addSubviews(navigationBar, headerView, calendarToggleControl, scrollView)
         scrollView.addSubview(containerStackView)
         containerStackView.addArrangedSubviews(calendarView, collectionView)
         
@@ -89,12 +97,18 @@ final class TodoListViewController: BaseViewController {
             $0.top.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
         
+        calendarToggleControl.snp.makeConstraints {
+            $0.center.equalTo(navigationBar)
+            $0.width.equalToSuperview().multipliedBy(0.3)
+            $0.height.equalTo(24)
+        }
+        
         headerView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom).offset(Spacing.s8)
+            $0.top.equalTo(calendarToggleControl.snp.bottom).offset(Spacing.s16)
             $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(70.adjustedHeight)
         }
-        
+
         scrollView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.trailing.bottom.leading.equalToSuperview()
@@ -107,7 +121,7 @@ final class TodoListViewController: BaseViewController {
         
         calendarView.snp.makeConstraints {
             $0.directionalHorizontalEdges.equalToSuperview().inset(Spacing.s16)
-            $0.height.equalTo(280.adjustedHeight)
+            $0.height.equalTo(calendarHeight)
         }
         
         collectionView.snp.makeConstraints {
@@ -146,6 +160,7 @@ extension TodoListViewController {
         calendarView.dataSource = self
         
         calendarView.select(Date())
+        calendarView.setScope(.week, animated: false)
         calendarView.headerHeight = 0
         calendarView.firstWeekday = 2
         calendarView.placeholderType = .fillHeadTail
@@ -191,7 +206,22 @@ extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
     }
 }
 
+extension TodoListViewController: ODSSegmentedControlDelegate {
+    
+    func segmentedControl(_ segmentedControl: ODSSegmentedControl, to index: Int) {
+        calendarView.setScope(index == 0 ? .week : .month, animated: true)
+    }
+}
+
 extension TodoListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        calendarHeight = bounds.height
+        calendarView.snp.updateConstraints {
+            $0.height.equalTo(calendarHeight)
+        }
+        self.scrollView.layoutIfNeeded()
+    }
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         viewModel.currentDate.value = date
