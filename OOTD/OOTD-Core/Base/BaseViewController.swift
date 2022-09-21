@@ -23,10 +23,12 @@ open class BaseViewController: UIViewController {
         
         configureAttributes()
         configureLayout()
+        bind()
     }
 
     open func configureAttributes() {
         navigationController?.navigationBar.isHidden = true
     }
     open func configureLayout() {}
+    open func bind() {}
 }
