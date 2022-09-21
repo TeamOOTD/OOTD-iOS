@@ -51,4 +51,10 @@ extension UIColor {
     public static let grey300 = makeColor(from: "#CCCCCC")
     public static let grey200 = makeColor(from: "#E6E6E6")
     public static let grey100 = makeColor(from: "#FAFAFA")
+    
+    // MARK: - Priority Colors
+    
+    public static let high = makeColor(from: "#850E35")
+    public static let middle = makeColor(from: "#EE6983")
+    public static let row = makeColor(from: "#FFC4C4")
 }

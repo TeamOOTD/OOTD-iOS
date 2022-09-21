@@ -20,7 +20,7 @@ final class PriorityCell: BaseCollectionViewCell {
     
     lazy var priorityButton = UIButton()
     
-    private var priorities = ["p0", "p1", "p2", "p3", "p4", "없음"]
+    private var priorities = Priority.allCases
     var index: Int?
     var isChoosen: Bool = false {
         didSet { contentView.backgroundColor = isChoosen ? .yellow800 : .grey200 }
@@ -50,7 +50,7 @@ final class PriorityCell: BaseCollectionViewCell {
 extension PriorityCell {
     
     func configure(_ indexPath: IndexPath) {
-        priorityButton.setTitle(priorities[indexPath.row], for: .normal)
+        priorityButton.setTitle(priorities[indexPath.row].rawValue, for: .normal)
     }
     
     @objc func buttonTapped(_ sender: UIButton) {

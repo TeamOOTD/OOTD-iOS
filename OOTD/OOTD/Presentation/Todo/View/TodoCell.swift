@@ -48,7 +48,6 @@ final class TodoCell: BaseCollectionViewCell {
         }
         
         contentLabel.do {
-            $0.text = "알고리즘 문제 풀이"
             $0.textColor = .grey900
             $0.font = .ootdFont(.regular, size: 14)
         }
@@ -108,9 +107,21 @@ extension TodoCell {
         
         isChecked = data.isDone
         contentLabel.text = data.contents
+
+        let priority = Priority.allCases[data.priority]
+        tags.removeAll()
+        if data.priority != 3 {
+            tags.append(("중요도 " + priority.rawValue, priority.color))
+        } else {
+            tags.append(("중요도 없음", priority.color))
+        }
     }
     
     private func createTagView(with tags: [(String, UIColor)]) {
+        tagHStackView.arrangedSubviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
         tags.forEach { tag in
             let tagView = ODSTagView()
             tagView.content = tag.0

@@ -25,7 +25,7 @@ public final class ODSTagView: BaseView {
         
         contentLabel.do {
             $0.textColor = .white
-            $0.font = .ootdFont(.bold, size: 8)
+            $0.font = .ootdFont(.bold, size: 10)
         }
     }
     
@@ -35,7 +35,7 @@ public final class ODSTagView: BaseView {
         contentLabel.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(Spacing.s4)
-            $0.height.equalTo(12)
+            $0.height.equalTo(14)
         }
     }
 }
