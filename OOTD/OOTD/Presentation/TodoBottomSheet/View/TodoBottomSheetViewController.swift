@@ -82,7 +82,7 @@ final class TodoBottomSheetViewController: BaseViewController {
         }
     }
     
-    private func bind() {
+    override func bind() {
         adapter.adapterDataSource = viewModel
         
         viewModel.state.bind { [weak self] state in

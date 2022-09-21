@@ -1,5 +1,5 @@
 //
-//  TodoCalendarHeaderView.swift
+//  TodoListHeaderView.swift
 //  OOTD
 //
 //  Created by taekki on 2022/09/14.
@@ -10,13 +10,17 @@ import UIKit
 import OOTD_Core
 import OOTD_UIKit
 
-final class TodoCalendarHeaderView: BaseView {
+final class TodoListHeaderView: BaseView {
+    
+    // MARK: - UI Properties
     
     private let dateLabel = UILabel()
     private let commitDotView = UIView()
     private let commitLabel = UILabel()
     private let todoRateView = UIView()
     private let todoRateLabel = UILabel()
+    
+    // MARK: - Properties
     
     var date: String? {
         didSet { dateTitle = date }
@@ -45,10 +49,12 @@ final class TodoCalendarHeaderView: BaseView {
         set { todoRateLabel.text = newValue }
     }
     
+    // MARK: - Override Functions
+    
     override func configureAttributes() {
         dateLabel.do {
-            $0.font = .ootdFont(.bold, size: 24)
             $0.textColor = .grey900
+            $0.font = .ootdFont(.bold, size: 24)
         }
         
         commitDotView.do {
@@ -56,8 +62,8 @@ final class TodoCalendarHeaderView: BaseView {
         }
         
         commitLabel.do {
-            $0.font = .ootdFont(.medium, size: 10)
             $0.textColor = .grey700
+            $0.font = .ootdFont(.medium, size: 10)
         }
         
         todoRateView.do {
@@ -65,8 +71,8 @@ final class TodoCalendarHeaderView: BaseView {
         }
         
         todoRateLabel.do {
-            $0.font = .ootdFont(.medium, size: 10)
             $0.textColor = .grey700
+            $0.font = .ootdFont(.medium, size: 10)
         }
     }
     
@@ -81,7 +87,7 @@ final class TodoCalendarHeaderView: BaseView {
         commitDotView.snp.makeConstraints {
             $0.top.equalTo(dateLabel.snp.bottom).offset(Spacing.s8)
             $0.leading.equalToSuperview().inset(Spacing.s20)
-            $0.size.equalTo(8)
+            $0.size.equalTo(8.adjustedWidth)
         }
         
         commitLabel.snp.makeConstraints {
@@ -92,7 +98,7 @@ final class TodoCalendarHeaderView: BaseView {
         todoRateView.snp.makeConstraints {
             $0.centerY.equalTo(commitDotView.snp.centerY)
             $0.leading.equalTo(commitLabel.snp.trailing).offset(Spacing.s8)
-            $0.size.equalTo(8)
+            $0.size.equalTo(8.adjustedWidth)
         }
         
         todoRateLabel.snp.makeConstraints {

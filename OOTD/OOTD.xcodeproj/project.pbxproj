@@ -11,6 +11,7 @@
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */; };
 		BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */; };
+		BD621A2B28DB62C8008CFBB8 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */; };
 		BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABD28D81C8A0063DE18 /* ProjectView.swift */; };
 		BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */; };
 		BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0428D8AAC80063DE18 /* Entity.swift */; };
@@ -54,7 +55,7 @@
 		BDB65B9028D0B5BC00679C02 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8F28D0B5BC00679C02 /* Device.swift */; };
 		BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */; };
 		BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9328D0BE8100679C02 /* TabBarItem.swift */; };
-		BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */; };
+		BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -85,7 +86,7 @@
 		BDD8CAC228CF7DB900668B70 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDD8CAC128CF7DB900668B70 /* Then */; };
 		BDD8CAC528CF825800668B70 /* ODSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CAC428CF825800668B70 /* ODSTagView.swift */; };
 		BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */; };
-		BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */; };
+		BDDAB6DD28D20EB400C021BC /* TodoSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDAB6DC28D20EB400C021BC /* TodoSectionHeaderView.swift */; };
 		BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDAB6DE28D2142400C021BC /* TodoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +159,7 @@
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetState.swift; sourceTree = "<group>"; };
 		BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		BD70EABD28D81C8A0063DE18 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCell.swift; sourceTree = "<group>"; };
 		BD70EB0428D8AAC80063DE18 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		BDB65B8F28D0B5BC00679C02 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		BDB65B9328D0BE8100679C02 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
-		BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendarHeaderView.swift; sourceTree = "<group>"; };
+		BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -228,7 +230,7 @@
 		BDD8CABC28CF73E900668B70 /* ODSNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSNavigationBar.swift; sourceTree = "<group>"; };
 		BDD8CAC428CF825800668B70 /* ODSTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSTagView.swift; sourceTree = "<group>"; };
 		BDD8CACA28CF8BA300668B70 /* ODSBasicBlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSBasicBlockCell.swift; sourceTree = "<group>"; };
-		BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeaderView.swift; sourceTree = "<group>"; };
+		BDDAB6DC28D20EB400C021BC /* TodoSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoSectionHeaderView.swift; sourceTree = "<group>"; };
 		BDDAB6DE28D2142400C021BC /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -541,8 +543,8 @@
 			isa = PBXGroup;
 			children = (
 				BDDAB6DE28D2142400C021BC /* TodoCell.swift */,
-				BDB65B9528D1ADBE00679C02 /* TodoCalendarHeaderView.swift */,
-				BDDAB6DC28D20EB400C021BC /* TodoHeaderView.swift */,
+				BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */,
+				BDDAB6DC28D20EB400C021BC /* TodoSectionHeaderView.swift */,
 				BD9FA51128CF156800E8D68B /* TodoListViewController.swift */,
 			);
 			path = View;
@@ -642,6 +644,7 @@
 		BDD8CA3528CF202600668B70 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */,
 				BD92EF9928D2CBF0000C4A4F /* BaseCollectionView.swift */,
 				BDD8CA3B28CF20B700668B70 /* BaseCollectionViewCell.swift */,
 				BDD8CA3728CF207000668B70 /* BaseView.swift */,
@@ -1026,8 +1029,8 @@
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
 				BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
-				BDDAB6DD28D20EB400C021BC /* TodoHeaderView.swift in Sources */,
-				BDB65B9628D1ADBE00679C02 /* TodoCalendarHeaderView.swift in Sources */,
+				BDDAB6DD28D20EB400C021BC /* TodoSectionHeaderView.swift in Sources */,
+				BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
 				BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */,
@@ -1069,6 +1072,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD621A2B28DB62C8008CFBB8 /* BaseCollectionReusableView.swift in Sources */,
 				BDD8CA4628CF291900668B70 /* Adjusted+.swift in Sources */,
 				BDD8CA3E28CF20E700668B70 /* Reusable.swift in Sources */,
 				BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */,

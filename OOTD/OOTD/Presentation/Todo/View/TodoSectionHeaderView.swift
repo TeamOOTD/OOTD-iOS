@@ -1,5 +1,5 @@
 //
-//  TodoHeaderView.swift
+//  TodoSectionHeaderView.swift
 //  OOTD
 //
 //  Created by taekki on 2022/09/14.
@@ -12,52 +12,39 @@ import Then
 import OOTD_Core
 import OOTD_UIKit
 
-protocol TodoHeaderViewDelegate: AnyObject {
-    func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView)
+protocol TodoSectionHeaderViewDelegate: AnyObject {
+    func todoSectionHeaderViewCreateButtonTapped(_ todoHeaderView: TodoSectionHeaderView)
 }
 
-extension TodoHeaderViewDelegate {
-    func todoHeaderViewCreateButtonDidTap(_ todoHeaderView: TodoHeaderView) {}
+extension TodoSectionHeaderViewDelegate {
+    func todoSectionHeaderViewCreateButtonTapped(_ todoHeaderView: TodoSectionHeaderView) {}
 }
 
-final class TodoHeaderView: UICollectionReusableView, Reusable {
+final class TodoSectionHeaderView: BaseCollectionReusableView {
     
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
+    // MARK: - UI Properties
 
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private lazy var createButton = UIButton()
     
+    // MARK: - Properties
+    
     var title: String? {
         get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
-    
+
     var rightIcon: UIImage? {
         get { createButton.currentImage }
         set { createButton.setImage(newValue, for: .normal) }
     }
     
-    weak var delegate: TodoHeaderViewDelegate?
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        configureAttributes()
-        configureLayout()
-    }
+    weak var delegate: TodoSectionHeaderViewDelegate?
     
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-}
-
-extension TodoHeaderView {
+    // MARK: - Override Functions
     
-    private func configureAttributes() {
+    override func configureAttributes() {
         titleLabel.do {
             $0.textColor = .grey900
             $0.font = .ootdFont(.bold, size: 18)
@@ -68,13 +55,13 @@ extension TodoHeaderView {
         }
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         addSubviews(titleLabel, createButton)
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()
-            $0.height.equalTo(24)
+            $0.height.equalTo(24.adjustedHeight)
         }
         
         createButton.snp.makeConstraints {
@@ -82,8 +69,13 @@ extension TodoHeaderView {
             $0.trailing.equalToSuperview()
         }
     }
-    
-    @objc func createButtonDidTap(_ sender: UIButton) {
-        delegate?.todoHeaderViewCreateButtonDidTap(self)
+}
+
+// MARK: - Private Functions
+
+extension TodoSectionHeaderView {
+
+    @objc private func createButtonDidTap(_ sender: UIButton) {
+        delegate?.todoSectionHeaderViewCreateButtonTapped(self)
     }
 }
