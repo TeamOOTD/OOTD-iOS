@@ -13,7 +13,9 @@ protocol TodoListViewModelProtocol {
     var commitCount: Observable<Int> { get set }
     var todoPercent: Observable<Int> { get set }
     
+    func calculateTodoPercent()
     func fetchTodos()
+    func updateTodo(item: Todo, completion: (() -> Void)?)
 }
 
 final class TodoListViewModel: TodoListViewModelProtocol {
@@ -29,9 +31,23 @@ final class TodoListViewModel: TodoListViewModelProtocol {
         self.repository = repository
     }
     
+    func calculateTodoPercent() {
+        let todoPercent = todos.value.isEmpty ? 0 : Double(todos.value.filter { $0.isDone == true }.count) / Double(todos.value.count) * 100.0
+        self.todoPercent.value = Int(todoPercent)
+    }
+    
     func fetchTodos() {
         guard let todos = repository?.fetchAll() else { return }
         self.todos.value = todos
+    }
+    
+    func updateTodo(item: Todo, completion: (() -> Void)? = nil) {
+        do {
+            try repository?.update(item: item)
+            completion?()
+        } catch {
+            print(error)
+        }
     }
 }
 

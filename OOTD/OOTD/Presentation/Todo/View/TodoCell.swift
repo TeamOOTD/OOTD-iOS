@@ -12,6 +12,10 @@ import Then
 import OOTD_Core
 import OOTD_UIKit
 
+protocol TodoCellDelegate: AnyObject {
+    func checkBoxButtonTapped(_ cell: TodoCell, at indexPath: IndexPath)
+}
+
 final class TodoCell: BaseCollectionViewCell {
     
     // MARK: - UI Properties
@@ -23,6 +27,8 @@ final class TodoCell: BaseCollectionViewCell {
     
     // MARK: - Properties
     
+    var index: IndexPath!
+    
     var tags: [(String, UIColor)] = [] {
         didSet { createTagView(with: tags) }
     }
@@ -30,6 +36,8 @@ final class TodoCell: BaseCollectionViewCell {
     var isChecked: Bool = false {
         didSet { checkBoxButton.setImage(isChecked ? .icnCheckBoxFill :  .icnCheckBox, for: .normal) }
     }
+    
+    weak var delegate: TodoCellDelegate?
     
     // MARK: - Override Functions
     
@@ -87,6 +95,7 @@ extension TodoCell {
     
     @objc private func checkBoxButtonTapped(_ sender: UIButton) {
         isChecked.toggle()
+        delegate?.checkBoxButtonTapped(self, at: index)
     }
 }
 
@@ -94,7 +103,10 @@ extension TodoCell {
 
 extension TodoCell {
     
-    func configure(with data: Todo) {
+    func configure(with data: Todo, at index: IndexPath) {
+        self.index = index
+        
+        isChecked = data.isDone
         contentLabel.text = data.contents
     }
     

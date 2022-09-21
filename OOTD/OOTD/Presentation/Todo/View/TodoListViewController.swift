@@ -140,9 +140,9 @@ final class TodoListViewController: BaseViewController {
         adapter.adapterDataSource = viewModel
         viewModel.fetchTodos()
         
-        viewModel.todos.bind { [weak self] todos in
+        viewModel.todos.bind { [weak self] _ in
+            self?.viewModel.calculateTodoPercent()
             self?.collectionView.reloadData()
-            self?.headerView.todoPercent = todos.count
         }
         
         viewModel.currentDate.bind { [weak self] date in
@@ -162,6 +162,11 @@ final class TodoListViewController: BaseViewController {
 extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
     func todoHeaderViewCreateButtonDidTap() {
         presentBottomSheetViewController()
+    }
+    
+    func todoCheckBoxTapped(_ todo: Todo, at index: Int) {
+        viewModel.updateTodo(item: todo)
+        viewModel.fetchTodos()
     }
     
     private func presentBottomSheetViewController() {
