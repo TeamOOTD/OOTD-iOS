@@ -115,7 +115,7 @@ extension TodoBottomSheetViewModel: TodoBottomSheetCollectionViewAdapterDataSour
     
     func numberOfItems(section: Int) -> Int {
         switch self.section.value[section] {
-        case .priority:  return 6
+        case .priority:  return Priority.allCases.count
         case .todo:      return 5
         case .input:     return 1
         case .project:   return 1
