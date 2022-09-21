@@ -38,7 +38,6 @@ class StorageRepository<RepositoryObject>: Repository
     }
 
     func delete(item: RepositoryObject) throws {
-        print(item.toStorable().uuid)
         try realm.write {
             let predicate = NSPredicate(format: "uuid == %@", item.toStorable().uuid)
             if let item = realm.objects(RealmObject.self)

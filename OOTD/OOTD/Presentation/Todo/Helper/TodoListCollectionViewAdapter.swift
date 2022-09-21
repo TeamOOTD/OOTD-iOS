@@ -18,6 +18,7 @@ protocol TodoListCollectionViewAdapterDataSource: AnyObject {
 protocol TodoListCollectionViewAdapterDelegate: AnyObject {
     func todoHeaderViewCreateButtonDidTap()
     func todoTapped(_ todo: Todo, at index: Int)
+    func todoCheckBoxTapped(_ todo: Todo, at index: Int)
 }
 
 final class TodoListCollectionViewAdapter: NSObject {
@@ -65,7 +66,8 @@ extension TodoListCollectionViewAdapter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCell.reuseIdentifier, for: indexPath) as? TodoCell,
               let todo = adapterDataSource?.todo(at: indexPath.row) else { return UICollectionViewCell() }
-        cell.configure(with: todo)
+        cell.delegate = self
+        cell.configure(with: todo, at: indexPath)
         return cell
     }
     
@@ -84,6 +86,14 @@ extension TodoListCollectionViewAdapter: UICollectionViewDataSource {
     }
 }
 
+extension TodoListCollectionViewAdapter: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let todo = adapterDataSource?.todo(at: indexPath.row) else { return }
+        delegate?.todoTapped(todo, at: indexPath.row)
+    }
+}
+
 extension TodoListCollectionViewAdapter: TodoSectionHeaderViewDelegate {
     
     func todoSectionHeaderViewCreateButtonTapped(_ todoHeaderView: TodoSectionHeaderView) {
@@ -91,11 +101,11 @@ extension TodoListCollectionViewAdapter: TodoSectionHeaderViewDelegate {
     }
 }
 
-extension TodoListCollectionViewAdapter: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let todo = adapterDataSource?.todo(at: indexPath.row) else { return }
-        delegate?.todoTapped(todo, at: indexPath.row)
+extension TodoListCollectionViewAdapter: TodoCellDelegate {
+    func checkBoxButtonTapped(_ cell: TodoCell, at indexPath: IndexPath) {
+        guard var todo = adapterDataSource?.todo(at: indexPath.row) else { return }
+        todo.isDone = cell.isChecked
+        delegate?.todoCheckBoxTapped(todo, at: indexPath.row)
     }
 }
 
