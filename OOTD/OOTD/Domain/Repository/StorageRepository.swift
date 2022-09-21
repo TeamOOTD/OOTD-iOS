@@ -38,11 +38,11 @@ class StorageRepository<RepositoryObject>: Repository
 
     func delete(item: RepositoryObject) throws {
         try realm.write {
-//            let predicate = NSPredicate(format: "id == %@", item.toStorable().id)
-//            if let productToDelete = realm.objects(RealmObject.self)
-//                .filter(predicate).first {
-//                realm.delete(productToDelete)
-//            }
+            let predicate = NSPredicate(format: "uuid == %@", item.toStorable().uuid)
+            if let item = realm.objects(RealmObject.self)
+                .filter(predicate).first {
+                realm.delete(item)
+            }
         }
     }
 }

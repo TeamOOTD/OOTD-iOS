@@ -64,8 +64,11 @@ final class TodoBottomSheetViewController: BaseViewController {
         }
         
         deleteButton.do {
-            $0.title = "취소"
+            $0.title = "삭제"
             $0.isHidden = true
+            $0.actionHandler = { [weak self] in
+                self?.deleteTodo()
+            }
         }
         
         setupSheet()
@@ -121,6 +124,15 @@ extension TodoBottomSheetViewController {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = Radii.r20
+        }
+    }
+    
+    private func deleteTodo() {
+        presentAlert(title: "정말 삭제하실건가요?", isIncludedCancel: true) { [weak self] _ in
+            self?.viewModel.deleteTodo {
+                self?.dismiss(animated: true)
+                self?.completionHandler?()
+            }
         }
     }
 }

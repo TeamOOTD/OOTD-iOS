@@ -12,12 +12,14 @@ import OOTD_UIKit
 protocol TodoBottomSheetViewModelProtocol {
     var state: Observable<TodoBottomSheetState> { get set }
     var section: Observable<[TodoBottomSheetSection]> { get set }
+    var item: Observable<Todo> { get set }
     var priority: Observable<Int> { get set }
     var todoType: Observable<Int> { get set }
     var contents: Observable<String> { get set }
     
     func inputSection(isHidden: Bool)
     func createTodo(completion: (() -> Void)?)
+    func deleteTodo(completion: (() -> Void)?)
 }
 
 final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
@@ -26,6 +28,7 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     
     var state: Observable<TodoBottomSheetState> = Observable(.create)
     var section: Observable<[TodoBottomSheetSection]> = Observable([.priority, .todo, .project])
+    var item: Observable<Todo> = Observable(Todo(isDone: false, todoType: 0, contents: "", priority: 0))
     var priority: Observable<Int> = Observable(0)
     var todoType: Observable<Int> = Observable(0)
     var contents: Observable<String> = Observable("")
@@ -33,6 +36,7 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     init(
         repository: StorageRepository<Todo>? = StorageRepository<Todo>(),
         state: TodoBottomSheetState = .create,
+        item: Todo = Todo(isDone: false, todoType: 0, contents: "", priority: 0),
         priority: Int = 0,
         todoType: Int = 0,
         contents: String = ""
@@ -42,6 +46,7 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
         self.repository = repository
         self.section.value = isHidden ? [.priority, .todo, .project] : [.priority, .todo, .input, .project]
         self.state.value = state
+        self.item.value = item
         self.priority.value = priority
         self.todoType.value = todoType
         self.contents.value = contents
@@ -58,6 +63,15 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
             }
             let todo = Todo(isDone: false, todoType: todoType.value, contents: contents.value, priority: priority.value)
             try repository?.create(item: todo)
+            completion?()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deleteTodo(completion: (() -> Void)? = nil) {
+        do {
+            try repository?.delete(item: item.value)
             completion?()
         } catch {
             print(error)
