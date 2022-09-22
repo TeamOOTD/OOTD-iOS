@@ -23,20 +23,11 @@ final class SettingViewController: BaseViewController {
         rootView.collectionView.do {
             $0.delegate = self
             $0.dataSource = self
-            $0.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.reuseIdentifier)
-            
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 44)
-            layout.minimumLineSpacing = 0
-            layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
-            $0.collectionViewLayout = layout
         }
     }
 }
 
-extension SettingViewController: UICollectionViewDelegate {
-    
-}
+extension SettingViewController: UICollectionViewDelegate {}
 
 extension SettingViewController: UICollectionViewDataSource {
     
@@ -58,15 +49,3 @@ extension SettingViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
-// MARK: - Preview
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct Preview: PreviewProvider {
-    static var previews: some View {
-        SettingViewController().showPreview(.iPhone13Mini)
-    }
-}
-#endif

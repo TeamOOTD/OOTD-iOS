@@ -26,6 +26,16 @@ final class SettingView: BaseView {
         gitHubRegistrationButton.do {
             $0.setImage(.imgGitHubReg, for: .normal)
         }
+        
+        collectionView.do {
+            $0.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.reuseIdentifier)
+            
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 44)
+            layout.minimumLineSpacing = 0
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+            $0.collectionViewLayout = layout
+        }
     }
     
     override func configureLayout() {
