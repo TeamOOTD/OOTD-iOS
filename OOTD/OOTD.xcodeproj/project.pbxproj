@@ -14,6 +14,7 @@
 		BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */; };
 		BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */; };
 		BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */; };
+		BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CE28DC569800D209A1 /* PeriodCell.swift */; };
 		BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */; };
 		BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */; };
 		BD621A2B28DB62C8008CFBB8 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */; };
@@ -170,6 +171,7 @@
 		BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveSection.swift; sourceTree = "<group>"; };
 		BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
+		BD19C4CE28DC569800D209A1 /* PeriodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCell.swift; sourceTree = "<group>"; };
 		BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetState.swift; sourceTree = "<group>"; };
 		BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				BD621A2E28DC39DC008CFBB8 /* ProjectArchiveViewController.swift */,
 				BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */,
 				BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */,
+				BD19C4CE28DC569800D209A1 /* PeriodCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1096,6 +1099,7 @@
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
 				BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */,
+				BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */,
 				BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,

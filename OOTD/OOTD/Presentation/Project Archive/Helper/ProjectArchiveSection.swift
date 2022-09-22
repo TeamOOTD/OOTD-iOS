@@ -15,7 +15,7 @@ enum ProjectArchiveSection: String, CaseIterable {
     case desc       = "한 줄 소개"
     case gitHubLink = "깃허브 링크"
     case member     = "팀원"
-    case term       = "프로젝트 기간"
+    case period       = "프로젝트 기간"
     case tech       = "사용 기술 및 라이브러리"
     case memo       = "메모"
 }
@@ -28,8 +28,8 @@ extension ProjectArchiveSection {
             return (LogoCell.self, LogoCell.reuseIdentifier)
         case .name, .desc, .gitHubLink, .member:
             return (InputCell.self, InputCell.reuseIdentifier)
-        case .term:
-            return (InputCell.self, InputCell.reuseIdentifier)
+        case .period:
+            return (PeriodCell.self, PeriodCell.reuseIdentifier)
         case .tech:
             return (InputCell.self, InputCell.reuseIdentifier)
         case .memo:
@@ -59,7 +59,7 @@ extension ProjectArchiveSection {
                 widthDimension: .estimated(64),
                 heightDimension: .estimated(64)
             )
-        case .name, .desc, .gitHubLink, .member, .term, .tech:
+        case .name, .desc, .gitHubLink, .member, .period, .tech:
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .estimated(44)
