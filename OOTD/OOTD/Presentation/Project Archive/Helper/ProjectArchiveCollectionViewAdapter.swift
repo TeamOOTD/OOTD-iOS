@@ -93,7 +93,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
         case .period:
             return periodCell
         case .memo:
-            memoCell.textView.text = section?.placeholder
+            memoCell.textViewPlaceHolder = section?.placeholder
             return memoCell
         default:
             inputCell.textField.placeholder = section?.placeholder
@@ -137,7 +137,7 @@ extension ProjectArchiveCollectionViewAdapter {
     -> NSCollectionLayoutGroup {
         
         switch sectionType {
-        case .logo:
+        case .logo, .memo:
             return NSCollectionLayoutGroup.horizontal(
                 layoutSize: sectionType.groupSize,
                 subitems: [item]

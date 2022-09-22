@@ -15,7 +15,7 @@ enum ProjectArchiveSection: String, CaseIterable {
     case desc       = "한 줄 소개"
     case gitHubLink = "깃허브 링크"
     case member     = "팀원"
-    case period       = "프로젝트 기간"
+    case period     = "프로젝트 기간"
     case tech       = "사용 기술 및 라이브러리"
     case memo       = "메모"
 }
@@ -97,14 +97,15 @@ extension ProjectArchiveSection {
             return "사용한 기술 또는 라이브러리를 적어주세요."
         case .memo:
             return """
-            담당한 기능 또는 역할, 깨달은 점 등을 자유롭게 적어주세요.
+            담당 기능, 역할, 깨달은 점 등을 자유롭게 적어주세요.
             
-            내가 맡은 역할
+            담당 기능 및 역할
             - 투두 작성
             - 투두 수정
             - 투두 삭제
             
-            Realm을 이용한 로컬 DB 설계 및 활용에 대해서 학습할 수 있었다.
+            학습 내용
+            - Realm을 이용한 로컬 DB 설계 및 활용
             """
         default:
             return nil
