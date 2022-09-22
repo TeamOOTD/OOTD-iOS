@@ -57,6 +57,11 @@ final class ProjectArchiveCollectionViewAdapter: NSObject {
         )
         
         collectionView.register(
+            PeriodCell.self,
+            forCellWithReuseIdentifier: PeriodCell.reuseIdentifier
+        )
+        
+        collectionView.register(
             MemoCell.self,
             forCellWithReuseIdentifier: MemoCell.reuseIdentifier
         )
@@ -76,7 +81,8 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let logoCell = collectionView.dequeueReusableCell(withReuseIdentifier: LogoCell.reuseIdentifier, for: indexPath) as? LogoCell,
               let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell,
-              let memoCell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCell.reuseIdentifier, for: indexPath) as? MemoCell
+              let memoCell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCell.reuseIdentifier, for: indexPath) as? MemoCell,
+              let periodCell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodCell.reuseIdentifier, for: indexPath) as? PeriodCell
         else { return UICollectionViewCell() }
         
         let section = adapterDataSource?.fetchSection(section: indexPath.section)
@@ -84,6 +90,8 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
         switch section {
         case .logo:
             return logoCell
+        case .period:
+            return periodCell
         case .memo:
             memoCell.textView.text = section?.placeholder
             return memoCell
