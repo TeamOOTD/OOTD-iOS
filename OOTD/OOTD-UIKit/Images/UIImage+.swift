@@ -53,4 +53,6 @@ extension UIImage {
     public static var icnTabProfile: UIImage? { .load(named: "icn.tab.profile") }
     public static var icnTabProjectList: UIImage? { .load(named: "icn.tab.project.list") }
     public static var icnTimer: UIImage? { .load(named: "icn.timer") }
+    
+    public static var imgGitHubReg: UIImage? { .load(named: "img.github.registration")}
 }

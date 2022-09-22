@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
+		BD19225728DC99C900726ECF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225628DC99C900726ECF /* SettingView.swift */; };
+		BD19225A28DC9A6700726ECF /* SettingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225928DC9A6700726ECF /* SettingOption.swift */; };
+		BD19225E28DC9F0100726ECF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225D28DC9F0100726ECF /* SettingCell.swift */; };
 		BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */; };
 		BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */; };
 		BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */; };
@@ -166,6 +169,9 @@
 /* Begin PBXFileReference section */
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
+		BD19225628DC99C900726ECF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BD19225928DC9A6700726ECF /* SettingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOption.swift; sourceTree = "<group>"; };
+		BD19225D28DC9F0100726ECF /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveViewModel.swift; sourceTree = "<group>"; };
 		BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveSection.swift; sourceTree = "<group>"; };
@@ -315,6 +321,14 @@
 				BD15700228D0651A00155712 /* ODSSegmentedControl.swift */,
 			);
 			path = ODSSegmentedControl;
+			sourceTree = "<group>";
+		};
+		BD19225828DC9A5C00726ECF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BD19225928DC9A6700726ECF /* SettingOption.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		BD19C4C228DC40F900D209A1 /* Helper */ = {
@@ -549,6 +563,7 @@
 		BD9FA50A28CF14F500E8D68B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				BD19225828DC9A5C00726ECF /* Helper */,
 				BD9FA50E28CF154A00E8D68B /* View */,
 			);
 			path = Setting;
@@ -583,6 +598,8 @@
 		BD9FA50E28CF154A00E8D68B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD19225D28DC9F0100726ECF /* SettingCell.swift */,
+				BD19225628DC99C900726ECF /* SettingView.swift */,
 				BD9FA51B28CF162500E8D68B /* SettingViewController.swift */,
 			);
 			path = View;
@@ -1092,12 +1109,14 @@
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
 				BD621A2F28DC39DC008CFBB8 /* ProjectArchiveViewController.swift in Sources */,
 				BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */,
+				BD19225A28DC9A6700726ECF /* SettingOption.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* TodoSectionHeaderView.swift in Sources */,
 				BD621A2D28DB764E008CFBB8 /* Priority.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
+				BD19225728DC99C900726ECF /* SettingView.swift in Sources */,
 				BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */,
 				BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */,
 				BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */,
@@ -1107,6 +1126,7 @@
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
 				BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
+				BD19225E28DC9F0100726ECF /* SettingCell.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */,
 				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,
