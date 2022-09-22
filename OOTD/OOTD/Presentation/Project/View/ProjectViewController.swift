@@ -16,16 +16,24 @@ final class ProjectViewController: BaseViewController {
     override func loadView() {
         self.view = rootView
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func configureAttributes() {
         super.configureAttributes()
+        
+        rootView.navigationBar.rightButton.addTarget(self, action: #selector(pushToProjectArchiveViewController), for: .touchUpInside)
     }
 }
 
 extension ProjectViewController {
-
+    
+    @objc private func pushToProjectArchiveViewController() {
+        let viewController = ProjectArchiveViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

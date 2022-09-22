@@ -12,8 +12,8 @@ import OOTD_UIKit
 
 final class ProjectArchiveView: BaseView {
 
-    private let navigationBar = ODSNavigationBar()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let navigationBar = ODSNavigationBar()
+    let collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func configureAttributes() {
         backgroundColor = .white

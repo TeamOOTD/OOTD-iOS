@@ -12,7 +12,7 @@ import OOTD_UIKit
 
 final class ProjectView: BaseView {
     
-    private let navigationBar = ODSNavigationBar()
+    let navigationBar = ODSNavigationBar()
     private let titleLabel = UILabel()
     lazy var collectionView = BaseCollectionView(
         frame: .zero,

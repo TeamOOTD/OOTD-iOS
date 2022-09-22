@@ -24,19 +24,24 @@ final class ProjectArchiveViewController: BaseViewController, ProjectArchiveColl
         self.view = rootView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func configureAttributes() {
+        rootView.navigationBar.leftButton.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
+    }
+    
     override func bind() {
         adapter.adapterDataSource = viewModel
     }
 }
 
-// MARK: - Preview
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct Preview: PreviewProvider {
-    static var previews: some View {
-        ProjectArchiveViewController().showPreview(.iPhone13Mini)
+extension ProjectArchiveViewController {
+    
+    @objc private func popViewController() {
+        navigationController?.popViewController(animated: true)
     }
 }
-#endif
