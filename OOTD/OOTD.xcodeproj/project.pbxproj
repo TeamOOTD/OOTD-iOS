@@ -9,10 +9,17 @@
 /* Begin PBXBuildFile section */
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
+		BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */; };
+		BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */; };
+		BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */; };
+		BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */; };
+		BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */; };
 		BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */; };
 		BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */; };
 		BD621A2B28DB62C8008CFBB8 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */; };
 		BD621A2D28DB764E008CFBB8 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2C28DB764E008CFBB8 /* Priority.swift */; };
+		BD621A2F28DC39DC008CFBB8 /* ProjectArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2E28DC39DC008CFBB8 /* ProjectArchiveViewController.swift */; };
+		BD621A3328DC3A6E008CFBB8 /* ProjectArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A3228DC3A6E008CFBB8 /* ProjectArchiveView.swift */; };
 		BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABD28D81C8A0063DE18 /* ProjectView.swift */; };
 		BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */; };
 		BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70EB0428D8AAC80063DE18 /* Entity.swift */; };
@@ -158,10 +165,17 @@
 /* Begin PBXFileReference section */
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
+		BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveViewModel.swift; sourceTree = "<group>"; };
+		BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveSection.swift; sourceTree = "<group>"; };
+		BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
 		BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetState.swift; sourceTree = "<group>"; };
 		BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		BD621A2C28DB764E008CFBB8 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		BD621A2E28DC39DC008CFBB8 /* ProjectArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveViewController.swift; sourceTree = "<group>"; };
+		BD621A3228DC3A6E008CFBB8 /* ProjectArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveView.swift; sourceTree = "<group>"; };
 		BD70EABD28D81C8A0063DE18 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCell.swift; sourceTree = "<group>"; };
 		BD70EB0428D8AAC80063DE18 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -301,6 +315,44 @@
 			path = ODSSegmentedControl;
 			sourceTree = "<group>";
 		};
+		BD19C4C228DC40F900D209A1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */,
+				BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BD19C4C528DC41F900D209A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BD621A3028DC3A4A008CFBB8 /* Project Archive */ = {
+			isa = PBXGroup;
+			children = (
+				BD19C4C228DC40F900D209A1 /* Helper */,
+				BD19C4C528DC41F900D209A1 /* ViewModel */,
+				BD621A3128DC3A5F008CFBB8 /* View */,
+			);
+			path = "Project Archive";
+			sourceTree = "<group>";
+		};
+		BD621A3128DC3A5F008CFBB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD621A3228DC3A6E008CFBB8 /* ProjectArchiveView.swift */,
+				BD621A2E28DC39DC008CFBB8 /* ProjectArchiveViewController.swift */,
+				BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */,
+				BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BD70EB0028D8A8990063DE18 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +488,7 @@
 			children = (
 				BD9FA50B28CF151B00E8D68B /* GitHub */,
 				BD9FA50928CF14F300E8D68B /* Project */,
+				BD621A3028DC3A4A008CFBB8 /* Project Archive */,
 				BD9FA50A28CF14F500E8D68B /* Setting */,
 				BD9FA50728CF14EB00E8D68B /* TabBar */,
 				BD9FA51328CF156B00E8D68B /* Timer */,
@@ -517,9 +570,9 @@
 		BD9FA50D28CF154900E8D68B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */,
-				BD70EABD28D81C8A0063DE18 /* ProjectView.swift */,
 				BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */,
+				BD70EABD28D81C8A0063DE18 /* ProjectView.swift */,
+				BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1021,15 +1074,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */,
+				BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */,
 				BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */,
 				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
 				BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */,
+				BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
 				BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */,
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
 				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
+				BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */,
 				BD70EB0E28D8B2800063DE18 /* StorageRepository.swift in Sources */,
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
+				BD621A2F28DC39DC008CFBB8 /* ProjectArchiveViewController.swift in Sources */,
 				BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* TodoSectionHeaderView.swift in Sources */,
@@ -1043,10 +1101,12 @@
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
+				BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */,
 				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,
+				BD621A3328DC3A6E008CFBB8 /* ProjectArchiveView.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
 				BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */,
 				BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */,
