@@ -25,7 +25,7 @@ extension ProjectArchiveSection {
     var cell: (className: AnyClass, cellId: String) {
         switch self {
         case .logo:
-            return (InputCell.self, InputCell.reuseIdentifier)
+            return (LogoCell.self, LogoCell.reuseIdentifier)
         case .name, .desc, .gitHubLink, .member:
             return (InputCell.self, InputCell.reuseIdentifier)
         case .term:

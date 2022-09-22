@@ -45,6 +45,11 @@ final class ProjectArchiveCollectionViewAdapter: NSObject {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier
         )
+        
+        collectionView.register(
+            LogoCell.self,
+            forCellWithReuseIdentifier: LogoCell.reuseIdentifier
+        )
 
         collectionView.register(
             InputCell.self,
@@ -69,13 +74,16 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell,
+        guard let logoCell = collectionView.dequeueReusableCell(withReuseIdentifier: LogoCell.reuseIdentifier, for: indexPath) as? LogoCell,
+              let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell,
               let memoCell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCell.reuseIdentifier, for: indexPath) as? MemoCell
         else { return UICollectionViewCell() }
         
         let section = adapterDataSource?.fetchSection(section: indexPath.section)
         
         switch section {
+        case .logo:
+            return logoCell
         case .memo:
             memoCell.textView.text = section?.placeholder
             return memoCell
