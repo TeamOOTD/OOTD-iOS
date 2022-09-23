@@ -44,6 +44,11 @@ extension ProjectArchiveSection {
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .estimated(175)
             )
+        case .member, .tech:
+            return NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .estimated(48)
+            )
         default:
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -59,10 +64,15 @@ extension ProjectArchiveSection {
                 widthDimension: .estimated(64),
                 heightDimension: .estimated(64)
             )
-        case .name, .desc, .gitHubLink, .member, .period, .tech:
+        case .name, .desc, .gitHubLink, .period:
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .estimated(44)
+            )
+        case .member, .tech:
+            return NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .estimated(48)
             )
         case .memo:
             return NSCollectionLayoutSize(

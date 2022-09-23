@@ -68,6 +68,8 @@
 		BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */; };
 		BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9328D0BE8100679C02 /* TabBarItem.swift */; };
 		BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */; };
+		BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8B428DD9B1D003F3B03 /* WSTagsField */; };
+		BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -228,6 +230,7 @@
 		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		BDB65B9328D0BE8100679C02 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
+		BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFieldCell.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */,
 				BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */,
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
 				BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */,
@@ -361,11 +365,12 @@
 		BD621A3128DC3A5F008CFBB8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */,
+				BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */,
+				BD19C4CE28DC569800D209A1 /* PeriodCell.swift */,
 				BD621A3228DC3A6E008CFBB8 /* ProjectArchiveView.swift */,
 				BD621A2E28DC39DC008CFBB8 /* ProjectArchiveViewController.swift */,
-				BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */,
-				BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */,
-				BD19C4CE28DC569800D209A1 /* PeriodCell.swift */,
+				BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -879,6 +884,7 @@
 				BD9FA52D28CF17AB00E8D68B /* FSCalendar */,
 				BD9FA53028CF180C00E8D68B /* Realm */,
 				BD9FA53228CF180C00E8D68B /* RealmSwift */,
+				BDD5F8B428DD9B1D003F3B03 /* WSTagsField */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
@@ -1007,6 +1013,7 @@
 				BD9FA52928CF174B00E8D68B /* XCRemoteSwiftPackageReference "Then" */,
 				BD9FA52C28CF17AB00E8D68B /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
@@ -1123,6 +1130,7 @@
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
+				BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */,
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
 				BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
@@ -1711,6 +1719,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/whitesmith/WSTagsField.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1738,6 +1754,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BDD5F8B428DD9B1D003F3B03 /* WSTagsField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */;
+			productName = WSTagsField;
 		};
 		BDD8CABF28CF7DB500668B70 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

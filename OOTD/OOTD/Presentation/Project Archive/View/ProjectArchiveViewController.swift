@@ -10,7 +10,7 @@ import UIKit
 import OOTD_Core
 import OOTD_UIKit
 
-final class ProjectArchiveViewController: BaseViewController, ProjectArchiveCollectionViewAdapterDelegate {
+final class ProjectArchiveViewController: BaseViewController {
     
     private let viewModel = ProjectArchiveViewModel()
     private lazy var adapter: ProjectArchiveCollectionViewAdapter = {
@@ -43,5 +43,12 @@ extension ProjectArchiveViewController {
     
     @objc private func popViewController() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension ProjectArchiveViewController: ProjectArchiveCollectionViewAdapterDelegate {
+    
+    func reload() {
+        rootView.collectionView.collectionViewLayout.invalidateLayout()
     }
 }

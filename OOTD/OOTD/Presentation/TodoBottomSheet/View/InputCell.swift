@@ -22,6 +22,7 @@ final class InputCell: BaseCollectionViewCell {
         backgroundColor = .clear
         
         textField.do {
+            $0.font = .systemFont(ofSize: 14)
             $0.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
         }
     }
