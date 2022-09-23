@@ -9,6 +9,7 @@ import UIKit
 
 import OOTD_Core
 import OOTD_UIKit
+import WSTagsField
 
 protocol ProjectArchiveCollectionViewAdapterDataSource: AnyObject {
     var numberOfSections: Int { get }
@@ -19,6 +20,7 @@ protocol ProjectArchiveCollectionViewAdapterDataSource: AnyObject {
 }
 
 protocol ProjectArchiveCollectionViewAdapterDelegate: AnyObject {
+    func reload()
 }
 
 final class ProjectArchiveCollectionViewAdapter: NSObject {
@@ -62,6 +64,11 @@ final class ProjectArchiveCollectionViewAdapter: NSObject {
         )
         
         collectionView.register(
+            TagFieldCell.self,
+            forCellWithReuseIdentifier: TagFieldCell.reuseIdentifier
+        )
+        
+        collectionView.register(
             MemoCell.self,
             forCellWithReuseIdentifier: MemoCell.reuseIdentifier
         )
@@ -82,7 +89,8 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
         guard let logoCell = collectionView.dequeueReusableCell(withReuseIdentifier: LogoCell.reuseIdentifier, for: indexPath) as? LogoCell,
               let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell,
               let memoCell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCell.reuseIdentifier, for: indexPath) as? MemoCell,
-              let periodCell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodCell.reuseIdentifier, for: indexPath) as? PeriodCell
+              let periodCell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodCell.reuseIdentifier, for: indexPath) as? PeriodCell,
+                let tagFieldCell = collectionView.dequeueReusableCell(withReuseIdentifier: TagFieldCell.reuseIdentifier, for: indexPath) as? TagFieldCell
         else { return UICollectionViewCell() }
         
         let section = adapterDataSource?.fetchSection(section: indexPath.section)
@@ -92,12 +100,17 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
             return logoCell
         case .period:
             return periodCell
+        case .member, .tech:
+            tagFieldCell.configure(section)
+            tagFieldCell.tagField.onDidChangeHeightTo = { [weak self] _, _ in
+                self?.delegate?.reload()
+            }
+            return tagFieldCell
         case .memo:
             memoCell.textViewPlaceHolder = section?.placeholder
             return memoCell
         default:
             inputCell.textField.placeholder = section?.placeholder
-            inputCell.textField.font = .systemFont(ofSize: 14)
             return inputCell
         }
     }
@@ -137,7 +150,7 @@ extension ProjectArchiveCollectionViewAdapter {
     -> NSCollectionLayoutGroup {
         
         switch sectionType {
-        case .logo, .memo:
+        case .logo, .member, .tech, .memo:
             return NSCollectionLayoutGroup.horizontal(
                 layoutSize: sectionType.groupSize,
                 subitems: [item]
