@@ -71,6 +71,7 @@
 		BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8B428DD9B1D003F3B03 /* WSTagsField */; };
 		BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */; };
 		BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */; };
+		BDD5F8BF28DE0072003F3B03 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -273,6 +274,7 @@
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
 				BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */,
 				BD9FA53128CF180C00E8D68B /* Realm in Frameworks */,
+				BDD5F8BF28DE0072003F3B03 /* IQKeyboardManagerSwift in Frameworks */,
 				BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */,
 				BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */,
 				BD9FA52B28CF174B00E8D68B /* Then in Frameworks */,
@@ -888,6 +890,7 @@
 				BD9FA53028CF180C00E8D68B /* Realm */,
 				BD9FA53228CF180C00E8D68B /* RealmSwift */,
 				BDD5F8B428DD9B1D003F3B03 /* WSTagsField */,
+				BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
@@ -1017,6 +1020,7 @@
 				BD9FA52C28CF17AB00E8D68B /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */,
 				BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */,
+				BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
@@ -1731,6 +1735,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1763,6 +1775,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */;
 			productName = WSTagsField;
+		};
+		BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		BDD8CABF28CF7DB500668B70 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
