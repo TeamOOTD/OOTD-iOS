@@ -14,7 +14,7 @@ final class ProjectView: BaseView {
     
     let navigationBar = ODSNavigationBar()
     private let titleLabel = UILabel()
-    lazy var collectionView = BaseCollectionView(
+    lazy var collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
@@ -31,8 +31,6 @@ final class ProjectView: BaseView {
             $0.textColor = .grey900
             $0.font = .ootdFont(.bold, size: 24)
         }
-        
-        configureCollectionView()
     }
     
     override func configureLayout() {
@@ -50,33 +48,7 @@ final class ProjectView: BaseView {
         
         collectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Spacing.s16)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.bottom.equalTo(safeAreaLayoutGuide)
         }
-    }
-}
-
-extension ProjectView: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    private func configureCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(ProjectListCell.self, forCellWithReuseIdentifier: ProjectListCell.reuseIdentifier)
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40, height: 82.adjustedHeight)
-        layout.minimumLineSpacing = Spacing.s8
-        collectionView.collectionViewLayout = layout
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProjectListCell.reuseIdentifier, for: indexPath) as? ProjectListCell else {
-            return UICollectionViewCell()
-        }
-        cell.createTagView(with: ["Swift", "UIKit", "Realm"])
-        return cell
     }
 }

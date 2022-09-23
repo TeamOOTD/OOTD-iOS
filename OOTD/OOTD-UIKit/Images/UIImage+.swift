@@ -55,4 +55,5 @@ extension UIImage {
     public static var icnTimer: UIImage? { .load(named: "icn.timer") }
     
     public static var imgGitHubReg: UIImage? { .load(named: "img.github.registration")}
+    public static var imgProjectEmpty: UIImage? { .load(named: "img.project.empty")}
 }
