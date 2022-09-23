@@ -70,6 +70,7 @@
 		BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */; };
 		BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8B428DD9B1D003F3B03 /* WSTagsField */; };
 		BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */; };
+		BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -231,6 +232,7 @@
 		BDB65B9328D0BE8100679C02 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
 		BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFieldCell.swift; sourceTree = "<group>"; };
+		BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListEmptyView.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				BD70EABF28D81FCC0063DE18 /* ProjectListCell.swift */,
+				BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */,
 				BD70EABD28D81C8A0063DE18 /* ProjectView.swift */,
 				BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */,
 			);
@@ -1139,6 +1142,7 @@
 				BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */,
 				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,
 				BD621A3328DC3A6E008CFBB8 /* ProjectArchiveView.swift in Sources */,
+				BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
 				BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */,
 				BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */,
