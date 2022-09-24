@@ -108,4 +108,15 @@ extension ProjectListCell {
             tagHStackView.addArrangedSubview(tagView)
         }
     }
+    
+    func configure(with project: Project) {
+        projectNameLabel.text = project.name
+        projectDescriptionLabel.text = project.desc
+        periodLabel.text = project.term
+        createTagView(with: project.tech)
+        statusLabel.do {
+            $0.content = project.isInProgress ? "진행 중" : "진행 완료"
+            $0.backgroundColor = project.isInProgress ? .yellow800 : .green800
+        }
+    }
 }

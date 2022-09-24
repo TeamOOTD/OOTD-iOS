@@ -8,10 +8,6 @@
 import RxCocoa
 import RxSwift
 
-struct ProjectViewModelActions {
-    
-}
-
 protocol ProjectListViewModelInput {
     var viewDidLoad: PublishRelay<Void> { get }
     
