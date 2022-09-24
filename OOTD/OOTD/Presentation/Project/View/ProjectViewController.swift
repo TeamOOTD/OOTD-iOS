@@ -7,18 +7,33 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import OOTD_Core
 import OOTD_UIKit
 
 final class ProjectViewController: BaseViewController {
     
+    private let viewModel: ProjectListViewModel!
+    private let disposeBag = DisposeBag()
+    
     private let rootView = ProjectView()
     private let emptyView = ProjectListEmptyView()
-    
-    private let dataSource: [String] = []
+
+    init(viewModel: ProjectListViewModel!) {
+        self.viewModel = viewModel
+        super.init()
+    }
     
     override func loadView() {
         self.view = rootView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        bindCollectionView()
+        viewModel.viewDidLoad.accept(())
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +44,7 @@ final class ProjectViewController: BaseViewController {
     
     override func configureAttributes() {
         super.configureAttributes()
-        
-        configureCollectionView()
+
         rootView.navigationBar.rightButton.addTarget(self, action: #selector(pushToProjectArchiveViewController), for: .touchUpInside)
     }
 }
@@ -43,29 +57,17 @@ extension ProjectViewController {
     }
 }
 
-extension ProjectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProjectViewController {
     
-    private func configureCollectionView() {
-        rootView.collectionView.delegate = self
-        rootView.collectionView.dataSource = self
-        rootView.collectionView.register(ProjectListCell.self, forCellWithReuseIdentifier: ProjectListCell.reuseIdentifier)
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40, height: 82.adjustedHeight)
-        layout.minimumLineSpacing = Spacing.s8
-        rootView.collectionView.collectionViewLayout = layout
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        rootView.collectionView.backgroundView = dataSource.isEmpty ? emptyView : nil
-        return dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProjectListCell.reuseIdentifier, for: indexPath) as? ProjectListCell else {
-            return UICollectionViewCell()
-        }
-        cell.createTagView(with: ["Swift", "UIKit", "Realm"])
-        return cell
+    private func bindCollectionView() {
+        viewModel.projects
+            .filter { [weak self] in
+                self?.rootView.collectionView.backgroundView = $0.isEmpty ? self?.emptyView : nil
+                return $0.isNotEmpty
+            }
+            .bind(to: rootView.collectionView.rx.items(
+                cellIdentifier: ProjectListCell.reuseIdentifier,
+                cellType: ProjectListCell.self)) { _, _, _ in }
+            .disposed(by: disposeBag)
     }
 }

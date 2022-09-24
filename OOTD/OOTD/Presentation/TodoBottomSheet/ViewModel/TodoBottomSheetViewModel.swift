@@ -10,12 +10,12 @@ import Foundation
 import OOTD_UIKit
 
 protocol TodoBottomSheetViewModelProtocol {
-    var state: Observable<TodoBottomSheetState> { get set }
-    var section: Observable<[TodoBottomSheetSection]> { get set }
-    var item: Observable<Todo> { get set }
-    var priority: Observable<Int> { get set }
-    var todoType: Observable<Int> { get set }
-    var contents: Observable<String> { get set }
+    var state: ObservableHelper<TodoBottomSheetState> { get set }
+    var section: ObservableHelper<[TodoBottomSheetSection]> { get set }
+    var item: ObservableHelper<Todo> { get set }
+    var priority: ObservableHelper<Int> { get set }
+    var todoType: ObservableHelper<Int> { get set }
+    var contents: ObservableHelper<String> { get set }
     
     func inputSection(isHidden: Bool)
     func createTodo(completion: (() -> Void)?)
@@ -27,12 +27,12 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     
     private let repository: StorageRepository<Todo>?
     
-    var state: Observable<TodoBottomSheetState> = Observable(.create)
-    var section: Observable<[TodoBottomSheetSection]> = Observable([.priority, .todo, .project])
-    var item: Observable<Todo> = Observable(Todo(isDone: false, todoType: 0, contents: "", priority: 0))
-    var priority: Observable<Int> = Observable(0)
-    var todoType: Observable<Int> = Observable(0)
-    var contents: Observable<String> = Observable("")
+    var state: ObservableHelper<TodoBottomSheetState> = ObservableHelper(.create)
+    var section: ObservableHelper<[TodoBottomSheetSection]> = ObservableHelper([.priority, .todo, .project])
+    var item: ObservableHelper<Todo> = ObservableHelper(Todo(isDone: false, todoType: 0, contents: "", priority: 0))
+    var priority: ObservableHelper<Int> = ObservableHelper(0)
+    var todoType: ObservableHelper<Int> = ObservableHelper(0)
+    var contents: ObservableHelper<String> = ObservableHelper("")
     
     init(
         repository: StorageRepository<Todo>? = StorageRepository<Todo>(),

@@ -31,6 +31,15 @@ final class ProjectView: BaseView {
             $0.textColor = .grey900
             $0.font = .ootdFont(.bold, size: 24)
         }
+        
+        collectionView.do {
+            $0.collectionViewLayout = collectionViewLayout()
+            
+            $0.register(
+                ProjectListCell.self,
+                forCellWithReuseIdentifier: ProjectListCell.reuseIdentifier
+            )
+        }
     }
     
     override func configureLayout() {
@@ -50,5 +59,15 @@ final class ProjectView: BaseView {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Spacing.s16)
             $0.leading.trailing.bottom.equalTo(safeAreaLayoutGuide)
         }
+    }
+}
+
+extension ProjectView {
+    
+    private func collectionViewLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40, height: 82.adjustedHeight)
+        layout.minimumLineSpacing = Spacing.s8
+        return layout
     }
 }
