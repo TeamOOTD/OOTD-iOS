@@ -72,6 +72,8 @@
 		BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */; };
 		BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */; };
 		BDD5F8BF28DE0072003F3B03 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */; };
+		BDD5F8C128DE14CF003F3B03 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8C028DE14CF003F3B03 /* Project.swift */; };
+		BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8C228DE14E7003F3B03 /* StorableProject.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -234,6 +236,8 @@
 		BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
 		BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFieldCell.swift; sourceTree = "<group>"; };
 		BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListEmptyView.swift; sourceTree = "<group>"; };
+		BDD5F8C028DE14CF003F3B03 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		BDD5F8C228DE14E7003F3B03 /* StorableProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableProject.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -382,8 +386,10 @@
 		BD70EB0028D8A8990063DE18 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				BD70EB0828D8AC4F0063DE18 /* Todo.swift */,
+				BDD5F8C228DE14E7003F3B03 /* StorableProject.swift */,
 				BD70EB0A28D8AC5D0063DE18 /* StorableTodo.swift */,
+				BDD5F8C028DE14CF003F3B03 /* Project.swift */,
+				BD70EB0828D8AC4F0063DE18 /* Todo.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1116,6 +1122,7 @@
 				BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
 				BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */,
+				BDD5F8C128DE14CF003F3B03 /* Project.swift in Sources */,
 				BD9FA4D328CF135100E8D68B /* AppDelegate.swift in Sources */,
 				BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */,
 				BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */,
@@ -1126,6 +1133,7 @@
 				BD19225A28DC9A6700726ECF /* SettingOption.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* TodoSectionHeaderView.swift in Sources */,
+				BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */,
 				BD621A2D28DB764E008CFBB8 /* Priority.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
