@@ -8,14 +8,21 @@
 import RxCocoa
 import RxSwift
 
-protocol ProjectListViewModel: AnyObject {
+struct ProjectViewModelActions {
     
-    // Input
+}
+
+protocol ProjectListViewModelInput {
     var viewDidLoad: PublishRelay<Void> { get }
     
-    // Output
-    var projects: BehaviorSubject<[Project]> { get }
+    func shouldUpdateProjects()
 }
+
+protocol ProjectListViewModelOutput {
+    var projects: BehaviorRelay<[Project]> { get }
+}
+
+protocol ProjectListViewModel: ProjectListViewModelInput, ProjectListViewModelOutput {}
 
 final class ProjectListViewModelImpl: ProjectListViewModel {
     
@@ -26,7 +33,7 @@ final class ProjectListViewModelImpl: ProjectListViewModel {
     let viewDidLoad = PublishRelay<Void>()
     
     // MARK: - Output
-    let projects = BehaviorSubject<[Project]>(value: [])
+    let projects = BehaviorRelay<[Project]>(value: [])
     
     init(projectRepository: StorageRepository<Project>) {
         self.projectRepository = projectRepository
@@ -38,16 +45,13 @@ final class ProjectListViewModelImpl: ProjectListViewModel {
         viewDidLoad
             .observe(on: MainScheduler.instance)
             .do { [weak self] _ in
-                self?.fetchProjects()
+                self?.shouldUpdateProjects()
             }
             .subscribe()
             .disposed(by: disposeBag)
     }
     
-    func fetchProjects() {
-        let projects = projectRepository.fetchAll()
-        Observable.just(projects)
-            .bind(to: self.projects)
-            .disposed(by: disposeBag)
+    func shouldUpdateProjects() {
+        self.projects.accept(projectRepository.fetchAll())
     }
 }
