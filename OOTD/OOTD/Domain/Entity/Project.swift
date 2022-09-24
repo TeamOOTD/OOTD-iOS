@@ -17,6 +17,13 @@ struct Project {
     var endDate: Date?
     var tech: [String]
     var memo: String?
+    var term: String {
+        guard let endDate else { return "\(dateFormatter.string(from: startDate)) ->" }
+        return "\(dateFormatter.string(from: startDate)) -> \(dateFormatter.string(from: endDate))"
+    }
+    var isInProgress: Bool {
+        return endDate == nil
+    }
     
     init(
         id: String = UUID().uuidString,
@@ -58,5 +65,13 @@ extension Project: Entity {
     
     func toStorable() -> StorableProject {
         return storableProject
+    }
+}
+
+extension Project {
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY.MM"
+        return formatter
     }
 }
