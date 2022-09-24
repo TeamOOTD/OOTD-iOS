@@ -52,7 +52,11 @@ extension TabBarController {
                 viewController = UINavigationController(rootViewController: TodoListViewController())
             
             case .project:
-                viewController = UINavigationController(rootViewController: ProjectViewController())
+                let projectViewModel = ProjectListViewModelImpl(
+                    projectRepository: StorageRepository<Project>()
+                )
+                let projectViewController = ProjectViewController(viewModel: projectViewModel)
+                viewController = UINavigationController(rootViewController: projectViewController)
                 
             case .profile:
                 viewController = UINavigationController(rootViewController: SettingViewController())

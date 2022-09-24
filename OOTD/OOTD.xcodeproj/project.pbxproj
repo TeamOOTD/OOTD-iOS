@@ -57,7 +57,7 @@
 		BD9FA53128CF180C00E8D68B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53028CF180C00E8D68B /* Realm */; };
 		BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53228CF180C00E8D68B /* RealmSwift */; };
 		BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */; };
-		BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016128D99F16003FF3A3 /* Observable.swift */; };
+		BDB2016228D99F16003FF3A3 /* ObservableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016128D99F16003FF3A3 /* ObservableHelper.swift */; };
 		BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */; };
 		BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */; };
 		BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */; };
@@ -74,6 +74,9 @@
 		BDD5F8BF28DE0072003F3B03 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */; };
 		BDD5F8C128DE14CF003F3B03 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8C028DE14CF003F3B03 /* Project.swift */; };
 		BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8C228DE14E7003F3B03 /* StorableProject.swift */; };
+		BDD5F8C628DF318E003F3B03 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8C528DF318E003F3B03 /* RxCocoa */; };
+		BDD5F8C828DF318E003F3B03 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8C728DF318E003F3B03 /* RxSwift */; };
+		BDD5F8CB28DF336E003F3B03 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8CA28DF336E003F3B03 /* ProjectListViewModel.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -225,7 +228,7 @@
 		BD9FA52128CF166300E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA52428CF16E600E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		BDB2016128D99F16003FF3A3 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		BDB2016128D99F16003FF3A3 /* ObservableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHelper.swift; sourceTree = "<group>"; };
 		BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetSection.swift; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 		BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListEmptyView.swift; sourceTree = "<group>"; };
 		BDD5F8C028DE14CF003F3B03 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BDD5F8C228DE14E7003F3B03 /* StorableProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableProject.swift; sourceTree = "<group>"; };
+		BDD5F8CA28DF336E003F3B03 /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 			files = (
 				BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */,
 				BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */,
+				BDD5F8C628DF318E003F3B03 /* RxCocoa in Frameworks */,
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
 				BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */,
 				BD9FA53128CF180C00E8D68B /* Realm in Frameworks */,
@@ -282,6 +287,7 @@
 				BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */,
 				BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */,
 				BD9FA52B28CF174B00E8D68B /* Then in Frameworks */,
+				BDD5F8C828DF318E003F3B03 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +576,7 @@
 		BD9FA50928CF14F300E8D68B /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				BDD5F8C928DF31A8003F3B03 /* ViewModel */,
 				BD9FA50D28CF154900E8D68B /* View */,
 			);
 			path = Project;
@@ -661,7 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9FA52428CF16E600E8D68B /* .gitkeep */,
-				BDB2016128D99F16003FF3A3 /* Observable.swift */,
+				BDB2016128D99F16003FF3A3 /* ObservableHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -708,6 +715,14 @@
 				BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		BDD5F8C928DF31A8003F3B03 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BDD5F8CA28DF336E003F3B03 /* ProjectListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BDD8CA2828CF1FD100668B70 /* OOTD-Core */ = {
@@ -897,6 +912,8 @@
 				BD9FA53228CF180C00E8D68B /* RealmSwift */,
 				BDD5F8B428DD9B1D003F3B03 /* WSTagsField */,
 				BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */,
+				BDD5F8C528DF318E003F3B03 /* RxCocoa */,
+				BDD5F8C728DF318E003F3B03 /* RxSwift */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
@@ -1027,6 +1044,7 @@
 				BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */,
 				BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */,
 				BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
@@ -1139,7 +1157,7 @@
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
 				BD19225728DC99C900726ECF /* SettingView.swift in Sources */,
-				BDB2016228D99F16003FF3A3 /* Observable.swift in Sources */,
+				BDB2016228D99F16003FF3A3 /* ObservableHelper.swift in Sources */,
 				BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */,
 				BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
@@ -1153,6 +1171,7 @@
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */,
 				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,
+				BDD5F8CB28DF336E003F3B03 /* ProjectListViewModel.swift in Sources */,
 				BD621A3328DC3A6E008CFBB8 /* ProjectArchiveView.swift in Sources */,
 				BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
@@ -1751,6 +1770,14 @@
 				kind = branch;
 			};
 		};
+		BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1788,6 +1815,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		BDD5F8C528DF318E003F3B03 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		BDD5F8C728DF318E003F3B03 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		BDD8CABF28CF7DB500668B70 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
