@@ -11,10 +11,11 @@ import SnapKit
 import Then
 import OOTD_Core
 import OOTD_UIKit
+import RxSwift
 
 protocol PeriodCellDelegate: AnyObject {
-    func startDateButtonTapped(_ cell: PeriodCell)
-    func endDateButtonTapped(_ cell: PeriodCell)
+    func startDateButtonTapped(_ cell: PeriodCell, date: Date?)
+    func endDateButtonTapped(_ cell: PeriodCell, date: Date?)
 }
 
 final class PeriodCell: BaseCollectionViewCell {
@@ -23,7 +24,9 @@ final class PeriodCell: BaseCollectionViewCell {
     lazy var startDateButton = UIButton()
     lazy var endDateButton = UIButton()
     
+    var viewModel: ProjectArchiveCollectionViewAdapterDataSource?
     weak var delegate: PeriodCellDelegate?
+    var disposedBag = DisposeBag()
     
     private lazy var dateFormatter = DateFormatter()
     
@@ -71,6 +74,8 @@ final class PeriodCell: BaseCollectionViewCell {
             $0.layer.borderColor = UIColor.grey500.cgColor
             $0.addTarget(self, action: #selector(endDateButtonTapped), for: .touchUpInside)
         }
+        
+        addObserver()
     }
     
     override func configureLayout() {
@@ -92,11 +97,41 @@ final class PeriodCell: BaseCollectionViewCell {
 
 extension PeriodCell {
     
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleStartDate), name: NSNotification.Name("startDate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleEndDate), name: NSNotification.Name("endDate"), object: nil)
+    }
+    
+    @objc func handleStartDate(_ noti: Notification) {
+        if let startDate = noti.userInfo?["selectedDate"] as? Date {
+            let startDateString = dateFormatter.string(from: startDate)
+            self.startDate = startDate
+            startDateButton.setTitle(startDateString, for: .normal)
+            endDateButton.isHidden = false
+            viewModel?.startDate.accept(startDate)
+        }
+    }
+    
+    @objc func handleEndDate(_ noti: Notification) {
+        if let endDate = noti.userInfo?["selectedDate"] as? Date {
+            let endDateString = dateFormatter.string(from: endDate)
+            self.endDate = endDate
+            endDateButton.setTitle(endDateString, for: .normal)
+            viewModel?.endDate.accept(endDate)
+        } else {
+            endDateButton.setTitle("진행 중", for: .normal)
+        }
+    }
+    
     @objc func startDateButtonTapped(_ sender: UIButton) {
-        
+        delegate?.startDateButtonTapped(self, date: startDate)
     }
     
     @objc func endDateButtonTapped(_ sender: UIButton) {
-        
+        delegate?.endDateButtonTapped(self, date: endDate)
+    }
+    
+    func bind(_ viewModel: ProjectArchiveCollectionViewAdapterDataSource) {
+        self.viewModel = viewModel
     }
 }

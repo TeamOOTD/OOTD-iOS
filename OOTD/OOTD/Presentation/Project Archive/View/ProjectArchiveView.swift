@@ -22,7 +22,7 @@ final class ProjectArchiveView: BaseView {
             $0.leftBarItem = .back
             $0.title = "프로젝트 아카이빙"
             $0.rightButton.setTitle("저장", for: .normal)
-            $0.rightButton.setTitleColor(.grey400, for: .normal)
+            $0.rightButton.setTitleColor(.grey900, for: .normal)
             $0.rightButton.isEnabled = false
         }
     }

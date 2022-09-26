@@ -25,7 +25,7 @@ final class TodoSectionHeaderView: BaseCollectionReusableView {
     // MARK: - UI Properties
 
     private let titleLabel = UILabel()
-    private let descriptionLabel = UILabel()
+    private let asteriskLabel = UILabel()
     private lazy var createButton = UIButton()
     
     // MARK: - Properties
@@ -40,6 +40,11 @@ final class TodoSectionHeaderView: BaseCollectionReusableView {
         set { createButton.setImage(newValue, for: .normal) }
     }
     
+    var isNecessary: Bool {
+        get { asteriskLabel.isHidden }
+        set { asteriskLabel.isHidden = !newValue }
+    }
+    
     weak var delegate: TodoSectionHeaderViewDelegate?
     
     // MARK: - Override Functions
@@ -50,18 +55,30 @@ final class TodoSectionHeaderView: BaseCollectionReusableView {
             $0.font = .ootdFont(.bold, size: 18)
         }
         
+        asteriskLabel.do {
+            $0.text = "*"
+            $0.textColor = .red
+            $0.font = .ootdFont(.bold, size: 18)
+            $0.isHidden = true
+        }
+        
         createButton.do {
             $0.addTarget(self, action: #selector(createButtonDidTap), for: .touchUpInside)
         }
     }
     
     override func configureLayout() {
-        addSubviews(titleLabel, createButton)
+        addSubviews(titleLabel, asteriskLabel, createButton)
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()
             $0.height.equalTo(24.adjustedHeight)
+        }
+        
+        asteriskLabel.snp.makeConstraints {
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(2)
+            $0.centerY.equalTo(titleLabel.snp.centerY)
         }
         
         createButton.snp.makeConstraints {

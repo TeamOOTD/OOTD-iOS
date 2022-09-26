@@ -98,11 +98,11 @@ extension ProjectListCell {
     
     func createTagView(with tags: [String]) {
         tagHStackView.arrangedSubviews.forEach {
-            tagHStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
         }
         
         tags.forEach { tag in
-            let tagView = ODSTagView(frame: .zero)
+            let tagView = ODSTagView()
             tagView.content = tag
             tagView.backgroundColor = .grey700
             tagHStackView.addArrangedSubview(tagView)
@@ -113,7 +113,6 @@ extension ProjectListCell {
         projectNameLabel.text = project.name
         projectDescriptionLabel.text = project.desc
         periodLabel.text = project.term
-        createTagView(with: project.tech)
         statusLabel.do {
             $0.content = project.isInProgress ? "진행 중" : "진행 완료"
             $0.backgroundColor = project.isInProgress ? .yellow800 : .green800
