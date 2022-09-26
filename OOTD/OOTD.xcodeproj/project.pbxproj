@@ -24,6 +24,11 @@
 		BD5C0AF228E20F6A00E1BBCC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AF128E20F6A00E1BBCC /* HTTPMethod.swift */; };
 		BD5C0AF428E20F9D00E1BBCC /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AF328E20F9D00E1BBCC /* NetworkRequest.swift */; };
 		BD5C0AF628E20FD900E1BBCC /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AF528E20FD900E1BBCC /* EndPoint.swift */; };
+		BD5C0AF928E2102000E1BBCC /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AF828E2102000E1BBCC /* UserDTO.swift */; };
+		BD5C0AFE28E2110000E1BBCC /* GitHubEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AFD28E2110000E1BBCC /* GitHubEndPoint.swift */; };
+		BD5C0B0128E2117100E1BBCC /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0B0028E2117100E1BBCC /* GitHubManager.swift */; };
+		BD5C0B0328E2245B00E1BBCC /* RepoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0B0228E2245B00E1BBCC /* RepoDTO.swift */; };
+		BD5C0B0528E226DC00E1BBCC /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0B0428E226DC00E1BBCC /* EventDTO.swift */; };
 		BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */; };
 		BD621A2928DAC5C6008CFBB8 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */; };
 		BD621A2B28DB62C8008CFBB8 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */; };
@@ -201,6 +206,11 @@
 		BD5C0AF128E20F6A00E1BBCC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		BD5C0AF328E20F9D00E1BBCC /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		BD5C0AF528E20FD900E1BBCC /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BD5C0AF828E2102000E1BBCC /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		BD5C0AFD28E2110000E1BBCC /* GitHubEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndPoint.swift; sourceTree = "<group>"; };
+		BD5C0B0028E2117100E1BBCC /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
+		BD5C0B0228E2245B00E1BBCC /* RepoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDTO.swift; sourceTree = "<group>"; };
+		BD5C0B0428E226DC00E1BBCC /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
 		BD621A2628DA15C5008CFBB8 /* TodoBottomSheetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetState.swift; sourceTree = "<group>"; };
 		BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BD621A2A28DB62C8008CFBB8 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -386,6 +396,8 @@
 		BD5C0AE928E20E7600E1BBCC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BD5C0AFF28E2116300E1BBCC /* Manager */,
+				BD5C0AFC28E210EB00E1BBCC /* EndPoint */,
 				BD5C0AEA28E20EA600E1BBCC /* Foundation */,
 			);
 			path = Network;
@@ -402,6 +414,32 @@
 				BD5C0AF528E20FD900E1BBCC /* EndPoint.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		BD5C0AF728E2100D00E1BBCC /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				BD5C0AF828E2102000E1BBCC /* UserDTO.swift */,
+				BD5C0B0228E2245B00E1BBCC /* RepoDTO.swift */,
+				BD5C0B0428E226DC00E1BBCC /* EventDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		BD5C0AFC28E210EB00E1BBCC /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				BD5C0AFD28E2110000E1BBCC /* GitHubEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		BD5C0AFF28E2116300E1BBCC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD5C0B0028E2117100E1BBCC /* GitHubManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		BD621A3028DC3A4A008CFBB8 /* Project Archive */ = {
@@ -578,6 +616,7 @@
 		BD9FA50528CF14A400E8D68B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BD5C0AF728E2100D00E1BBCC /* DTO */,
 				BD9FA51F28CF165900E8D68B /* .gitkeep */,
 			);
 			path = Data;
@@ -1182,10 +1221,13 @@
 			files = (
 				BDD5F8CF28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift in Sources */,
 				BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */,
+				BD5C0B0528E226DC00E1BBCC /* EventDTO.swift in Sources */,
 				BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */,
+				BD5C0AF928E2102000E1BBCC /* UserDTO.swift in Sources */,
 				BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */,
 				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
 				BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */,
+				BD5C0B0328E2245B00E1BBCC /* RepoDTO.swift in Sources */,
 				BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */,
 				BD9FA51E28CF162F00E8D68B /* TabBarController.swift in Sources */,
 				BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */,
@@ -1215,6 +1257,7 @@
 				BDDAB6DF28D2142400C021BC /* TodoCell.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
+				BD5C0B0128E2117100E1BBCC /* GitHubManager.swift in Sources */,
 				BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */,
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
 				BD5C0AF228E20F6A00E1BBCC /* HTTPMethod.swift in Sources */,
@@ -1230,6 +1273,7 @@
 				BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */,
 				BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */,
 				BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */,
+				BD5C0AFE28E2110000E1BBCC /* GitHubEndPoint.swift in Sources */,
 				BD70EB0B28D8AC5D0063DE18 /* StorableTodo.swift in Sources */,
 				BD70EAC028D81FCC0063DE18 /* ProjectListCell.swift in Sources */,
 				BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */,

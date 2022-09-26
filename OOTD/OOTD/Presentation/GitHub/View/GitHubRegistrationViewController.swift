@@ -16,8 +16,10 @@ final class GitHubRegistrationViewController: BaseViewController {
     private let messageLabel = UILabel()
     private let gitHubNicknameTextField = ODSTextField()
     private lazy var buttonVStackView = UIStackView(arrangedSubviews: [confirmButton, registrationButton])
-    private let confirmButton = ODSButton(.disabled)
-    private let registrationButton = ODSButton(.sub)
+    private lazy var confirmButton = ODSButton(.enabled)
+    private lazy var registrationButton = ODSButton(.sub)
+    
+    private let manager = GitHubManager(apiService: APIManager(), environment: .development)
     
     override func configureAttributes() {
         view.backgroundColor = .white
@@ -36,6 +38,7 @@ final class GitHubRegistrationViewController: BaseViewController {
         gitHubNicknameTextField.do {
             $0.font = UIFont.systemFont(ofSize: 14)
             $0.placeholder = "본인의 GitHub 계정을 정확하게 입력해주세요."
+            $0.autocorrectionType = .no
         }
         
         buttonVStackView.do {
@@ -46,10 +49,12 @@ final class GitHubRegistrationViewController: BaseViewController {
         
         confirmButton.do {
             $0.title = "완료"
+            $0.button.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
         }
         
         registrationButton.do {
             $0.title = "다음에 등록하기"
+            $0.button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         }
     }
     
@@ -78,6 +83,58 @@ final class GitHubRegistrationViewController: BaseViewController {
         
         registrationButton.snp.makeConstraints {
             $0.height.equalTo(48)
+        }
+    }
+}
+
+extension GitHubRegistrationViewController {
+    
+    @objc func confirmButtonTapped(_ sender: UIButton) {
+        guard let username = gitHubNicknameTextField.text else { return }
+        fetchUser(for: username)
+    }
+    
+    @objc func nextButtonTapped(_ sender: UIButton) {
+
+    }
+    
+    private func fetchUser(for username: String) {
+        Task {
+            let response = try await manager.fetchUser(for: username)
+
+            if let login = response?.login {
+                UserDefaults.standard.set(login, forKey: "gitHubAccount")
+                self.presentAlert(title: "\(login)님 환영합니다.") { [weak self] _ in
+                    
+                    self?.fetchRepos(for: login)
+                    
+                    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                    let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                    let tabBarController = TabBarController()
+                    sceneDelegate?.window?.rootViewController = tabBarController
+                    sceneDelegate?.window?.makeKeyAndVisible()
+                }
+                
+            } else {
+                self.presentAlert(title: "없는 계정입니다.")
+            }
+        }
+    }
+    
+    private func fetchRepos(for username: String) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        Task {
+            let response = try await manager.fetchEvents(for: username)
+            if let repos = response {
+                let commit = repos.filter {
+                    return ("2022-09-26" == $0.createdAt?.prefix(10))
+                }.filter {
+                    return $0.type == "PushEvent" || $0.type == "PullRequestEvent" || $0.type == "CreateEvent" || $0.type == "IssuesEvent"
+                }
+            }
         }
     }
 }
