@@ -20,6 +20,8 @@ final class GitHubRegistrationViewController: BaseViewController {
     private let registrationButton = ODSButton(.sub)
     
     override func configureAttributes() {
+        view.backgroundColor = .white
+        
         messageLabel.do {
             $0.text = """
             커밋 기록을 확인하기 위해
