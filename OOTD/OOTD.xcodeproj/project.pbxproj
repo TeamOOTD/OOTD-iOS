@@ -77,6 +77,8 @@
 		BDD5F8C628DF318E003F3B03 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8C528DF318E003F3B03 /* RxCocoa */; };
 		BDD5F8C828DF318E003F3B03 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8C728DF318E003F3B03 /* RxSwift */; };
 		BDD5F8CB28DF336E003F3B03 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8CA28DF336E003F3B03 /* ProjectListViewModel.swift */; };
+		BDD5F8CF28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8CE28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift */; };
+		BDD5F90E28E1A10A003F3B03 /* ODSDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F90D28E1A10A003F3B03 /* ODSDatePickerViewController.swift */; };
 		BDD8CA2A28CF1FD100668B70 /* OOTD_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BDD8CA2F28CF1FD100668B70 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -242,6 +244,8 @@
 		BDD5F8C028DE14CF003F3B03 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BDD5F8C228DE14E7003F3B03 /* StorableProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableProject.swift; sourceTree = "<group>"; };
 		BDD5F8CA28DF336E003F3B03 /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
+		BDD5F8CE28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveItemViewModel.swift; sourceTree = "<group>"; };
+		BDD5F90D28E1A10A003F3B03 /* ODSDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSDatePickerViewController.swift; sourceTree = "<group>"; };
 		BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OOTD_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD8CA2928CF1FD100668B70 /* OOTD_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOTD_Core.h; sourceTree = "<group>"; };
 		BDD8CA3728CF207000668B70 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 		BD19C4C528DC41F900D209A1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BDD5F8CE28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift */,
 				BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */,
 			);
 			path = ViewModel;
@@ -725,6 +730,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BDD5F90C28E1A0F4003F3B03 /* ODSDatePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDD5F90D28E1A10A003F3B03 /* ODSDatePickerViewController.swift */,
+			);
+			path = ODSDatePickerViewController;
+			sourceTree = "<group>";
+		};
 		BDD8CA2828CF1FD100668B70 /* OOTD-Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +800,7 @@
 				BDD8CAB628CF4E5200668B70 /* Metric */,
 				BDD8CAC928CF8B8C00668B70 /* ODSBasicBlockCell */,
 				BD156FFE28D05ABC00155712 /* ODSButton */,
+				BDD5F90C28E1A0F4003F3B03 /* ODSDatePickerViewController */,
 				BDD8CABB28CF73A400668B70 /* ODSNavigationBar */,
 				BD15700128D0650400155712 /* ODSSegmentedControl */,
 				BDD8CAC328CF824800668B70 /* ODSTagView */,
@@ -1132,6 +1146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD5F8CF28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift in Sources */,
 				BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */,
 				BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */,
 				BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */,
@@ -1231,6 +1246,7 @@
 				BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */,
 				BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */,
 				BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */,
+				BDD5F90E28E1A10A003F3B03 /* ODSDatePickerViewController.swift in Sources */,
 				BDD8CAA928CF41A600668B70 /* Font.swift in Sources */,
 				BDD8CABD28CF73E900668B70 /* ODSNavigationBar.swift in Sources */,
 				BDD8CA9C28CF37E800668B70 /* UIImage+.swift in Sources */,
