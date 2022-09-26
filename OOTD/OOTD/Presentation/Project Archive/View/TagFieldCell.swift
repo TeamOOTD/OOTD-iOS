@@ -10,11 +10,12 @@ import UIKit
 import OOTD_Core
 import OOTD_UIKit
 import WSTagsField
+import RxSwift
 
 final class TagFieldCell: BaseCollectionViewCell {
     
     lazy var tagField = WSTagsField()
-    
+
     override func configureAttributes() {
         super.configureAttributes()
         
@@ -48,7 +49,22 @@ final class TagFieldCell: BaseCollectionViewCell {
 
 extension TagFieldCell {
     
-    func configure(_ section: ProjectArchiveSection? = .member) {
+    func configure(
+        section: ProjectArchiveSection? = .member
+    ) {
         tagField.placeholder = section == .member ? "ex. 멤버" : "ex. Swift"
+    }
+    
+    func bind(
+        _ viewModel: ProjectArchiveCollectionViewAdapterDataSource,
+        section: ProjectArchiveSection? = .member
+    ) {
+        tagField.onDidAddTag = { textField, _ in
+            if section == .member {
+                viewModel.member.accept(textField.tags.map { $0.text })
+            } else {
+                viewModel.tech.accept(textField.tags.map { $0.text })
+            }
+        }
     }
 }

@@ -11,10 +11,13 @@ import SnapKit
 import Then
 import OOTD_Core
 import OOTD_UIKit
+import RxSwift
 
 final class InputCell: BaseCollectionViewCell {
 
     lazy var textField = ODSTextField()
+    
+    var disposedBag = DisposeBag()
     
     var handler: ((String?) -> Void)?
     
@@ -23,7 +26,6 @@ final class InputCell: BaseCollectionViewCell {
         
         textField.do {
             $0.font = .systemFont(ofSize: 14)
-            $0.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
         }
     }
     

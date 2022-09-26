@@ -40,6 +40,7 @@ final class ProjectViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.isHidden = false
+        viewModel.shouldUpdateProjects()
     }
     
     override func configureAttributes() {
@@ -68,6 +69,7 @@ extension ProjectViewController {
             .bind(to: rootView.collectionView.rx.items(
                 cellIdentifier: ProjectListCell.reuseIdentifier,
                 cellType: ProjectListCell.self)) { _, elem, cell in
+                    cell.createTagView(with: elem.tech)
                     cell.configure(with: elem)
                 }
             .disposed(by: disposeBag)

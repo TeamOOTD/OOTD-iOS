@@ -89,6 +89,15 @@ extension ProjectArchiveSection {
     var sectionInsets: NSDirectionalEdgeInsets {  
         return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
     }
+    
+    var isNecessary: Bool {
+        switch self {
+        case .logo, .name, .desc, .period, .tech:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 extension ProjectArchiveSection {

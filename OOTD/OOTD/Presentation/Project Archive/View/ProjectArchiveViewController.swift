@@ -9,10 +9,13 @@ import UIKit
 
 import OOTD_Core
 import OOTD_UIKit
+import RxSwift
 
 final class ProjectArchiveViewController: BaseViewController {
     
-    private let viewModel = ProjectArchiveViewModel()
+    private let viewModel = ProjectArchiveViewModel(
+        projectRepository: StorageRepository<Project>()
+    )
     private lazy var adapter: ProjectArchiveCollectionViewAdapter = {
         let adapter = ProjectArchiveCollectionViewAdapter(collectionView: rootView.collectionView, adapterDataSource: viewModel, delegate: self)
         return adapter
@@ -20,6 +23,8 @@ final class ProjectArchiveViewController: BaseViewController {
     
     private let rootView = ProjectArchiveView()
     
+    var disposedBag = DisposeBag()
+
     override func loadView() {
         self.view = rootView
     }
@@ -30,18 +35,37 @@ final class ProjectArchiveViewController: BaseViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
-    override func configureAttributes() {
-        rootView.navigationBar.leftButton.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
-    }
-    
     override func bind() {
         adapter.adapterDataSource = viewModel
+        
+        viewModel.isValid
+            .bind(to: rootView.navigationBar.rightButton.rx.isEnabled)
+            .disposed(by: disposedBag)
+        
+        viewModel.isValid
+            .map { $0 ? 1 : 0.3 }
+            .bind(to: rootView.navigationBar.rightButton.rx.alpha)
+            .disposed(by: disposedBag)
+        
+        rootView.navigationBar.leftButton.rx.tap.subscribe { [weak self] _ in
+            self?.popViewController()
+        }.disposed(by: disposedBag)
+        
+        rootView.navigationBar.rightButton.rx.tap.subscribe { [weak self] _ in
+            self?.viewModel.createProject()
+            self?.popViewController()
+        }.disposed(by: disposedBag)
     }
 }
 
 extension ProjectArchiveViewController {
     
-    @objc private func popViewController() {
+    private func popViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func createProject() {
+
         navigationController?.popViewController(animated: true)
     }
 }
@@ -49,6 +73,41 @@ extension ProjectArchiveViewController {
 extension ProjectArchiveViewController: ProjectArchiveCollectionViewAdapterDelegate {
     
     func reload() {
-        rootView.collectionView.collectionViewLayout.invalidateLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.collectionView.performBatchUpdates(nil)
+        }
+    }
+    
+    func startDateButtonTapped(date: Date?) {
+        pickDate("startDate", title: "시작일을 선택해주세요.", date: date)
+    }
+    
+    func endDateButtonTapped(date: Date?) {
+        self.presentAlert(
+            title: "진행 중인 프로젝트인가요?",
+            message: "종료된 프로젝트라면 종료일을 선택해주세요.",
+            isIncludedCancel: true,
+            okActionTitle: "네",
+            cancelActionTitle: "아니오",
+            okCompletion: { _ in
+                NotificationCenter.default.post(name: NSNotification.Name("endDate"), object: nil)
+            }, cancelCompletion: { [weak self] _ in
+                self?.pickDate("endDate", title: "종료일을 선택해주세요.", date: date)
+            })
+    }
+    
+    private func pickDate(_ dateKey: String, title: String, date: Date?) {
+        var selectedDate: Date?
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+
+        alertController.addDatePicker(style: .wheels, date: date) { date in
+            selectedDate = date
+        }
+        
+        alertController.addAction(UIAlertAction(title: "선택 완료", style: .cancel) { _ in
+            NotificationCenter.default.post(name: NSNotification.Name(dateKey), object: nil, userInfo: ["selectedDate": selectedDate as Any])
+        })
+        
+        present(alertController, animated: true)
     }
 }

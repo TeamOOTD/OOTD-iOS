@@ -44,6 +44,7 @@ final public class ODSDatePickerViewController: BaseViewController {
         datePicker.date = date ?? Date()
         datePicker.minimumDate = minimumDate
         datePicker.maximumDate = maximumDate
+        action?(datePicker.date)
         self.action = action
     }
     
