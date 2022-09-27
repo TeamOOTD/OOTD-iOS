@@ -8,6 +8,7 @@
 import UIKit
 
 import OOTD_UIKit
+import RxSwift
 
 protocol TodoBottomSheetViewModel {
     var state: ObservableHelper<TodoBottomSheetState> { get set }
