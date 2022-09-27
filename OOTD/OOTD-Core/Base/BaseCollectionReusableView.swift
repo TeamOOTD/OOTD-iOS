@@ -23,9 +23,3 @@ open class BaseCollectionReusableView: UICollectionReusableView {
     open func configureAttributes() {}
     open func configureLayout() {}
 }
-
-extension BaseCollectionReusableView: Reusable {
-    public static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}

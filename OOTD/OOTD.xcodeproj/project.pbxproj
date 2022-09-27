@@ -18,6 +18,7 @@
 		BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */; };
 		BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */; };
 		BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CE28DC569800D209A1 /* PeriodCell.swift */; };
+		BD39C48528E31166007AC73C /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48428E31166007AC73C /* UICollectionView+.swift */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
 		BD5C0AF028E20F3800E1BBCC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */; };
@@ -200,6 +201,7 @@
 		BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
 		BD19C4CE28DC569800D209A1 /* PeriodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCell.swift; sourceTree = "<group>"; };
+		BD39C48428E31166007AC73C /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BD5C0AED28E20F1200E1BBCC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -827,6 +829,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD8CA4528CF291900668B70 /* Adjusted+.swift */,
+				BD39C48428E31166007AC73C /* UICollectionView+.swift */,
 				BDD8CA4128CF21B800668B70 /* UIStackView+.swift */,
 				BDD8CA3F28CF219F00668B70 /* UIView+.swift */,
 				BD621A2828DAC5C6008CFBB8 /* UIViewController+.swift */,
@@ -1312,6 +1315,7 @@
 				BD92EF9A28D2CBF0000C4A4F /* BaseCollectionView.swift in Sources */,
 				BDD8CA3A28CF208700668B70 /* BaseViewController.swift in Sources */,
 				BDD8CA3C28CF20B700668B70 /* BaseCollectionViewCell.swift in Sources */,
+				BD39C48528E31166007AC73C /* UICollectionView+.swift in Sources */,
 				BDD8CA4028CF219F00668B70 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

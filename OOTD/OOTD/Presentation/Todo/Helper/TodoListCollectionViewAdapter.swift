@@ -39,17 +39,12 @@ final class TodoListCollectionViewAdapter: NSObject {
         collectionView.collectionViewLayout = generateLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
         collectionView.register(
             TodoSectionHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier
+            ofKind: UICollectionView.elementKindSectionHeader
         )
-        
-        collectionView.register(
-            TodoCell.self,
-            forCellWithReuseIdentifier: TodoCell.reuseIdentifier
-        )
+        collectionView.register(TodoCell.self)
     }
 }
 
@@ -64,21 +59,20 @@ extension TodoListCollectionViewAdapter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCell.reuseIdentifier, for: indexPath) as? TodoCell,
-              let todo = adapterDataSource?.todo(at: indexPath.row) else { return UICollectionViewCell() }
-        cell.delegate = self
-        cell.configure(with: todo, at: indexPath)
+        let cell = collectionView.dequeueReusableCell(cellType: TodoCell.self, for: indexPath)
+        if let todo = adapterDataSource?.todo(at: indexPath.row) {
+            cell.delegate = self
+            cell.configure(with: todo, at: indexPath)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            TodoSectionHeaderView.self,
             ofKind: kind,
-            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier,
             for: indexPath
-        ) as? TodoSectionHeaderView else {
-            return UICollectionReusableView()
-        }
+        )
         headerView.title = "🌱 오늘의 할 일"
         headerView.rightIcon = .icnPlusCircle
         headerView.delegate = self

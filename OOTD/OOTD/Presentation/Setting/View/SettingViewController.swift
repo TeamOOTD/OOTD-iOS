@@ -40,7 +40,7 @@ extension SettingViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingCell.reuseIdentifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
+        let cell = collectionView.dequeueReusableCell(cellType: SettingCell.self, for: indexPath)
         cell.configure(SettingOption.allCases[indexPath.section].contents[indexPath.row])
         
         if SettingOption.allCases[indexPath.section].contents.indices.last == indexPath.row {
