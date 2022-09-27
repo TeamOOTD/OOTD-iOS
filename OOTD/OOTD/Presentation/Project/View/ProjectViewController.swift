@@ -86,6 +86,16 @@ extension ProjectViewController {
     
     private func pushProjectArchiveViewController(of model: Project) {
         let viewModel = ProjectArchiveViewModel(projectRepository: StorageRepository<Project>())
+        
+        viewModel.name.accept(model.name)
+        viewModel.desc.accept(model.desc)
+        viewModel.link.accept(model.gitHubLink)
+        viewModel.member.accept(model.member)
+        viewModel.startDate.accept(model.startDate)
+        viewModel.endDate.accept(model.endDate)
+        viewModel.tech.accept(model.tech)
+        viewModel.memo.accept(model.memo)
+        
         let viewController = ProjectArchiveViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }

@@ -59,6 +59,12 @@ extension TagFieldCell {
         _ viewModel: ProjectArchiveCollectionViewAdapterDataSource,
         section: ProjectArchiveSection? = .member
     ) {
+        if section == .member {
+            tagField.addTags(viewModel.member.value)
+        } else {
+            tagField.addTags(viewModel.tech.value)
+        }
+
         tagField.onDidAddTag = { textField, _ in
             if section == .member {
                 viewModel.member.accept(textField.tags.map { $0.text })
