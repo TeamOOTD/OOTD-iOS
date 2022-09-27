@@ -16,7 +16,7 @@ final class TodoBottomSheetViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private let viewModel: TodoBottomSheetViewModel
+    private let viewModel: TodoBottomSheetViewModelImpl
     private lazy var adapter: TodoBottomSheetCollectionViewAdapter = {
         let adapter = TodoBottomSheetCollectionViewAdapter(collectionView: collectionView, adapterDataSource: viewModel, delegate: self)
         return adapter
@@ -33,7 +33,7 @@ final class TodoBottomSheetViewController: BaseViewController {
     private lazy var doneButton = ODSButton(.enabled)
     private lazy var deleteButton = ODSButton(.sub)
     
-    init(viewModel: TodoBottomSheetViewModel) {
+    init(viewModel: TodoBottomSheetViewModelImpl) {
         self.viewModel = viewModel
         super.init()
     }

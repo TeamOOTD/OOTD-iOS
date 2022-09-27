@@ -27,6 +27,7 @@ final class ProjectListCell: BaseCollectionViewCell {
         
         logoImageView.do {
             $0.image = .icnCamera
+            $0.makeRounded(radius: Radii.r4)
         }
         
         projectNameLabel.do {
@@ -109,7 +110,8 @@ extension ProjectListCell {
         }
     }
     
-    func configure(with project: Project) {
+    func configure(with project: Project, image: UIImage?) {
+        logoImageView.image = image
         projectNameLabel.text = project.name
         projectDescriptionLabel.text = project.desc
         periodLabel.text = project.term

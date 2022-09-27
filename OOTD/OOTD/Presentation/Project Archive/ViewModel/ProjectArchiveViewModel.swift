@@ -5,7 +5,7 @@
 //  Created by taekki on 2022/09/22.
 //
 
-import Foundation
+import UIKit
 
 import OOTD_UIKit
 import RxSwift
@@ -14,6 +14,7 @@ import RxCocoa
 final class ProjectArchiveViewModel {
     let itemViewModel = BehaviorRelay(value: [])
     
+    var logo = BehaviorRelay<UIImage?>(value: nil)
     var name = BehaviorRelay(value: "")
     var desc = BehaviorRelay(value: "")
     var link = BehaviorRelay(value: "")
@@ -51,6 +52,8 @@ final class ProjectArchiveViewModel {
         project.memo = memo.value
         
         do {
+            guard let logo = logo.value else { return }
+            try projectRepository.saveImage(filename: "\(project.id).jpeg", image: logo)
             try projectRepository.update(item: project)
         } catch {
             print(error)
@@ -59,6 +62,7 @@ final class ProjectArchiveViewModel {
 
     func deleteProject() {
         do {
+            try projectRepository.deleteImage(filename: "\(project.id).jpeg")
             try projectRepository.delete(item: project)
         } catch {
             print(error)

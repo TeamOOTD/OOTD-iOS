@@ -21,6 +21,11 @@ final class LogoCell: BaseCollectionViewCell {
     lazy var button = UIButton()
     
     weak var delegate: LogoCellDelegate?
+    var viewModel: ProjectArchiveCollectionViewAdapterDataSource? {
+        didSet {
+            button.setImage(viewModel?.logo.value ?? .icnCamera?.resized(side: 18).withTintColor(.grey600), for: .normal)
+        }
+    }
 
     override func configureAttributes() {
         backgroundColor = .clear
@@ -29,9 +34,10 @@ final class LogoCell: BaseCollectionViewCell {
             $0.makeRounded(radius: 4)
             $0.layer.borderWidth = 2
             $0.layer.borderColor = UIColor.grey500.cgColor
-            $0.setImage(.icnCamera?.resized(side: 18).withTintColor(.grey600), for: .normal)
             $0.addTarget(self, action: #selector(logoAddButtonTapped), for: .touchUpInside)
         }
+        
+        addObserver()
     }
     
     override func configureLayout() {
@@ -44,6 +50,17 @@ final class LogoCell: BaseCollectionViewCell {
 }
 
 extension LogoCell {
+
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pickLogoImage), name: NSNotification.Name("pickLogo"), object: nil)
+    }
+    
+    @objc func pickLogoImage(_ noti: NSNotification) {
+        if let logo = noti.userInfo?["logo"] as? UIImage {
+            button.setImage(logo, for: .normal)
+            viewModel!.logo.accept(logo)
+        }
+    }
     
     @objc func logoAddButtonTapped(_ sender: UIButton) {
         delegate?.logoAddButtonTapped(self)

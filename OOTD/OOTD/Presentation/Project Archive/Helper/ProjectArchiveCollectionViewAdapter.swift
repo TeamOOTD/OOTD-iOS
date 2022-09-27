@@ -17,6 +17,8 @@ protocol ProjectArchiveCollectionViewAdapterDataSource: AnyObject {
     var numberOfSections: Int { get }
     var numberOfItems: Int { get }
     var project: Project { get set }
+    
+    var logo: BehaviorRelay<UIImage?> { get }
     var name: BehaviorRelay<String> { get }
     var desc: BehaviorRelay<String> { get }
     var link: BehaviorRelay<String> { get }
@@ -34,6 +36,7 @@ protocol ProjectArchiveCollectionViewAdapterDelegate: AnyObject {
     func reload()
     func startDateButtonTapped(date: Date?)
     func endDateButtonTapped(date: Date?)
+    func selectPhoto()
 }
 
 final class ProjectArchiveCollectionViewAdapter: NSObject {
@@ -83,6 +86,8 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
         switch section {
         case .logo:
             let cell = collectionView.dequeueReusableCell(cellType: LogoCell.self, for: indexPath)
+            cell.viewModel = adapterDataSource
+            cell.delegate = self
             return cell
             
         case .name:
@@ -169,6 +174,12 @@ extension ProjectArchiveCollectionViewAdapter: PeriodCellDelegate {
 extension ProjectArchiveCollectionViewAdapter: MemoCellDelegate {
     func textViewHeightDidChange(_ cell: MemoCell) {
         delegate?.reload()
+    }
+}
+
+extension ProjectArchiveCollectionViewAdapter: LogoCellDelegate {
+    func logoAddButtonTapped(_ cell: LogoCell) {
+        delegate?.selectPhoto()
     }
 }
 
