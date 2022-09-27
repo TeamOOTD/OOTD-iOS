@@ -17,16 +17,7 @@ enum TodoBottomSheetSection: CaseIterable {
 }
 
 extension TodoBottomSheetSection {
-    
-    var cell: (className: AnyClass, cellId: String) {
-        switch self {
-        case .priority:  return (PriorityCell.self, PriorityCell.reuseIdentifier)
-        case .todo:      return (ODSBasicBlockCell.self, ODSBasicBlockCell.reuseIdentifier)
-        case .input:     return (InputCell.self, InputCell.reuseIdentifier)
-        case .project:    return (ProjectCategoryCell.self, ProjectCategoryCell.reuseIdentifier)
-        }
-    }
-    
+
     var itemSize: NSCollectionLayoutSize {
         switch self {
         case .priority, .todo, .input, .project:

@@ -57,34 +57,13 @@ final class ProjectArchiveCollectionViewAdapter: NSObject {
 
         collectionView.register(
             TodoSectionHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier
+            ofKind: UICollectionView.elementKindSectionHeader
         )
-        
-        collectionView.register(
-            LogoCell.self,
-            forCellWithReuseIdentifier: LogoCell.reuseIdentifier
-        )
-
-        collectionView.register(
-            InputCell.self,
-            forCellWithReuseIdentifier: InputCell.reuseIdentifier
-        )
-        
-        collectionView.register(
-            PeriodCell.self,
-            forCellWithReuseIdentifier: PeriodCell.reuseIdentifier
-        )
-        
-        collectionView.register(
-            TagFieldCell.self,
-            forCellWithReuseIdentifier: TagFieldCell.reuseIdentifier
-        )
-        
-        collectionView.register(
-            MemoCell.self,
-            forCellWithReuseIdentifier: MemoCell.reuseIdentifier
-        )
+        collectionView.register(LogoCell.self)
+        collectionView.register(InputCell.self)
+        collectionView.register(PeriodCell.self)
+        collectionView.register(TagFieldCell.self)
+        collectionView.register(MemoCell.self)
     }
 }
 
@@ -103,100 +82,74 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
         
         switch section {
         case .logo:
-            guard let logoCell = collectionView.dequeueReusableCell(withReuseIdentifier: LogoCell.reuseIdentifier, for: indexPath) as? LogoCell else {
-                return UICollectionViewCell()
-            }
-            return logoCell
+            let cell = collectionView.dequeueReusableCell(cellType: LogoCell.self, for: indexPath)
+            return cell
             
         case .name:
-            guard let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell else {
-                return UICollectionViewCell()
-            }
-            
-            inputCell.textField.placeholder = section?.placeholder
-            inputCell.textField.text = adapterDataSource?.name.value
-            inputCell.textField.rx.text.orEmpty
+            let cell = collectionView.dequeueReusableCell(cellType: InputCell.self, for: indexPath)
+            cell.textField.placeholder = section?.placeholder
+            cell.textField.text = adapterDataSource?.name.value
+            cell.textField.rx.text.orEmpty
                 .bind(to: adapterDataSource!.name)
-                .disposed(by: inputCell.disposedBag)
-
-            return inputCell
+                .disposed(by: cell.disposedBag)
+            return cell
             
         case .desc:
-            guard let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell else {
-                return UICollectionViewCell()
-            }
-            
-            inputCell.textField.placeholder = section?.placeholder
-            inputCell.textField.text = adapterDataSource?.desc.value
-            inputCell.textField.rx.text.orEmpty
+            let cell = collectionView.dequeueReusableCell(cellType: InputCell.self, for: indexPath)
+            cell.textField.placeholder = section?.placeholder
+            cell.textField.text = adapterDataSource?.desc.value
+            cell.textField.rx.text.orEmpty
                 .bind(to: adapterDataSource!.desc)
-                .disposed(by: inputCell.disposedBag)
-            
-            return inputCell
+                .disposed(by: cell.disposedBag)
+            return cell
             
         case .gitHubLink:
-            guard let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell else {
-                return UICollectionViewCell()
-            }
-            
-            inputCell.textField.placeholder = section?.placeholder
-            inputCell.textField.text = adapterDataSource?.link.value
-            inputCell.textField.rx.text.orEmpty
+            let cell = collectionView.dequeueReusableCell(cellType: InputCell.self, for: indexPath)
+            cell.textField.placeholder = section?.placeholder
+            cell.textField.text = adapterDataSource?.link.value
+            cell.textField.rx.text.orEmpty
                 .bind(to: adapterDataSource!.link)
-                .disposed(by: inputCell.disposedBag)
-            
-            return inputCell
+                .disposed(by: cell.disposedBag)
+            return cell
             
         case .period:
-            guard let periodCell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodCell.reuseIdentifier, for: indexPath) as? PeriodCell else {
-                return UICollectionViewCell()
-            }
-            periodCell.delegate = self
-            periodCell.bind(adapterDataSource!)
-            return periodCell
+            let cell = collectionView.dequeueReusableCell(cellType: PeriodCell.self, for: indexPath)
+            cell.delegate = self
+            cell.bind(adapterDataSource!)
+            return cell
             
         case .member, .tech:
-            guard let tagFieldCell = collectionView.dequeueReusableCell(withReuseIdentifier: TagFieldCell.reuseIdentifier, for: indexPath) as? TagFieldCell else {
-                return UICollectionViewCell()
-            }
-            tagFieldCell.configure(section: section)
-            tagFieldCell.bind(adapterDataSource!, section: section)
-
-            tagFieldCell.tagField.onDidChangeHeightTo = { [weak self] _, _ in
+            let cell = collectionView.dequeueReusableCell(cellType: TagFieldCell.self, for: indexPath)
+            cell.configure(section: section)
+            cell.bind(adapterDataSource!, section: section)
+            cell.tagField.onDidChangeHeightTo = { [weak self] _, _ in
                 self?.delegate?.reload()
             }
-            return tagFieldCell
+            return cell
             
         case .memo:
-            guard let memoCell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCell.reuseIdentifier, for: indexPath) as? MemoCell else {
-                return UICollectionViewCell()
-            }
-            memoCell.textViewPlaceHolder = section?.placeholder
-            memoCell.textView.text = adapterDataSource?.memo.value
-            memoCell.delegate = self
-            memoCell.textView.rx.text.orEmpty
+            let cell = collectionView.dequeueReusableCell(cellType: MemoCell.self, for: indexPath)
+            cell.textViewPlaceHolder = section?.placeholder
+            cell.textView.text = adapterDataSource?.memo.value
+            cell.delegate = self
+            cell.textView.rx.text.orEmpty
                 .bind(to: adapterDataSource!.memo)
-                .disposed(by: memoCell.disposedBag)
-            return memoCell
+                .disposed(by: cell.disposedBag)
+            return cell
             
         default:
-            guard let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell else {
-                return UICollectionViewCell()
-            }
-            return inputCell
+            return UICollectionViewCell()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            TodoSectionHeaderView.self,
             ofKind: kind,
-            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier,
             for: indexPath
-        ) as? TodoSectionHeaderView else { return UICollectionReusableView() }
-
+        )
         headerView.title = adapterDataSource?.fetchSection(section: indexPath.section).rawValue
         headerView.isNecessary = adapterDataSource?.fetchSection(section: indexPath.section).isNecessary ?? false
-        
         return headerView
     }
 }

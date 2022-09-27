@@ -34,7 +34,7 @@ final class SettingView: BaseView {
         }
         
         collectionView.do {
-            $0.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.reuseIdentifier)
+            $0.register(SettingCell.self)
             
             let layout = UICollectionViewFlowLayout()
             layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 44)

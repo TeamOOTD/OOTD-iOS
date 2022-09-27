@@ -21,22 +21,7 @@ enum ProjectArchiveSection: String, CaseIterable {
 }
 
 extension ProjectArchiveSection {
-    
-    var cell: (className: AnyClass, cellId: String) {
-        switch self {
-        case .logo:
-            return (LogoCell.self, LogoCell.reuseIdentifier)
-        case .name, .desc, .gitHubLink, .member:
-            return (InputCell.self, InputCell.reuseIdentifier)
-        case .period:
-            return (PeriodCell.self, PeriodCell.reuseIdentifier)
-        case .tech:
-            return (InputCell.self, InputCell.reuseIdentifier)
-        case .memo:
-            return (MemoCell.self, MemoCell.reuseIdentifier)
-        }
-    }
-    
+
     var itemSize: NSCollectionLayoutSize {
         switch self {
         case .memo:

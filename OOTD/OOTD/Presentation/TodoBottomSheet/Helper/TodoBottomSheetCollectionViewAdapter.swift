@@ -46,29 +46,12 @@ final class TodoBottomSheetCollectionViewAdapter: NSObject {
         
         collectionView.register(
             TodoSectionHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TodoSectionHeaderView.reuseIdentifier
+            ofKind: UICollectionView.elementKindSectionHeader
         )
-        
-        collectionView.register(
-            ODSBasicBlockCell.self,
-            forCellWithReuseIdentifier: ODSBasicBlockCell.reuseIdentifier
-        )
-        
-        collectionView.register(
-            PriorityCell.self,
-            forCellWithReuseIdentifier: PriorityCell.reuseIdentifier
-        )
-        
-        collectionView.register(
-            InputCell.self,
-            forCellWithReuseIdentifier: InputCell.reuseIdentifier
-        )
-        
-        collectionView.register(
-            ProjectCategoryCell.self,
-            forCellWithReuseIdentifier: ProjectCategoryCell.reuseIdentifier
-        )
+        collectionView.register(ODSBasicBlockCell.self)
+        collectionView.register(PriorityCell.self)
+        collectionView.register(InputCell.self)
+        collectionView.register(ProjectCategoryCell.self)
     }
 }
 
@@ -83,41 +66,40 @@ extension TodoBottomSheetCollectionViewAdapter: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let priorityCell = collectionView.dequeueReusableCell(withReuseIdentifier: PriorityCell.reuseIdentifier, for: indexPath) as? PriorityCell,
-              let todoCell = collectionView.dequeueReusableCell(withReuseIdentifier: ODSBasicBlockCell.reuseIdentifier, for: indexPath) as? ODSBasicBlockCell,
-              let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.reuseIdentifier, for: indexPath) as? InputCell,
-              let projectCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProjectCategoryCell.reuseIdentifier, for: indexPath) as? ProjectCategoryCell
-        else { return UICollectionViewCell() }
-        
+
         let section = adapterDataSource?.fetchSection(section: indexPath.section)
         let todo = adapterDataSource?.todo
         
         switch section {
         case .priority:
-            priorityCell.delegate = self
-            priorityCell.index = indexPath.row
-            priorityCell.isChoosen = priorityCell.index == todo?.priority
-            priorityCell.configure(indexPath)
-            return priorityCell
+            let cell = collectionView.dequeueReusableCell(cellType: PriorityCell.self, for: indexPath)
+            cell.delegate = self
+            cell.index = indexPath.row
+            cell.isChoosen = cell.index == todo?.priority
+            cell.configure(indexPath)
+            return cell
             
         case .todo:
-            todoCell.delegate = self
-            todoCell.index = indexPath.row
-            todoCell.blockType = adapterDataSource?.block[indexPath.row]
-            todoCell.isChoosen = todoCell.index == todo?.todoType
-            return todoCell
+            let cell = collectionView.dequeueReusableCell(cellType: ODSBasicBlockCell.self, for: indexPath)
+            cell.delegate = self
+            cell.index = indexPath.row
+            cell.blockType = adapterDataSource?.block[indexPath.row]
+            cell.isChoosen = cell.index == todo?.todoType
+            return cell
             
         case .input:
-            inputCell.handler = { [weak self] text in
+            let cell = collectionView.dequeueReusableCell(cellType: InputCell.self, for: indexPath)
+            cell.handler = { [weak self] text in
                 self?.delegate?.inputTextFieldValueChanged(text: text)
             }
-            inputCell.textField.placeholder = todo?.todoType == 4 ? "투두의 내용을 적어주세요." : "어떤 스터디인가요?"
-            inputCell.textField.text = todo?.contents
-            return inputCell
+            cell.textField.placeholder = todo?.todoType == 4 ? "투두의 내용을 적어주세요." : "어떤 스터디인가요?"
+            cell.textField.text = todo?.contents
+            return cell
             
         case .project:
-            projectCell.configure(at: indexPath, with: todo)
-            return projectCell
+            let cell = collectionView.dequeueReusableCell(cellType: ProjectCategoryCell.self, for: indexPath)
+            cell.configure(at: indexPath, with: todo)
+            return cell
             
         default:
             return UICollectionViewCell()

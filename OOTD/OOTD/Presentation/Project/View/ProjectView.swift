@@ -34,11 +34,7 @@ final class ProjectView: BaseView {
         
         collectionView.do {
             $0.collectionViewLayout = collectionViewLayout()
-            
-            $0.register(
-                ProjectListCell.self,
-                forCellWithReuseIdentifier: ProjectListCell.reuseIdentifier
-            )
+            $0.register(ProjectListCell.self)
         }
     }
     
