@@ -28,7 +28,9 @@ final class TodoListViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private let viewModel = TodoListViewModel()
+    private let viewModel = TodoListViewModel(
+        manager: GitHubManager(apiService: APIManager(), environment: .development)
+    )
     private lazy var adapter = TodoListCollectionViewAdapter(
         collectionView: collectionView,
         adapterDataSource: viewModel,

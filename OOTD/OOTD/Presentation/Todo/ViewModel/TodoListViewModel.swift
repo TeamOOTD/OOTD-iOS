@@ -12,23 +12,31 @@ protocol TodoListViewModelProtocol {
     var currentDate: ObservableHelper<Date> { get set }
     var commitCount: ObservableHelper<Int> { get set }
     var todoPercent: ObservableHelper<Int> { get set }
-    
+
     func calculateTodoPercent()
     func fetchTodos()
     func updateTodo(item: Todo, completion: (() -> Void)?)
+    func fetchTodayCommit()
 }
 
 final class TodoListViewModel: TodoListViewModelProtocol {
     
     private let repository: StorageRepository<Todo>?
+    private let manager: GitHubManager
     
     var todos: ObservableHelper<[Todo]> = ObservableHelper([])
     var currentDate: ObservableHelper<Date> = ObservableHelper(Date())
-    var commitCount: ObservableHelper<Int> = ObservableHelper(0)
-    var todoPercent: ObservableHelper<Int> = ObservableHelper(0)
+    var commitCount = ObservableHelper(0)
+    var todoPercent = ObservableHelper(0)
     
-    init(repository: StorageRepository<Todo>? = StorageRepository<Todo>()) {
+    init(
+        repository: StorageRepository<Todo>? = StorageRepository<Todo>(),
+        manager: GitHubManager
+    ) {
         self.repository = repository
+        self.manager = manager
+        
+        fetchTodayCommit()
     }
     
     func calculateTodoPercent() {
@@ -47,6 +55,24 @@ final class TodoListViewModel: TodoListViewModelProtocol {
             completion?()
         } catch {
             print(error)
+        }
+    }
+    
+    func fetchTodayCommit() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        guard let username = UserDefaults.standard.string(forKey: "gitHubAccount") else { return }
+
+        Task {
+            let response = try await manager.fetchEvents(for: username)
+            if let repos = response {
+                let events = repos.filter {
+                    return (dateFormatter.string(from: currentDate.value).prefix(10) == $0.createdAt?.prefix(10))
+                }.filter {
+                    return $0.type == "PushEvent" || $0.type == "PullRequestEvent" || $0.type == "CreateEvent" || $0.type == "IssuesEvent"
+                }
+                commitCount.value = events.count
+            }
         }
     }
 }

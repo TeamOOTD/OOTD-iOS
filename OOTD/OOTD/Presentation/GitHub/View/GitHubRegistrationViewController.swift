@@ -104,36 +104,15 @@ extension GitHubRegistrationViewController {
 
             if let login = response?.login {
                 UserDefaults.standard.set(login, forKey: "gitHubAccount")
-                self.presentAlert(title: "\(login)님 환영합니다.") { [weak self] _ in
-                    
-                    self?.fetchRepos(for: login)
-                    
-                    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                    let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                    let tabBarController = TabBarController()
-                    sceneDelegate?.window?.rootViewController = tabBarController
-                    sceneDelegate?.window?.makeKeyAndVisible()
-                }
-                
+                self.presentAlert(title: "\(login)님이 맞으신가요?", isIncludedCancel: true, okActionTitle: "네", cancelActionTitle: "아니오", okCompletion: { _ in
+                       let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                       let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                       let tabBarController = TabBarController()
+                       sceneDelegate?.window?.rootViewController = tabBarController
+                       sceneDelegate?.window?.makeKeyAndVisible()
+                })
             } else {
                 self.presentAlert(title: "없는 계정입니다.")
-            }
-        }
-    }
-    
-    private func fetchRepos(for username: String) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        
-        Task {
-            let response = try await manager.fetchEvents(for: username)
-            if let repos = response {
-                let commit = repos.filter {
-                    return ("2022-09-26" == $0.createdAt?.prefix(10))
-                }.filter {
-                    return $0.type == "PushEvent" || $0.type == "PullRequestEvent" || $0.type == "CreateEvent" || $0.type == "IssuesEvent"
-                }
             }
         }
     }

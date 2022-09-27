@@ -24,7 +24,13 @@ final class SettingView: BaseView {
         }
         
         gitHubRegistrationButton.do {
-            $0.setImage(.imgGitHubReg, for: .normal)
+            if let nickname = UserDefaults.standard.string(forKey: "gitHubAccount") {
+                $0.setTitleColor(.grey900, for: .normal)
+                $0.setTitle("\(nickname)님 환영합니다.", for: .normal)
+                $0.setImage(nil, for: .normal)
+            } else {
+                $0.setImage(.imgGitHubReg, for: .normal)
+            }
         }
         
         collectionView.do {
