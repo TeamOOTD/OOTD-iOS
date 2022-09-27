@@ -41,7 +41,11 @@ final class TodoListHeaderView: BaseView {
     
     private var commitTitle: String? {
         get { commitLabel.text }
-        set { commitLabel.text = newValue }
+        set {
+            DispatchQueue.main.async { [weak self] in
+                self?.commitLabel.text = newValue
+            }
+        }
     }
     
     private var todoTitle: String? {
