@@ -50,14 +50,29 @@ final class ProjectArchiveViewController: BaseViewController {
             .bind(to: rootView.navigationBar.rightButton.rx.alpha)
             .disposed(by: disposedBag)
         
-        rootView.navigationBar.leftButton.rx.tap.subscribe { [weak self] _ in
-            self?.popViewController()
-        }.disposed(by: disposedBag)
+        viewModel.isEditMode
+            .map { $0 ? false : true }
+            .bind(to: rootView.navigationBar.deleteButton.rx.isHidden)
+            .disposed(by: disposedBag)
         
-        rootView.navigationBar.rightButton.rx.tap.subscribe { [weak self] _ in
-            self?.viewModel.saveProject()
-            self?.popViewController()
-        }.disposed(by: disposedBag)
+        rootView.navigationBar.leftButton.rx.tap
+            .subscribe { [weak self] _ in
+                self?.popViewController()
+            }.disposed(by: disposedBag)
+        
+        rootView.navigationBar.rightButton.rx.tap
+            .subscribe { [weak self] _ in
+                self?.viewModel.saveProject()
+                self?.popViewController()
+            }.disposed(by: disposedBag)
+        
+        rootView.navigationBar.deleteButton.rx.tap
+            .subscribe { [weak self] _ in
+                self?.presentAlert(title: "정말 삭제하실건가요?", isIncludedCancel: true) { _ in
+                    self?.viewModel.deleteProject()
+                    self?.popViewController()
+                }
+            }.disposed(by: disposedBag)
     }
 }
 

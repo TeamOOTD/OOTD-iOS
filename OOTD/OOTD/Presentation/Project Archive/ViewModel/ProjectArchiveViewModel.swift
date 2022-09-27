@@ -22,6 +22,7 @@ final class ProjectArchiveViewModel {
     var endDate = BehaviorRelay<Date?>(value: nil)
     var tech = BehaviorRelay(value: [String]())
     var memo = BehaviorRelay<String?>(value: nil)
+    var isEditMode = BehaviorRelay(value: false)
 
     var isValid: Observable<Bool> {
         return Observable.combineLatest(name, desc, startDate, tech).map { name, desc, startDate, tech in
@@ -51,6 +52,14 @@ final class ProjectArchiveViewModel {
         
         do {
             try projectRepository.update(item: project)
+        } catch {
+            print(error)
+        }
+    }
+
+    func deleteProject() {
+        do {
+            try projectRepository.delete(item: project)
         } catch {
             print(error)
         }

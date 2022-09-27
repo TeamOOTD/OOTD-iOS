@@ -88,6 +88,7 @@ extension ProjectViewController {
         let viewModel = ProjectArchiveViewModel(projectRepository: StorageRepository<Project>())
         
         viewModel.project = model
+        viewModel.isEditMode.accept(true)
         viewModel.name.accept(model.name)
         viewModel.desc.accept(model.desc)
         viewModel.link.accept(model.gitHubLink)
