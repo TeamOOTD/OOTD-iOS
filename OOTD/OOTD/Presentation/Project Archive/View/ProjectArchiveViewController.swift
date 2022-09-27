@@ -55,7 +55,7 @@ final class ProjectArchiveViewController: BaseViewController {
         }.disposed(by: disposedBag)
         
         rootView.navigationBar.rightButton.rx.tap.subscribe { [weak self] _ in
-            self?.viewModel.createProject()
+            self?.viewModel.saveProject()
             self?.popViewController()
         }.disposed(by: disposedBag)
     }
