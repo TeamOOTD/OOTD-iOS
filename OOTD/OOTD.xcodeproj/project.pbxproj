@@ -58,7 +58,6 @@
 		BD9FA4F428CF135600E8D68B /* OOTDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */; };
 		BD9FA4F628CF135600E8D68B /* OOTDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */; };
 		BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51128CF156800E8D68B /* TodoListViewController.swift */; };
-		BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51528CF157300E8D68B /* TimerViewController.swift */; };
 		BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51728CF160E00E8D68B /* GitHubRegistrationViewController.swift */; };
 		BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */; };
 		BD9FA51C28CF162500E8D68B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51B28CF162500E8D68B /* SettingViewController.swift */; };
@@ -245,7 +244,6 @@
 		BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITests.swift; sourceTree = "<group>"; };
 		BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BD9FA51128CF156800E8D68B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
-		BD9FA51528CF157300E8D68B /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		BD9FA51728CF160E00E8D68B /* GitHubRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRegistrationViewController.swift; sourceTree = "<group>"; };
 		BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		BD9FA51B28CF162500E8D68B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -608,7 +606,6 @@
 				BD621A3028DC3A4A008CFBB8 /* Project Archive */,
 				BD9FA50A28CF14F500E8D68B /* Setting */,
 				BD9FA50728CF14EB00E8D68B /* TabBar */,
-				BD9FA51328CF156B00E8D68B /* Timer */,
 				BD9FA50828CF14EE00E8D68B /* Todo */,
 				BD70EB1128D985050063DE18 /* TodoBottomSheet */,
 			);
@@ -724,22 +721,6 @@
 				BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */,
 				BDDAB6DC28D20EB400C021BC /* TodoSectionHeaderView.swift */,
 				BD9FA51128CF156800E8D68B /* TodoListViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BD9FA51328CF156B00E8D68B /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				BD9FA51428CF156D00E8D68B /* View */,
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
-		BD9FA51428CF156D00E8D68B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BD9FA51528CF157300E8D68B /* TimerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1228,7 +1209,6 @@
 				BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */,
 				BD5C0AF928E2102000E1BBCC /* UserDTO.swift in Sources */,
 				BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */,
-				BD9FA51628CF157300E8D68B /* TimerViewController.swift in Sources */,
 				BD92EFA928D3777C000C4A4F /* TodoBottomSheetViewController.swift in Sources */,
 				BD5C0B0328E2245B00E1BBCC /* RepoDTO.swift in Sources */,
 				BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */,
