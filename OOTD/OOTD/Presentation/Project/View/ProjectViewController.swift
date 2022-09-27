@@ -53,7 +53,8 @@ final class ProjectViewController: BaseViewController {
 extension ProjectViewController {
     
     @objc private func pushToProjectArchiveViewController() {
-        let viewController = ProjectArchiveViewController()
+        let viewModel = ProjectArchiveViewModel(projectRepository: StorageRepository<Project>())
+        let viewController = ProjectArchiveViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -73,5 +74,19 @@ extension ProjectViewController {
                     cell.configure(with: elem)
                 }
             .disposed(by: disposeBag)
+
+        rootView.collectionView.rx.modelSelected(Project.self)
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] model in
+                self?.pushProjectArchiveViewController(of: model)
+                
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func pushProjectArchiveViewController(of model: Project) {
+        let viewModel = ProjectArchiveViewModel(projectRepository: StorageRepository<Project>())
+        let viewController = ProjectArchiveViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
