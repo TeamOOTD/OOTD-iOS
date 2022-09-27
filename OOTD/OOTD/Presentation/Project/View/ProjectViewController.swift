@@ -20,7 +20,7 @@ final class ProjectViewController: BaseViewController {
     private let rootView = ProjectView()
     private let emptyView = ProjectListEmptyView()
 
-    init(viewModel: ProjectListViewModel!) {
+    init(viewModel: ProjectListViewModel) {
         self.viewModel = viewModel
         super.init()
     }
