@@ -16,7 +16,7 @@ extension SettingOption {
     var contents: [String] {
         switch self {
         case .config:
-            return ["알림 설정"]
+            return ["토큰 설정"]
         case .personal:
             return ["백업", "복구"]
         case .etc:
