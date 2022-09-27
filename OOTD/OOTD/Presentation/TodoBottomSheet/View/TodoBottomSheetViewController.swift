@@ -29,6 +29,7 @@ final class TodoBottomSheetViewController: BaseViewController {
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
+    private lazy var buttonContainerView = UIView()
     private lazy var buttonHStackView = UIStackView(arrangedSubviews: [doneButton, deleteButton])
     private lazy var doneButton = ODSButton(.enabled)
     private lazy var deleteButton = ODSButton(.sub)
@@ -49,6 +50,10 @@ final class TodoBottomSheetViewController: BaseViewController {
         
         collectionView.do {
             $0.isScrollEnabled = false
+        }
+        
+        buttonContainerView.do {
+            $0.backgroundColor = .grey100
         }
         
         buttonHStackView.do {
@@ -73,16 +78,21 @@ final class TodoBottomSheetViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        view.addSubviews(collectionView, buttonHStackView)
+        view.addSubviews(collectionView, buttonContainerView, buttonHStackView)
 
         collectionView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(Spacing.s32)
             $0.leading.bottom.trailing.equalToSuperview().inset(Spacing.s24)
         }
         
+        buttonContainerView.snp.makeConstraints {
+            $0.leading.bottom.trailing.equalToSuperview()
+            $0.height.equalTo(80.adjustedHeight)
+        }
+        
         buttonHStackView.snp.makeConstraints {
-            $0.leading.bottom.trailing.equalToSuperview().inset(Spacing.s24)
-            $0.height.equalTo(50)
+            $0.leading.bottom.trailing.equalTo(buttonContainerView).inset(Spacing.s24)
+            $0.height.equalTo(50.adjustedHeight)
         }
     }
     
