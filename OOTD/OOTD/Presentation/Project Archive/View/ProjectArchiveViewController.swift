@@ -13,9 +13,7 @@ import RxSwift
 
 final class ProjectArchiveViewController: BaseViewController {
     
-    private let viewModel = ProjectArchiveViewModel(
-        projectRepository: StorageRepository<Project>()
-    )
+    private var viewModel: ProjectArchiveViewModel
     private lazy var adapter: ProjectArchiveCollectionViewAdapter = {
         let adapter = ProjectArchiveCollectionViewAdapter(collectionView: rootView.collectionView, adapterDataSource: viewModel, delegate: self)
         return adapter
@@ -24,6 +22,11 @@ final class ProjectArchiveViewController: BaseViewController {
     private let rootView = ProjectArchiveView()
     
     var disposedBag = DisposeBag()
+    
+    init(viewModel: ProjectArchiveViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
 
     override func loadView() {
         self.view = rootView
