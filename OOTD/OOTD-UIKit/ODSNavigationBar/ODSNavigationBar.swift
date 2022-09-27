@@ -15,6 +15,7 @@ public final class ODSNavigationBar: BaseView {
  
     public let leftButton = UIButton()
     public let titleLabel = UILabel()
+    public let deleteButton = UIButton()
     public let rightButton = UIButton()
     
     private let navigationBarHeight: CGFloat = 44.0
@@ -56,6 +57,11 @@ public final class ODSNavigationBar: BaseView {
         }
     }
     
+    public var isDeleteButtonIncluded: Bool {
+        get { !deleteButton.isHidden }
+        set { deleteButton.isHidden = !newValue }
+    }
+    
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: navigationBarHeight)
     }
@@ -70,10 +76,16 @@ public final class ODSNavigationBar: BaseView {
             $0.isEnabled = isRightButtonEnabled
             $0.setTitleColor(isRightButtonEnabled ? .grey900 : .grey200, for: .normal)
         }
+        
+        deleteButton.do {
+            $0.setImage(.icnDelete, for: .normal)
+            $0.tintColor = .grey800
+            $0.isHidden = true
+        }
     }
     
     public override func configureLayout() {
-        addSubviews(leftButton, titleLabel, rightButton)
+        addSubviews(leftButton, titleLabel, rightButton, deleteButton)
         
         leftButton.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(Spacing.s16)
@@ -86,6 +98,11 @@ public final class ODSNavigationBar: BaseView {
         
         rightButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(Spacing.s16)
+            $0.centerY.equalToSuperview()
+        }
+        
+        deleteButton.snp.makeConstraints {
+            $0.trailing.equalTo(rightButton.snp.leading).inset(-Spacing.s8)
             $0.centerY.equalToSuperview()
         }
     }
