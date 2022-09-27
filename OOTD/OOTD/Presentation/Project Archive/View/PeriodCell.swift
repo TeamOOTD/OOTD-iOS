@@ -133,5 +133,19 @@ extension PeriodCell {
     
     func bind(_ viewModel: ProjectArchiveCollectionViewAdapterDataSource) {
         self.viewModel = viewModel
+        
+        if let startDate = viewModel.startDate.value {
+            let startDateString = dateFormatter.string(from: startDate)
+            self.startDate = startDate
+            endDateButton.isHidden = false
+        }
+        
+        if let endDate = viewModel.endDate.value {
+            let endDateString = dateFormatter.string(from: endDate)
+            self.endDate = endDate
+            endDateButton.setTitle(endDateString, for: .normal)
+        } else {
+            endDateButton.setTitle("진행 중", for: .normal)
+        }
     }
 }

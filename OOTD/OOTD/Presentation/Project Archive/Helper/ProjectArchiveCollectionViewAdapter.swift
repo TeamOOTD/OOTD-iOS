@@ -16,7 +16,7 @@ import WSTagsField
 protocol ProjectArchiveCollectionViewAdapterDataSource: AnyObject {
     var numberOfSections: Int { get }
     var numberOfItems: Int { get }
-    var project: PublishRelay<Project> { get }
+    var project: Observable<Project> { get }
     var name: BehaviorRelay<String> { get }
     var desc: BehaviorRelay<String> { get }
     var link: BehaviorRelay<String> { get }
@@ -114,7 +114,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
             }
             
             inputCell.textField.placeholder = section?.placeholder
-            
+            inputCell.textField.text = adapterDataSource?.name.value
             inputCell.textField.rx.text.orEmpty
                 .bind(to: adapterDataSource!.name)
                 .disposed(by: inputCell.disposedBag)
@@ -127,7 +127,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
             }
             
             inputCell.textField.placeholder = section?.placeholder
-            
+            inputCell.textField.text = adapterDataSource?.desc.value
             inputCell.textField.rx.text.orEmpty
                 .bind(to: adapterDataSource!.desc)
                 .disposed(by: inputCell.disposedBag)
@@ -140,7 +140,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
             }
             
             inputCell.textField.placeholder = section?.placeholder
-            
+            inputCell.textField.text = adapterDataSource?.link.value
             inputCell.textField.rx.text.orEmpty
                 .bind(to: adapterDataSource!.link)
                 .disposed(by: inputCell.disposedBag)
@@ -161,6 +161,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
             }
             tagFieldCell.configure(section: section)
             tagFieldCell.bind(adapterDataSource!, section: section)
+
             tagFieldCell.tagField.onDidChangeHeightTo = { [weak self] _, _ in
                 self?.delegate?.reload()
             }
@@ -171,6 +172,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             memoCell.textViewPlaceHolder = section?.placeholder
+            memoCell.textView.text = adapterDataSource?.memo.value
             memoCell.delegate = self
             memoCell.textView.rx.text.orEmpty
                 .bind(to: adapterDataSource!.memo)

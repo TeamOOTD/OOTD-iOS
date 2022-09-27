@@ -22,7 +22,7 @@ final class ProjectArchiveViewModel {
     var endDate = BehaviorRelay<Date?>(value: nil)
     var tech = BehaviorRelay(value: [String]())
     var memo = BehaviorRelay<String?>(value: nil)
-    
+
     var isValid: Observable<Bool> {
         return Observable.combineLatest(name, desc, startDate, tech).map { name, desc, startDate, tech in
             return name.isNotEmpty && desc.isNotEmpty && startDate != nil && tech.isNotEmpty
@@ -57,11 +57,10 @@ final class ProjectArchiveViewModel {
 }
 
 extension ProjectArchiveViewModel: ProjectArchiveCollectionViewAdapterDataSource {
-    
-    var project: PublishRelay<Project> {
-        return PublishRelay()
+    var project: Observable<Project> {
+        return Observable.just(Project(name: "", desc: "", gitHubLink: "", member: [], startDate: Date(), endDate: nil, tech: [], memo: nil))
     }
-
+    
     var sections: [ProjectArchiveSection] {
         return ProjectArchiveSection.allCases
     }
