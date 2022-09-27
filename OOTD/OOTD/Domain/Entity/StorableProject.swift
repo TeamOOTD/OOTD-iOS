@@ -32,10 +32,10 @@ final class StorableProject: Object, Storable {
             name: name,
             desc: desc,
             gitHubLink: gitHubLink,
-            member: member.map{$0},
+            member: member.map {$0},
             startDate: startDate,
             endDate: endDate,
-            tech: tech.map{$0},
+            tech: tech.map {$0},
             memo: memo
         )
     }

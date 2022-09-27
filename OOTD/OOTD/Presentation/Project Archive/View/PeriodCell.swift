@@ -135,7 +135,6 @@ extension PeriodCell {
         self.viewModel = viewModel
         
         if let startDate = viewModel.startDate.value {
-            let startDateString = dateFormatter.string(from: startDate)
             self.startDate = startDate
             endDateButton.isHidden = false
         }

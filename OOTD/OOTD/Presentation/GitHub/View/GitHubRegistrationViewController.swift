@@ -95,25 +95,37 @@ extension GitHubRegistrationViewController {
     }
     
     @objc func nextButtonTapped(_ sender: UIButton) {
-
+        self.presentAlert(title: "다음에 등록하실래요?", isIncludedCancel: true, okActionTitle: "네", cancelActionTitle: "아니오", okCompletion: { [weak self] _ in
+            UserDefaults.standard.set(false, forKey: "isFirstLogin")
+            self?.changeRootToTabBarController()
+        })
     }
     
     private func fetchUser(for username: String) {
         Task {
             let response = try await manager.fetchUser(for: username)
-
+            
             if let login = response?.login {
                 UserDefaults.standard.set(login, forKey: "gitHubAccount")
-                self.presentAlert(title: "\(login)님이 맞으신가요?", isIncludedCancel: true, okActionTitle: "네", cancelActionTitle: "아니오", okCompletion: { _ in
-                       let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                       let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                       let tabBarController = TabBarController()
-                       sceneDelegate?.window?.rootViewController = tabBarController
-                       sceneDelegate?.window?.makeKeyAndVisible()
+                self.presentAlert(title: "\(login)님이 맞으신가요?", isIncludedCancel: true, okActionTitle: "네", cancelActionTitle: "아니오", okCompletion: { [weak self] _ in
+                    UserDefaults.standard.set(false, forKey: "isFirstLogin")
+                    self?.changeRootToTabBarController()
                 })
             } else {
                 self.presentAlert(title: "없는 계정입니다.")
             }
         }
+    }
+    
+    private func changeRootToTabBarController() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let tabBarController = TabBarController()
+        let transition = CATransition()
+        transition.type = .fade
+        transition.duration = 0.3
+        sceneDelegate?.window?.layer.add(transition, forKey: kCATransition)
+        sceneDelegate?.window?.rootViewController = tabBarController
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }

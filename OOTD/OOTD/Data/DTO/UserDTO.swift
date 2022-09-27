@@ -10,4 +10,5 @@ import Foundation
 struct UserDTO: Codable {
     let login: String?
     let name: String?
+    let message: String?
 }
