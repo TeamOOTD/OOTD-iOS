@@ -5,7 +5,7 @@
 //  Created by taekki on 2022/09/19.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
 class StorageRepository<RepositoryObject>: Repository
@@ -44,6 +44,39 @@ class StorageRepository<RepositoryObject>: Repository
                 .filter(predicate).first {
                 realm.delete(item)
             }
+        }
+    }
+    
+    func saveImage(filename: String, image: UIImage) throws {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        let fileURL = documentDirectory.appendingPathComponent(filename)
+        guard let data = image.jpegData(compressionQuality: 0.5) else {
+            return
+        }
+        try data.write(to: fileURL)
+    }
+    
+    func fetchImage(filename: String) throws -> UIImage? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let fileURL = documentDirectory.appendingPathComponent(filename)
+
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            return UIImage(contentsOfFile: fileURL.path)
+        } else {
+            return UIImage(systemName: "favorite")
+        }
+    }
+    
+    func deleteImage(filename: String) throws {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = documentDirectory.appendingPathComponent(filename)
+
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+        } catch let error {
+            print(error)
         }
     }
 }

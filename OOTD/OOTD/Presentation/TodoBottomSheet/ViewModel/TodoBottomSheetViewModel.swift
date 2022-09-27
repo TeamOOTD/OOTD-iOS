@@ -9,7 +9,7 @@ import Foundation
 
 import OOTD_UIKit
 
-protocol TodoBottomSheetViewModelProtocol {
+protocol TodoBottomSheetViewModel {
     var state: ObservableHelper<TodoBottomSheetState> { get set }
     var section: ObservableHelper<[TodoBottomSheetSection]> { get set }
     var item: ObservableHelper<Todo> { get set }
@@ -23,9 +23,10 @@ protocol TodoBottomSheetViewModelProtocol {
     func updateTodo(completion: (() -> Void)?)
 }
 
-final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
+final class TodoBottomSheetViewModelImpl: TodoBottomSheetViewModel {
     
-    private let repository: StorageRepository<Todo>?
+    private let todoRepository: StorageRepository<Todo>
+    private let projectRepository: StorageRepository<Project>
     
     var state: ObservableHelper<TodoBottomSheetState> = ObservableHelper(.create)
     var section: ObservableHelper<[TodoBottomSheetSection]> = ObservableHelper([.priority, .todo, .project])
@@ -35,7 +36,8 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     var contents: ObservableHelper<String> = ObservableHelper("")
     
     init(
-        repository: StorageRepository<Todo>? = StorageRepository<Todo>(),
+        todoRepository: StorageRepository<Todo> = StorageRepository<Todo>(),
+        projectRepository: StorageRepository<Project> = StorageRepository<Project>(),
         state: TodoBottomSheetState = .create,
         item: Todo = Todo(isDone: false, todoType: 0, contents: "", priority: 0),
         priority: Int = 0,
@@ -44,13 +46,16 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     ) {
         let isHidden = todoType == 0 || todoType == 1 || todoType == 2
         
-        self.repository = repository
+        self.todoRepository = todoRepository
+        self.projectRepository = projectRepository
         self.section.value = isHidden ? [.priority, .todo, .project] : [.priority, .todo, .input, .project]
         self.state.value = state
         self.item.value = item
         self.priority.value = priority
         self.todoType.value = todoType
         self.contents.value = contents
+        
+        fetchProject()
     }
     
     func inputSection(isHidden: Bool) {
@@ -63,7 +68,7 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
                 contents.value = block[todoType.value].rawValue
             }
             let todo = Todo(isDone: false, todoType: todoType.value, contents: contents.value, priority: priority.value)
-            try repository?.create(item: todo)
+            try todoRepository.create(item: todo)
             completion?()
         } catch {
             print(error)
@@ -72,7 +77,7 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
     
     func deleteTodo(completion: (() -> Void)? = nil) {
         do {
-            try repository?.delete(item: item.value)
+            try todoRepository.delete(item: item.value)
             completion?()
         } catch {
             print(error)
@@ -87,15 +92,20 @@ final class TodoBottomSheetViewModel: TodoBottomSheetViewModelProtocol {
             item.value.priority = priority.value
             item.value.todoType = todoType.value
             item.value.contents = contents.value
-            try repository?.update(item: item.value)
+            try todoRepository.update(item: item.value)
             completion?()
         } catch {
             print(error)
         }
     }
+    
+    func fetchProject() {
+        let projects = projectRepository.fetchAll().map { $0.id }
+        dump(projects)
+    }
 }
 
-extension TodoBottomSheetViewModel: TodoBottomSheetCollectionViewAdapterDataSource {
+extension TodoBottomSheetViewModelImpl: TodoBottomSheetCollectionViewAdapterDataSource {
 
     var todo: Todo {
         return Todo(isDone: false, todoType: todoType.value, contents: contents.value, priority: priority.value, projectID: 0)

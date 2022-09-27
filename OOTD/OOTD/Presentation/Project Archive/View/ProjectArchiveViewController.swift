@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 import OOTD_Core
 import OOTD_UIKit
@@ -81,11 +82,6 @@ extension ProjectArchiveViewController {
     private func popViewController() {
         navigationController?.popViewController(animated: true)
     }
-    
-    private func createProject() {
-
-        navigationController?.popViewController(animated: true)
-    }
 }
 
 extension ProjectArchiveViewController: ProjectArchiveCollectionViewAdapterDelegate {
@@ -127,5 +123,33 @@ extension ProjectArchiveViewController: ProjectArchiveCollectionViewAdapterDeleg
         })
         
         present(alertController, animated: true)
+    }
+    
+    func selectPhoto() {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = .images
+        
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+extension ProjectArchiveViewController: PHPickerViewControllerDelegate {
+
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { image, _ in
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: NSNotification.Name("pickLogo"), object: nil, userInfo: ["logo": image as Any])
+                }
+            }
+        }
     }
 }

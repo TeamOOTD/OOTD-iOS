@@ -69,9 +69,10 @@ extension ProjectViewController {
             }
             .bind(to: rootView.collectionView.rx.items(
                 cellIdentifier: ProjectListCell.reuseIdentifier,
-                cellType: ProjectListCell.self)) { _, elem, cell in
+                cellType: ProjectListCell.self)) { [weak self] _, elem, cell in
+                    let image = self?.viewModel.fetchImage(filename: elem.id)
                     cell.createTagView(with: elem.tech)
-                    cell.configure(with: elem)
+                    cell.configure(with: elem, image: image)
                 }
             .disposed(by: disposeBag)
 
@@ -86,9 +87,11 @@ extension ProjectViewController {
     
     private func pushProjectArchiveViewController(of model: Project) {
         let viewModel = ProjectArchiveViewModel(projectRepository: StorageRepository<Project>())
+        let image = self.viewModel.fetchImage(filename: model.id)
         
         viewModel.project = model
         viewModel.isEditMode.accept(true)
+        viewModel.logo.accept(image)
         viewModel.name.accept(model.name)
         viewModel.desc.accept(model.desc)
         viewModel.link.accept(model.gitHubLink)
