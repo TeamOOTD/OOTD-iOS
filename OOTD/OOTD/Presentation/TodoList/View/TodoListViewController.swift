@@ -186,7 +186,8 @@ extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
             item: todo,
             priority: todo.priority,
             todoType: todo.todoType,
-            contents: todo.contents
+            contents: todo.contents,
+            projectID: todo.projectID ?? ""
         )
         let todoBottomSheetViewController = TodoBottomSheetViewController(viewModel: viewModel)
         todoBottomSheetViewController.completionHandler = { [weak self] in

@@ -47,6 +47,10 @@ final class TodoBottomSheetViewController: BaseViewController {
     override func configureAttributes() {
         view.backgroundColor = .systemBackground
         
+        collectionView.do {
+            $0.isScrollEnabled = false
+        }
+        
         buttonHStackView.do {
             $0.axis = .horizontal
             $0.distribution = .fillEqually
@@ -162,5 +166,14 @@ extension TodoBottomSheetViewController: TodoBottomSheetCollectionViewAdapterDel
     func inputTextFieldValueChanged(text: String?) {
         guard let text else { return }
         viewModel.contents.value = text
+    }
+    
+    func projectCategoryCellTapped(at index: Int) {
+        if index < viewModel.projects.count {
+            viewModel.projectID.value = viewModel.projects[index].0
+        } else {
+            viewModel.projectID.value = ""
+        }
+        self.collectionView.reloadData()
     }
 }

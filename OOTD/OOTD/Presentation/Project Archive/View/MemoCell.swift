@@ -25,6 +25,16 @@ final class MemoCell: BaseCollectionViewCell {
     weak var delegate: MemoCellDelegate?
     var disposedBag = DisposeBag()
     
+    var text: String? {
+        didSet {
+            if text != "" {
+                textView.text = text
+                textView.textColor = .grey900
+                placeholderLabel.textColor = .clear
+            }
+        }
+    }
+    
     var textViewPlaceHolder: String? {
         didSet {
             placeholderLabel.text = textViewPlaceHolder

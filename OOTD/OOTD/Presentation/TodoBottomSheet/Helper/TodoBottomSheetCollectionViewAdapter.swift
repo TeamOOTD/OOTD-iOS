@@ -9,11 +9,13 @@ import UIKit
 
 import OOTD_Core
 import OOTD_UIKit
+import RxSwift
 
 protocol TodoBottomSheetCollectionViewAdapterDataSource: AnyObject {
     var todo: Todo { get }
     var block: [ODSBasicBlockCell.BasicBlockType] { get }
     var numberOfSections: Int { get }
+    var projects: [(String, UIImage?)] { get }
     
     func fetchSection(section: Int) -> TodoBottomSheetSection
     func numberOfItems(section: Int) -> Int
@@ -23,6 +25,7 @@ protocol TodoBottomSheetCollectionViewAdapterDelegate: AnyObject {
     func priorityCellTapped(at index: Int)
     func todoBlockCellTapped(at index: Int)
     func inputTextFieldValueChanged(text: String?)
+    func projectCategoryCellTapped(at index: Int)
 }
 
 final class TodoBottomSheetCollectionViewAdapter: NSObject {
@@ -98,7 +101,13 @@ extension TodoBottomSheetCollectionViewAdapter: UICollectionViewDataSource {
             
         case .project:
             let cell = collectionView.dequeueReusableCell(cellType: ProjectCategoryCell.self, for: indexPath)
-            cell.configure(at: indexPath, with: todo)
+            let projects = adapterDataSource!.projects
+            cell.index = indexPath.row
+            cell.delegate = self
+            if projects.isNotEmpty && indexPath.row <= projects.indices.last! {
+                cell.configure(at: indexPath, with: todo, project: projects[indexPath.row])
+            }
+            cell.isChoosen = cell.projectID == todo?.projectID
             return cell
             
         default:
@@ -140,6 +149,13 @@ extension TodoBottomSheetCollectionViewAdapter: ODSBasicBlockCellDelegate {
     
     func basicBlockCell(_ cell: OOTD_UIKit.ODSBasicBlockCell, index: Int) {
         delegate?.todoBlockCellTapped(at: index)
+    }
+}
+
+extension TodoBottomSheetCollectionViewAdapter: ProjectCategoryCellDelegate {
+    
+    func projectCategoryCell(_ cell: ProjectCategoryCell, index: Int) {
+        delegate?.projectCategoryCellTapped(at: index)
     }
 }
 

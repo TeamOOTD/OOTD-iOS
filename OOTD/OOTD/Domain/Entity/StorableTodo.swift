@@ -15,7 +15,7 @@ final class StorableTodo: Object, Storable {
     @Persisted var contents: String
     @Persisted var priority: Int
     @Persisted var time: Int?
-    @Persisted var projectID: Int?
+    @Persisted var projectID: String?
     
     override class func primaryKey() -> String? {
         return "uuid"

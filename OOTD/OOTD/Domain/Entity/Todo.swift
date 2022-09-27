@@ -14,7 +14,7 @@ struct Todo {
     var contents: String
     var priority: Int
     var time: Int?
-    var projectID: Int?
+    var projectID: String?
     
     init(
         id: String = UUID().uuidString,
@@ -23,7 +23,7 @@ struct Todo {
         contents: String,
         priority: Int,
         time: Int? = nil,
-        projectID: Int? = nil
+        projectID: String? = nil
     ) {
         self.id = id
         self.isDone = isDone
