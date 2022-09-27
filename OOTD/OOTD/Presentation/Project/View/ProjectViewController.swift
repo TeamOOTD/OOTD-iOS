@@ -79,7 +79,7 @@ extension ProjectViewController {
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] model in
                 self?.pushProjectArchiveViewController(of: model)
-                
+
             }
             .disposed(by: disposeBag)
     }
@@ -87,6 +87,7 @@ extension ProjectViewController {
     private func pushProjectArchiveViewController(of model: Project) {
         let viewModel = ProjectArchiveViewModel(projectRepository: StorageRepository<Project>())
         
+        viewModel.project = model
         viewModel.name.accept(model.name)
         viewModel.desc.accept(model.desc)
         viewModel.link.accept(model.gitHubLink)

@@ -29,6 +29,8 @@ final class ProjectArchiveViewModel {
         }
     }
     
+    var project: Project = .init(name: "", desc: "", gitHubLink: "", member: [], startDate: Date(), endDate: nil, tech: [], memo: nil)
+    
     // MARK: - Private Properties
     private let projectRepository: StorageRepository<Project>
     private let disposeBag = DisposeBag()
@@ -37,19 +39,18 @@ final class ProjectArchiveViewModel {
         self.projectRepository = projectRepository
     }
 
-    func createProject() {
-        let project = Project(
-            name: name.value,
-            desc: desc.value,
-            gitHubLink: link.value,
-            member: member.value,
-            startDate: startDate.value ?? Date(),
-            endDate: endDate.value,
-            tech: tech.value,
-            memo: memo.value
-        )
+    func saveProject() {
+        project.name = name.value
+        project.desc = desc.value
+        project.gitHubLink = link.value
+        project.member = member.value
+        project.startDate = startDate.value ?? Date()
+        project.endDate = endDate.value
+        project.tech = tech.value
+        project.memo = memo.value
+        
         do {
-            try projectRepository.create(item: project)
+            try projectRepository.update(item: project)
         } catch {
             print(error)
         }
@@ -57,9 +58,6 @@ final class ProjectArchiveViewModel {
 }
 
 extension ProjectArchiveViewModel: ProjectArchiveCollectionViewAdapterDataSource {
-    var project: Observable<Project> {
-        return Observable.just(Project(name: "", desc: "", gitHubLink: "", member: [], startDate: Date(), endDate: nil, tech: [], memo: nil))
-    }
     
     var sections: [ProjectArchiveSection] {
         return ProjectArchiveSection.allCases

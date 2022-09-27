@@ -16,7 +16,7 @@ import WSTagsField
 protocol ProjectArchiveCollectionViewAdapterDataSource: AnyObject {
     var numberOfSections: Int { get }
     var numberOfItems: Int { get }
-    var project: Observable<Project> { get }
+    var project: Project { get set }
     var name: BehaviorRelay<String> { get }
     var desc: BehaviorRelay<String> { get }
     var link: BehaviorRelay<String> { get }

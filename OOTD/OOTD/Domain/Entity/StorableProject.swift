@@ -28,6 +28,7 @@ final class StorableProject: Object, Storable {
     
     var model: Project {
         return Project(
+            id: uuid,
             name: name,
             desc: desc,
             gitHubLink: gitHubLink,
