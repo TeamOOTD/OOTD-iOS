@@ -56,7 +56,7 @@ final class ProjectArchiveCollectionViewAdapter: NSObject {
         collectionView.dataSource = self
 
         collectionView.register(
-            TodoSectionHeaderView.self,
+            SectionHeaderView.self,
             ofKind: UICollectionView.elementKindSectionHeader
         )
         collectionView.register(LogoCell.self)
@@ -144,7 +144,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(
-            TodoSectionHeaderView.self,
+            SectionHeaderView.self,
             ofKind: kind,
             for: indexPath
         )

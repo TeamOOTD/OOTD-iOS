@@ -1,5 +1,5 @@
 //
-//  TodoSectionHeaderView.swift
+//  SectionHeaderView.swift
 //  OOTD
 //
 //  Created by taekki on 2022/09/14.
@@ -12,15 +12,11 @@ import Then
 import OOTD_Core
 import OOTD_UIKit
 
-protocol TodoSectionHeaderViewDelegate: AnyObject {
-    func todoSectionHeaderViewCreateButtonTapped(_ todoHeaderView: TodoSectionHeaderView)
+protocol SectionHeaderViewDelegate: AnyObject {
+    func sectionHeaderViewCreateButtonTapped(_ todoHeaderView: SectionHeaderView)
 }
 
-extension TodoSectionHeaderViewDelegate {
-    func todoSectionHeaderViewCreateButtonTapped(_ todoHeaderView: TodoSectionHeaderView) {}
-}
-
-final class TodoSectionHeaderView: BaseCollectionReusableView {
+final class SectionHeaderView: BaseCollectionReusableView {
     
     // MARK: - UI Properties
 
@@ -45,7 +41,7 @@ final class TodoSectionHeaderView: BaseCollectionReusableView {
         set { asteriskLabel.isHidden = !newValue }
     }
     
-    weak var delegate: TodoSectionHeaderViewDelegate?
+    weak var delegate: SectionHeaderViewDelegate?
     
     // MARK: - Override Functions
     
@@ -90,9 +86,9 @@ final class TodoSectionHeaderView: BaseCollectionReusableView {
 
 // MARK: - Private Functions
 
-extension TodoSectionHeaderView {
+extension SectionHeaderView {
 
     @objc private func createButtonDidTap(_ sender: UIButton) {
-        delegate?.todoSectionHeaderViewCreateButtonTapped(self)
+        delegate?.sectionHeaderViewCreateButtonTapped(self)
     }
 }
