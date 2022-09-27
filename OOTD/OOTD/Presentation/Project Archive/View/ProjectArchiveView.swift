@@ -25,6 +25,10 @@ final class ProjectArchiveView: BaseView {
             $0.rightButton.setTitleColor(.grey900, for: .normal)
             $0.rightButton.isEnabled = false
         }
+        
+        collectionView.do {
+            $0.showsVerticalScrollIndicator = false
+        }
     }
     
     override func configureLayout() {

@@ -18,9 +18,11 @@ protocol ProjectCategoryCellDelegate: AnyObject {
 
 final class ProjectCategoryCell: BaseCollectionViewCell {
     
-    let imageView = UIImageView()
+    lazy var projectButton = UIButton()
     let titleLabel = UILabel()
     
+    weak var delegate: ProjectCategoryCellDelegate?
+    var projectID: String = ""
     var index: Int?
     var isChoosen: Bool = false {
         didSet {
@@ -31,9 +33,13 @@ final class ProjectCategoryCell: BaseCollectionViewCell {
     override func configureAttributes() {
         backgroundColor = .clear
         makeRounded(radius: 32)
-        layer.borderWidth = 1
+        layer.borderWidth = 3
         layer.borderColor = UIColor.grey200.cgColor
         
+        projectButton.do {
+            $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        }
+
         titleLabel.do {
             $0.text = "없음"
             $0.textColor = .grey600
@@ -43,21 +49,34 @@ final class ProjectCategoryCell: BaseCollectionViewCell {
     }
     
     override func configureLayout() {
-        contentView.addSubviews(imageView, titleLabel)
-        imageView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(Spacing.s4)
+        contentView.addSubviews(titleLabel, projectButton)
+        projectButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Spacing.s4)
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        projectButton.setImage(nil, for: .normal)
+        projectID = ""
+    }
 }
 
 extension ProjectCategoryCell {
     
-    func configure(at indexPath: IndexPath, with todo: Todo?) {
+    func configure(at indexPath: IndexPath, with todo: Todo?, project: (String, UIImage?)) {
         self.index = indexPath.row
-        isChoosen = indexPath.row == todo?.projectID
+        projectID = project.0
+        projectButton.setImage(project.1, for: .normal)
+        isChoosen = projectID == todo?.projectID
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        delegate?.projectCategoryCell(self, index: index ?? 0)
     }
 }

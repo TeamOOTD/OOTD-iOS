@@ -135,7 +135,7 @@ extension ProjectArchiveCollectionViewAdapter: UICollectionViewDataSource {
         case .memo:
             let cell = collectionView.dequeueReusableCell(cellType: MemoCell.self, for: indexPath)
             cell.textViewPlaceHolder = section?.placeholder
-            cell.textView.text = adapterDataSource?.memo.value
+            cell.text = adapterDataSource?.memo.value
             cell.delegate = self
             cell.textView.rx.text.orEmpty
                 .bind(to: adapterDataSource!.memo)
