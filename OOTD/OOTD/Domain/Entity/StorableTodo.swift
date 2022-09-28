@@ -19,7 +19,6 @@ final class StorableTodo: Object, Storable {
     @Persisted var time: Int?
     @Persisted var projectID: String?
     @Persisted var date: Date = Date()
-    @Persisted var createdAt: Date = Date()
     
     override class func primaryKey() -> String? {
         return "uuid"
