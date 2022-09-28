@@ -12,10 +12,16 @@ import OOTD_Core
 
 final class SettingViewController: BaseViewController {
     
+    private let repository = StorageRepository<Todo>()
     private let rootView = SettingView()
     
     override func loadView() {
         self.view = rootView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTodo()
     }
     
     override func configureAttributes() {
@@ -25,6 +31,17 @@ final class SettingViewController: BaseViewController {
             $0.delegate = self
             $0.dataSource = self
         }
+    }
+    
+    private func fetchTodo() {
+        var date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        var dateComponents = DateComponents()
+        dateComponents.year = date.year
+        dateComponents.month = date.month
+        dateComponents.day = date.day
+        guard let today = Calendar.current.date(from: dateComponents) else { return }
+        let todo = repository.fetchByDate(by: today, keyPath: "date")
+        rootView.profileView.todoCount = todo.count
     }
 }
 
@@ -61,6 +78,8 @@ extension SettingViewController: UICollectionViewDataSource {
         let row = SettingSection.allCases[indexPath.section].contents[indexPath.row]
         
         switch row {
+        case .backupAndRestore:
+            presentAlert(title: "준비중이에요.")
         case .license:
             pushToLicenseViewController()
         default:
