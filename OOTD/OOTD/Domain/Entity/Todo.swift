@@ -15,6 +15,7 @@ struct Todo {
     var priority: Int
     var time: Int?
     var projectID: String?
+    var date: Date
     
     init(
         id: String = UUID().uuidString,
@@ -23,7 +24,8 @@ struct Todo {
         contents: String,
         priority: Int,
         time: Int? = nil,
-        projectID: String? = nil
+        projectID: String? = nil,
+        date: Date = Date()
     ) {
         self.id = id
         self.isDone = isDone
@@ -32,6 +34,7 @@ struct Todo {
         self.priority = priority
         self.time = time
         self.projectID = projectID
+        self.date = date
     }
 }
 
@@ -45,6 +48,7 @@ extension Todo: Entity {
         realmTodo.priority = priority
         realmTodo.time = time
         realmTodo.projectID = projectID
+        realmTodo.date = date
         return realmTodo
     }
     

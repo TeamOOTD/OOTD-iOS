@@ -29,6 +29,10 @@ final class TodoListViewModel: TodoListViewModelProtocol {
     var commitCount = ObservableHelper(0)
     var todoPercent = ObservableHelper(0)
     
+    lazy var dateFormatter = DateFormatter().then {
+        $0.dateFormat = "yyyy-MM-dd'T'hh:mm:ss.sss'Z'"
+    }
+    
     init(
         repository: StorageRepository<Todo>? = StorageRepository<Todo>(),
         manager: GitHubManager
@@ -45,7 +49,9 @@ final class TodoListViewModel: TodoListViewModelProtocol {
     }
     
     func fetchTodos() {
-        guard let todos = repository?.fetchAll() else { return }
+        let currentDateString = dateFormatter.string(from: currentDate.value)
+        guard let currentDate = dateFormatter.date(from: currentDateString) else { return }
+        guard let todos = repository?.fetchByDate(by: currentDate, keyPath: "priority") else { return }
         self.todos.value = todos
     }
     
