@@ -5,6 +5,8 @@
 //  Created by taekki on 2022/09/19.
 //
 
+import Foundation
+
 import RealmSwift
 
 final class StorableTodo: Object, Storable {
@@ -16,6 +18,8 @@ final class StorableTodo: Object, Storable {
     @Persisted var priority: Int
     @Persisted var time: Int?
     @Persisted var projectID: String?
+    @Persisted var date: Date = Date()
+    @Persisted var createdAt: Date = Date()
     
     override class func primaryKey() -> String? {
         return "uuid"
@@ -29,7 +33,8 @@ final class StorableTodo: Object, Storable {
             contents: contents,
             priority: priority,
             time: time,
-            projectID: projectID
+            projectID: projectID,
+            date: date
         )
     }
 }

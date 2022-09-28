@@ -37,6 +37,7 @@ final class TodoBottomSheetViewModelImpl: TodoBottomSheetViewModel {
     var todoType: ObservableHelper<Int> = ObservableHelper(0)
     var contents: ObservableHelper<String> = ObservableHelper("")
     var projectID = ObservableHelper<String>("")
+    var currentDate = ObservableHelper<Date?>(nil)
     
     init(
         todoRepository: StorageRepository<Todo> = StorageRepository<Todo>(),
@@ -46,7 +47,8 @@ final class TodoBottomSheetViewModelImpl: TodoBottomSheetViewModel {
         priority: Int = 0,
         todoType: Int = 0,
         contents: String = "",
-        projectID: String = ""
+        projectID: String = "",
+        currentDate: Date = Date()
     ) {
         let isHidden = todoType == 0 || todoType == 1 || todoType == 2
         
@@ -59,6 +61,7 @@ final class TodoBottomSheetViewModelImpl: TodoBottomSheetViewModel {
         self.todoType.value = todoType
         self.contents.value = contents
         self.projectID.value = projectID
+        self.currentDate.value = currentDate
     }
     
     func inputSection(isHidden: Bool) {
@@ -70,7 +73,7 @@ final class TodoBottomSheetViewModelImpl: TodoBottomSheetViewModel {
             if todoType.value == 0 || todoType.value == 1 || todoType.value == 2 {
                 contents.value = block[todoType.value].rawValue
             }
-            let todo = Todo(isDone: false, todoType: todoType.value, contents: contents.value, priority: priority.value, projectID: projectID.value)
+            let todo = Todo(isDone: false, todoType: todoType.value, contents: contents.value, priority: priority.value, projectID: projectID.value, date: currentDate.value ?? Date())
             try todoRepository.create(item: todo)
             completion?()
         } catch {

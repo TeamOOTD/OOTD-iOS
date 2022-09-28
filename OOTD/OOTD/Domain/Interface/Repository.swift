@@ -16,6 +16,8 @@ protocol Repository {
     func create(item: EntityObject) throws
     func update(item: EntityObject) throws
     func delete(item: EntityObject) throws
+    func fetch(keyPath: String, ascending: Bool) -> [EntityObject]
+    func fetchByDate(by date: Date, keyPath: String, ascending: Bool) -> [EntityObject]
     
     func saveImage(filename: String, image: UIImage) throws
     func fetchImage(filename: String) throws -> UIImage?

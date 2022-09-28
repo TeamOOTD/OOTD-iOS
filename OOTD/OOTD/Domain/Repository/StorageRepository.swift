@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import RealmSwift
 
 class StorageRepository<RepositoryObject>: Repository
@@ -45,6 +46,19 @@ class StorageRepository<RepositoryObject>: Repository
                 realm.delete(item)
             }
         }
+    }
+    
+    func fetch(keyPath: String, ascending: Bool = true) -> [RepositoryObject] {
+        let objects = realm.objects(RealmObject.self)
+            .sorted(byKeyPath: keyPath, ascending: ascending)
+        return objects.compactMap { $0.model as? RepositoryObject }
+    }
+    
+    func fetchByDate(by date: Date, keyPath: String, ascending: Bool = true) -> [RepositoryObject] {
+        let objects = realm.objects(RealmObject.self)
+            .filter("date >= %@ AND date < %@", date, Date(timeInterval: 86400, since: date))
+            .sorted(byKeyPath: keyPath, ascending: ascending)
+        return objects.compactMap { $0.model as? RepositoryObject }
     }
     
     func saveImage(filename: String, image: UIImage) throws {

@@ -149,6 +149,7 @@ final class TodoListViewController: BaseViewController {
         
         viewModel.currentDate.bind { [weak self] date in
             self?.headerView.date = self?.dateFormatter.string(from: date)
+            self?.viewModel.fetchTodos()
         }
         
         viewModel.commitCount.bind { [weak self] count in
@@ -173,6 +174,7 @@ extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
     
     private func presentBottomSheetViewController() {
         let viewModel = TodoBottomSheetViewModelImpl()
+        viewModel.currentDate.value = self.viewModel.currentDate.value
         let todoBottomSheetViewController = TodoBottomSheetViewController(viewModel: viewModel)
         todoBottomSheetViewController.completionHandler = { [weak self] in
             self?.viewModel.fetchTodos()
