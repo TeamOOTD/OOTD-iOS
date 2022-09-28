@@ -20,6 +20,9 @@
 		BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CE28DC569800D209A1 /* PeriodCell.swift */; };
 		BD39C48528E31166007AC73C /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48428E31166007AC73C /* UICollectionView+.swift */; };
 		BD39C48B28E37522007AC73C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48A28E37522007AC73C /* SplashViewController.swift */; };
+		BD39C48E28E3DBC4007AC73C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48D28E3DBC4007AC73C /* Realm */; };
+		BD39C49028E3DBC4007AC73C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48F28E3DBC4007AC73C /* RealmSwift */; };
+		BD39C49128E3EF4A007AC73C /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
 		BD5C0AF028E20F3800E1BBCC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */; };
@@ -55,9 +58,6 @@
 		BD9FA4D528CF135100E8D68B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4D428CF135100E8D68B /* SceneDelegate.swift */; };
 		BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA4DB28CF135600E8D68B /* Assets.xcassets */; };
 		BD9FA4DF28CF135600E8D68B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA4DD28CF135600E8D68B /* LaunchScreen.storyboard */; };
-		BD9FA4EA28CF135600E8D68B /* OOTDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4E928CF135600E8D68B /* OOTDTests.swift */; };
-		BD9FA4F428CF135600E8D68B /* OOTDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */; };
-		BD9FA4F628CF135600E8D68B /* OOTDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */; };
 		BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51128CF156800E8D68B /* TodoListViewController.swift */; };
 		BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51728CF160E00E8D68B /* GitHubRegistrationViewController.swift */; };
 		BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */; };
@@ -66,15 +66,11 @@
 		BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA52728CF171600E8D68B /* SnapKit */; };
 		BD9FA52B28CF174B00E8D68B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA52A28CF174B00E8D68B /* Then */; };
 		BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA52D28CF17AB00E8D68B /* FSCalendar */; };
-		BD9FA53128CF180C00E8D68B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53028CF180C00E8D68B /* Realm */; };
-		BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD9FA53228CF180C00E8D68B /* RealmSwift */; };
 		BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */; };
 		BDB2016228D99F16003FF3A3 /* ObservableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016128D99F16003FF3A3 /* ObservableHelper.swift */; };
 		BDB2016628D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */; };
 		BDB2016928D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016828D9CB26003FF3A3 /* TodoBottomSheetCollectionViewAdapter.swift */; };
 		BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2016A28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift */; };
-		BDB65B8628D0713E00679C02 /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
-		BDB65B8728D0713E00679C02 /* OOTD_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BDB65B8D28D079A100679C02 /* ODSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8C28D079A100679C02 /* ODSTextField.swift */; };
 		BDB65B9028D0B5BC00679C02 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B8F28D0B5BC00679C02 /* Device.swift */; };
 		BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */; };
@@ -126,20 +122,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BD9FA4E628CF135600E8D68B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BD9FA4C728CF135100E8D68B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD9FA4CE28CF135100E8D68B;
-			remoteInfo = OOTD;
-		};
-		BD9FA4F028CF135600E8D68B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BD9FA4C728CF135100E8D68B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD9FA4CE28CF135100E8D68B;
-			remoteInfo = OOTD;
-		};
 		BDB65B8828D0713E00679C02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BD9FA4C728CF135100E8D68B /* Project object */;
@@ -164,17 +146,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BDB65B8A28D0713F00679C02 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BDB65B8728D0713E00679C02 /* OOTD_Core.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BDD8CA2E28CF1FD100668B70 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,11 +211,6 @@
 		BD9FA4DB28CF135600E8D68B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD9FA4DE28CF135600E8D68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD9FA4E028CF135600E8D68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD9FA4E528CF135600E8D68B /* OOTDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OOTDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD9FA4E928CF135600E8D68B /* OOTDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDTests.swift; sourceTree = "<group>"; };
-		BD9FA4EF28CF135600E8D68B /* OOTDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OOTDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITests.swift; sourceTree = "<group>"; };
-		BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BD9FA51128CF156800E8D68B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		BD9FA51728CF160E00E8D68B /* GitHubRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRegistrationViewController.swift; sourceTree = "<group>"; };
 		BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
@@ -309,27 +275,13 @@
 				BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */,
 				BDD5F8C628DF318E003F3B03 /* RxCocoa in Frameworks */,
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
+				BD39C48E28E3DBC4007AC73C /* Realm in Frameworks */,
 				BDD8CA5728CF30EC00668B70 /* OOTD_UIKit.framework in Frameworks */,
-				BD9FA53128CF180C00E8D68B /* Realm in Frameworks */,
 				BDD5F8BF28DE0072003F3B03 /* IQKeyboardManagerSwift in Frameworks */,
 				BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */,
-				BD9FA53328CF180C00E8D68B /* RealmSwift in Frameworks */,
+				BD39C49028E3DBC4007AC73C /* RealmSwift in Frameworks */,
 				BD9FA52B28CF174B00E8D68B /* Then in Frameworks */,
 				BDD5F8C828DF318E003F3B03 /* RxSwift in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9FA4E228CF135600E8D68B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9FA4EC28CF135600E8D68B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDB65B8628D0713E00679C02 /* OOTD_Core.framework in Frameworks */,
+				BD39C49128E3EF4A007AC73C /* OOTD_Core.framework in Frameworks */,
 				BDD8CAC028CF7DB500668B70 /* SnapKit in Frameworks */,
 				BDD8CAC228CF7DB900668B70 /* Then in Frameworks */,
 			);
@@ -553,8 +505,6 @@
 			children = (
 				BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */,
 				BD9FA4D128CF135100E8D68B /* OOTD */,
-				BD9FA4E828CF135600E8D68B /* OOTDTests */,
-				BD9FA4F228CF135600E8D68B /* OOTDUITests */,
 				BDD8CA2828CF1FD100668B70 /* OOTD-Core */,
 				BDD8CA5228CF30EC00668B70 /* OOTD-UIKit */,
 				BD9FA4D028CF135100E8D68B /* Products */,
@@ -566,8 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				BD9FA4CF28CF135100E8D68B /* OOTD.app */,
-				BD9FA4E528CF135600E8D68B /* OOTDTests.xctest */,
-				BD9FA4EF28CF135600E8D68B /* OOTDUITests.xctest */,
 				BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */,
 				BDD8CA5128CF30EC00668B70 /* OOTD_UIKit.framework */,
 			);
@@ -587,23 +535,6 @@
 				BD9FA50328CF143B00E8D68B /* Resources */,
 			);
 			path = OOTD;
-			sourceTree = "<group>";
-		};
-		BD9FA4E828CF135600E8D68B /* OOTDTests */ = {
-			isa = PBXGroup;
-			children = (
-				BD9FA4E928CF135600E8D68B /* OOTDTests.swift */,
-			);
-			path = OOTDTests;
-			sourceTree = "<group>";
-		};
-		BD9FA4F228CF135600E8D68B /* OOTDUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BD9FA4F328CF135600E8D68B /* OOTDUITests.swift */,
-				BD9FA4F528CF135600E8D68B /* OOTDUITestsLaunchTests.swift */,
-			);
-			path = OOTDUITests;
 			sourceTree = "<group>";
 		};
 		BD9FA50228CF13E000E8D68B /* Application */ = {
@@ -1006,52 +937,16 @@
 				BD9FA52728CF171600E8D68B /* SnapKit */,
 				BD9FA52A28CF174B00E8D68B /* Then */,
 				BD9FA52D28CF17AB00E8D68B /* FSCalendar */,
-				BD9FA53028CF180C00E8D68B /* Realm */,
-				BD9FA53228CF180C00E8D68B /* RealmSwift */,
 				BDD5F8B428DD9B1D003F3B03 /* WSTagsField */,
 				BDD5F8BE28DE0072003F3B03 /* IQKeyboardManagerSwift */,
 				BDD5F8C528DF318E003F3B03 /* RxCocoa */,
 				BDD5F8C728DF318E003F3B03 /* RxSwift */,
+				BD39C48D28E3DBC4007AC73C /* Realm */,
+				BD39C48F28E3DBC4007AC73C /* RealmSwift */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
 			productType = "com.apple.product-type.application";
-		};
-		BD9FA4E428CF135600E8D68B /* OOTDTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD9FA4FC28CF135600E8D68B /* Build configuration list for PBXNativeTarget "OOTDTests" */;
-			buildPhases = (
-				BD9FA4E128CF135600E8D68B /* Sources */,
-				BD9FA4E228CF135600E8D68B /* Frameworks */,
-				BD9FA4E328CF135600E8D68B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD9FA4E728CF135600E8D68B /* PBXTargetDependency */,
-			);
-			name = OOTDTests;
-			productName = OOTDTests;
-			productReference = BD9FA4E528CF135600E8D68B /* OOTDTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		BD9FA4EE28CF135600E8D68B /* OOTDUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD9FA4FF28CF135600E8D68B /* Build configuration list for PBXNativeTarget "OOTDUITests" */;
-			buildPhases = (
-				BD9FA4EB28CF135600E8D68B /* Sources */,
-				BD9FA4EC28CF135600E8D68B /* Frameworks */,
-				BD9FA4ED28CF135600E8D68B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD9FA4F128CF135600E8D68B /* PBXTargetDependency */,
-			);
-			name = OOTDUITests;
-			productName = OOTDUITests;
-			productReference = BD9FA4EF28CF135600E8D68B /* OOTDUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		BDD8CA2628CF1FD100668B70 /* OOTD-Core */ = {
 			isa = PBXNativeTarget;
@@ -1079,7 +974,6 @@
 				BDD8CA4D28CF30EC00668B70 /* Sources */,
 				BDD8CA4E28CF30EC00668B70 /* Frameworks */,
 				BDD8CA4F28CF30EC00668B70 /* Resources */,
-				BDB65B8A28D0713F00679C02 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1108,14 +1002,6 @@
 					BD9FA4CE28CF135100E8D68B = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
-					BD9FA4E428CF135600E8D68B = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = BD9FA4CE28CF135100E8D68B;
-					};
-					BD9FA4EE28CF135600E8D68B = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = BD9FA4CE28CF135100E8D68B;
-					};
 					BDD8CA2628CF1FD100668B70 = {
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1340;
@@ -1139,18 +1025,16 @@
 				BD9FA52628CF171600E8D68B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BD9FA52928CF174B00E8D68B /* XCRemoteSwiftPackageReference "Then" */,
 				BD9FA52C28CF17AB00E8D68B /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */,
 				BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */,
 				BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BD9FA4CE28CF135100E8D68B /* OOTD */,
-				BD9FA4E428CF135600E8D68B /* OOTDTests */,
-				BD9FA4EE28CF135600E8D68B /* OOTDUITests */,
 				BDD8CA2628CF1FD100668B70 /* OOTD-Core */,
 				BDD8CA5028CF30EC00668B70 /* OOTD-UIKit */,
 			);
@@ -1165,20 +1049,6 @@
 				BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */,
 				BD9FA4DF28CF135600E8D68B /* LaunchScreen.storyboard in Resources */,
 				BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9FA4E328CF135600E8D68B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9FA4ED28CF135600E8D68B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1292,23 +1162,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD9FA4E128CF135600E8D68B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD9FA4EA28CF135600E8D68B /* OOTDTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9FA4EB28CF135600E8D68B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD9FA4F628CF135600E8D68B /* OOTDUITestsLaunchTests.swift in Sources */,
-				BD9FA4F428CF135600E8D68B /* OOTDUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BDD8CA2328CF1FD100668B70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1353,16 +1206,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BD9FA4E728CF135600E8D68B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD9FA4CE28CF135100E8D68B /* OOTD */;
-			targetProxy = BD9FA4E628CF135600E8D68B /* PBXContainerItemProxy */;
-		};
-		BD9FA4F128CF135600E8D68B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD9FA4CE28CF135100E8D68B /* OOTD */;
-			targetProxy = BD9FA4F028CF135600E8D68B /* PBXContainerItemProxy */;
-		};
 		BDB65B8928D0713E00679C02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BDD8CA2628CF1FD100668B70 /* OOTD-Core */;
@@ -1513,7 +1356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2209281;
 				DEVELOPMENT_TEAM = W7P3R7ZL78;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OOTD/Info.plist;
@@ -1526,7 +1369,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1542,7 +1385,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2209281;
 				DEVELOPMENT_TEAM = W7P3R7ZL78;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OOTD/Info.plist;
@@ -1555,88 +1398,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		BD9FA4FD28CF135600E8D68B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W7P3R7ZL78;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTDTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OOTD.app/OOTD";
-			};
-			name = Debug;
-		};
-		BD9FA4FE28CF135600E8D68B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W7P3R7ZL78;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTDTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OOTD.app/OOTD";
-			};
-			name = Release;
-		};
-		BD9FA50028CF135600E8D68B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W7P3R7ZL78;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTDUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OOTD;
-			};
-			name = Debug;
-		};
-		BD9FA50128CF135600E8D68B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W7P3R7ZL78;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTDUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OOTD;
 			};
 			name = Release;
 		};
@@ -1661,7 +1428,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.OOTD-Core";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTD.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1695,7 +1462,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.OOTD-Core";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTD.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1728,7 +1495,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.OOTD-UIKit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTD.UIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1762,7 +1529,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.OOTD-UIKit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.OOTD.UIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1795,24 +1562,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD9FA4FC28CF135600E8D68B /* Build configuration list for PBXNativeTarget "OOTDTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD9FA4FD28CF135600E8D68B /* Debug */,
-				BD9FA4FE28CF135600E8D68B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD9FA4FF28CF135600E8D68B /* Build configuration list for PBXNativeTarget "OOTDUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD9FA50028CF135600E8D68B /* Debug */,
-				BD9FA50128CF135600E8D68B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BDD8CA3228CF1FD100668B70 /* Build configuration list for PBXNativeTarget "OOTD-Core" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1834,6 +1583,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.30.0;
+			};
+		};
 		BD9FA52628CF171600E8D68B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1856,14 +1613,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
 			};
 		};
 		BDD5F8B328DD9B1D003F3B03 /* XCRemoteSwiftPackageReference "WSTagsField" */ = {
@@ -1893,6 +1642,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BD39C48D28E3DBC4007AC73C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BD39C48F28E3DBC4007AC73C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		BD9FA52728CF171600E8D68B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD9FA52628CF171600E8D68B /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -1907,16 +1666,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD9FA52C28CF17AB00E8D68B /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
-		};
-		BD9FA53028CF180C00E8D68B /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		BD9FA53228CF180C00E8D68B /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD9FA52F28CF180C00E8D68B /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 		BDD5F8B428DD9B1D003F3B03 /* WSTagsField */ = {
 			isa = XCSwiftPackageProductDependency;
