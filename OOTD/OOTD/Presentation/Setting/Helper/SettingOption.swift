@@ -18,9 +18,9 @@ extension SettingOption {
         case .config:
             return ["토큰 설정"]
         case .personal:
-            return ["백업", "복구"]
+            return ["백업/복구"]
         case .etc:
-            return ["앱 버전", "문의하기", "앱스토어 리뷰", "오픈 라이선스"]
+            return ["약관 및 정책", "오픈 라이선스", "앱 버전"]
         }
     }
     

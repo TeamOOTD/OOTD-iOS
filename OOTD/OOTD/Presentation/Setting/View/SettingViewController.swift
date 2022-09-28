@@ -41,11 +41,25 @@ extension SettingViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(cellType: SettingCell.self, for: indexPath)
-        cell.configure(SettingOption.allCases[indexPath.section].contents[indexPath.row])
+        let title = SettingOption.allCases[indexPath.section].contents[indexPath.row]
+        
+        if title == "앱 버전" {
+            cell.configure(title, desc: fetchAppVersion())
+        } else {
+            cell.configure(title)
+        }
         
         if SettingOption.allCases[indexPath.section].contents.indices.last == indexPath.row {
             cell.lineView.isHidden = true
         }
         return cell
+    }
+    
+    private func fetchAppVersion() -> String? {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String
+        else { return nil }
+        
+        return version
     }
 }
