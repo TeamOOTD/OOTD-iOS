@@ -145,6 +145,7 @@ final class TodoListViewController: BaseViewController {
         viewModel.todos.bind { [weak self] _ in
             self?.viewModel.calculateTodoPercent()
             self?.collectionView.reloadData()
+            self?.calendarView.reloadData()
         }
         
         viewModel.currentDate.bind { [weak self] date in
@@ -230,12 +231,21 @@ extension TodoListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
-        return [.green800, .yellow800]
+        let commitAlpha = CommitRange.classify(commit: viewModel.commitCount.value)
+        let todo = viewModel.fetchTodo(for: date)
+        let todoAlpha = TodoRange.classify(todo: viewModel.calculateTodoPercent(for: todo))
+        let commitColor: UIColor = UIColor.green800.withAlphaComponent(commitAlpha)
+        let yellowColor: UIColor = UIColor.yellow800.withAlphaComponent(todoAlpha)
+        
+        return [commitColor, yellowColor]
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        let commitColor: UIColor = [UIColor.green800, UIColor.green600].randomElement()!.withAlphaComponent(0.5 * CGFloat.random(in: 1...2))
-        let yellowColor: UIColor = [UIColor.yellow800, UIColor.yellow600].randomElement()!.withAlphaComponent(0.5 * CGFloat.random(in: 1...2))
+        let commitAlpha = CommitRange.classify(commit: viewModel.commitCount.value)
+        let todo = viewModel.fetchTodo(for: date)
+        let todoAlpha = TodoRange.classify(todo: viewModel.calculateTodoPercent(for: todo))
+        let commitColor: UIColor = UIColor.green800.withAlphaComponent(commitAlpha)
+        let yellowColor: UIColor = UIColor.yellow800.withAlphaComponent(todoAlpha)
         
         return [commitColor, yellowColor]
     }

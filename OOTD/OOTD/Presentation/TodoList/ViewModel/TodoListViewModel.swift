@@ -44,15 +44,23 @@ final class TodoListViewModel: TodoListViewModelProtocol {
     }
     
     func calculateTodoPercent() {
-        let todoPercent = todos.value.isEmpty ? 0 : Double(todos.value.filter { $0.isDone == true }.count) / Double(todos.value.count) * 100.0
-        self.todoPercent.value = Int(todoPercent)
+        self.todoPercent.value = calculateTodoPercent(for: todos.value)
+    }
+    
+    func calculateTodoPercent(for todos: [Todo]) -> Int {
+        let todoPercent = todos.isEmpty ? 0 : Double(todos.filter { $0.isDone == true }.count) / Double(todos.count) * 100.0
+        return Int(todoPercent)
     }
     
     func fetchTodos() {
-        let currentDateString = dateFormatter.string(from: currentDate.value)
-        guard let currentDate = dateFormatter.date(from: currentDateString) else { return }
-        guard let todos = repository?.fetchByDate(by: currentDate, keyPath: "priority") else { return }
-        self.todos.value = todos
+        self.todos.value = fetchTodo(for: currentDate.value)
+    }
+    
+    func fetchTodo(for date: Date) -> [Todo] {
+        let currentDateString = dateFormatter.string(from: date)
+        guard let currentDate = dateFormatter.date(from: currentDateString) else { return [] }
+        guard let todos = repository?.fetchByDate(by: currentDate, keyPath: "priority") else { return [] }
+        return todos
     }
     
     func updateTodo(item: Todo, completion: (() -> Void)? = nil) {

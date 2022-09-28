@@ -23,6 +23,8 @@
 		BD39C48E28E3DBC4007AC73C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48D28E3DBC4007AC73C /* Realm */; };
 		BD39C49028E3DBC4007AC73C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48F28E3DBC4007AC73C /* RealmSwift */; };
 		BD39C49128E3EF4A007AC73C /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
+		BD39C49928E46A08007AC73C /* CommitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49828E46A08007AC73C /* CommitRange.swift */; };
+		BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49A28E46A1B007AC73C /* TodoRange.swift */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
 		BD5C0AF028E20F3800E1BBCC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */; };
@@ -174,6 +176,8 @@
 		BD19C4CE28DC569800D209A1 /* PeriodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCell.swift; sourceTree = "<group>"; };
 		BD39C48428E31166007AC73C /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		BD39C48A28E37522007AC73C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BD39C49828E46A08007AC73C /* CommitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitRange.swift; sourceTree = "<group>"; };
+		BD39C49A28E46A1B007AC73C /* TodoRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRange.swift; sourceTree = "<group>"; };
 		BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BD5C0AED28E20F1200E1BBCC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -697,6 +701,8 @@
 			children = (
 				BD70EB1628D9890C0063DE18 /* TodoListCollectionViewAdapter.swift */,
 				BD621A2C28DB764E008CFBB8 /* Priority.swift */,
+				BD39C49828E46A08007AC73C /* CommitRange.swift */,
+				BD39C49A28E46A1B007AC73C /* TodoRange.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1126,7 +1132,9 @@
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* SectionHeaderView.swift in Sources */,
 				BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */,
+				BD39C49928E46A08007AC73C /* CommitRange.swift in Sources */,
 				BD621A2D28DB764E008CFBB8 /* Priority.swift in Sources */,
+				BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */,
 				BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
