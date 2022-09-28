@@ -7,6 +7,7 @@
 
 import UIKit
 
+import AcknowList
 import OOTD_Core
 
 final class SettingViewController: BaseViewController {
@@ -32,27 +33,39 @@ extension SettingViewController: UICollectionViewDelegate {}
 extension SettingViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return SettingOption.allCases.count
+        return SettingSection.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SettingOption.allCases[section].numberOfRowInSection
+        return SettingSection.allCases[section].numberOfRowInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(cellType: SettingCell.self, for: indexPath)
-        let title = SettingOption.allCases[indexPath.section].contents[indexPath.row]
+        let row = SettingSection.allCases[indexPath.section].contents[indexPath.row]
         
-        if title == "앱 버전" {
-            cell.configure(title, desc: fetchAppVersion())
-        } else {
-            cell.configure(title)
+        switch row {
+        case .appVersion:
+            cell.configure(row.rawValue, desc: fetchAppVersion())
+        default:
+            cell.configure(row.rawValue)
         }
-        
-        if SettingOption.allCases[indexPath.section].contents.indices.last == indexPath.row {
+
+        if SettingSection.allCases[indexPath.section].contents.indices.last == indexPath.row {
             cell.lineView.isHidden = true
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let row = SettingSection.allCases[indexPath.section].contents[indexPath.row]
+        
+        switch row {
+        case .license:
+            pushToLicenseViewController()
+        default:
+            return
+        }
     }
     
     private func fetchAppVersion() -> String? {
@@ -61,5 +74,10 @@ extension SettingViewController: UICollectionViewDataSource {
         else { return nil }
         
         return version
+    }
+    
+    private func pushToLicenseViewController() {
+        let viewController = LicenseViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

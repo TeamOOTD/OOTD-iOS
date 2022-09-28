@@ -10,7 +10,7 @@
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD19225728DC99C900726ECF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225628DC99C900726ECF /* SettingView.swift */; };
-		BD19225A28DC9A6700726ECF /* SettingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225928DC9A6700726ECF /* SettingOption.swift */; };
+		BD19225A28DC9A6700726ECF /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225928DC9A6700726ECF /* SettingSection.swift */; };
 		BD19225E28DC9F0100726ECF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225D28DC9F0100726ECF /* SettingCell.swift */; };
 		BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */; };
 		BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */; };
@@ -25,6 +25,10 @@
 		BD39C49128E3EF4A007AC73C /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BD39C49928E46A08007AC73C /* CommitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49828E46A08007AC73C /* CommitRange.swift */; };
 		BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49A28E46A1B007AC73C /* TodoRange.swift */; };
+		BD489F9528E48EFE00338427 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = BD489F9428E48EFE00338427 /* AcknowList */; };
+		BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9828E4916100338427 /* LicenseViewController.swift */; };
+		BD489F9B28E4917300338427 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9A28E4917300338427 /* LicenseView.swift */; };
+		BD489F9D28E491EA00338427 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9C28E491EA00338427 /* License.swift */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
 		BD5C0AF028E20F3800E1BBCC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */; };
@@ -166,7 +170,7 @@
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD19225628DC99C900726ECF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		BD19225928DC9A6700726ECF /* SettingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOption.swift; sourceTree = "<group>"; };
+		BD19225928DC9A6700726ECF /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
 		BD19225D28DC9F0100726ECF /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +182,9 @@
 		BD39C48A28E37522007AC73C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BD39C49828E46A08007AC73C /* CommitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitRange.swift; sourceTree = "<group>"; };
 		BD39C49A28E46A1B007AC73C /* TodoRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRange.swift; sourceTree = "<group>"; };
+		BD489F9828E4916100338427 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		BD489F9A28E4917300338427 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
+		BD489F9C28E491EA00338427 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BD5C0AED28E20F1200E1BBCC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -276,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */,
+				BD489F9528E48EFE00338427 /* AcknowList in Frameworks */,
 				BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */,
 				BDD5F8C628DF318E003F3B03 /* RxCocoa in Frameworks */,
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
@@ -328,7 +336,8 @@
 		BD19225828DC9A5C00726ECF /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BD19225928DC9A6700726ECF /* SettingOption.swift */,
+				BD19225928DC9A6700726ECF /* SettingSection.swift */,
+				BD489F9C28E491EA00338427 /* License.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -661,6 +670,8 @@
 		BD9FA50E28CF154A00E8D68B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD489F9A28E4917300338427 /* LicenseView.swift */,
+				BD489F9828E4916100338427 /* LicenseViewController.swift */,
 				BD19225D28DC9F0100726ECF /* SettingCell.swift */,
 				BD19225628DC99C900726ECF /* SettingView.swift */,
 				BD9FA51B28CF162500E8D68B /* SettingViewController.swift */,
@@ -949,6 +960,7 @@
 				BDD5F8C728DF318E003F3B03 /* RxSwift */,
 				BD39C48D28E3DBC4007AC73C /* Realm */,
 				BD39C48F28E3DBC4007AC73C /* RealmSwift */,
+				BD489F9428E48EFE00338427 /* AcknowList */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
@@ -1035,6 +1047,7 @@
 				BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BD489F9328E48EFE00338427 /* XCRemoteSwiftPackageReference "AcknowList" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
@@ -1128,7 +1141,7 @@
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
 				BD621A2F28DC39DC008CFBB8 /* ProjectArchiveViewController.swift in Sources */,
 				BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */,
-				BD19225A28DC9A6700726ECF /* SettingOption.swift in Sources */,
+				BD19225A28DC9A6700726ECF /* SettingSection.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* SectionHeaderView.swift in Sources */,
 				BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */,
@@ -1137,6 +1150,7 @@
 				BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */,
 				BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */,
+				BD489F9B28E4917300338427 /* LicenseView.swift in Sources */,
 				BD8B408F28D472A300A4E810 /* ProjectCategoryCell.swift in Sources */,
 				BD70EB0928D8AC4F0063DE18 /* Todo.swift in Sources */,
 				BD19225728DC99C900726ECF /* SettingView.swift in Sources */,
@@ -1148,8 +1162,10 @@
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
 				BD5C0B0128E2117100E1BBCC /* GitHubManager.swift in Sources */,
 				BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */,
+				BD489F9D28E491EA00338427 /* License.swift in Sources */,
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
 				BD5C0AF228E20F6A00E1BBCC /* HTTPMethod.swift in Sources */,
+				BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */,
 				BD5C0AF428E20F9D00E1BBCC /* NetworkRequest.swift in Sources */,
 				BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
@@ -1599,6 +1615,14 @@
 				version = 10.30.0;
 			};
 		};
+		BD489F9328E48EFE00338427 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vtourraine/AcknowList.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		BD9FA52628CF171600E8D68B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1659,6 +1683,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BD489F9428E48EFE00338427 /* AcknowList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD489F9328E48EFE00338427 /* XCRemoteSwiftPackageReference "AcknowList" */;
+			productName = AcknowList;
 		};
 		BD9FA52728CF171600E8D68B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
