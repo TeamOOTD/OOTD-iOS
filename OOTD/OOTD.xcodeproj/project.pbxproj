@@ -29,6 +29,7 @@
 		BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9828E4916100338427 /* LicenseViewController.swift */; };
 		BD489F9B28E4917300338427 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9A28E4917300338427 /* LicenseView.swift */; };
 		BD489F9D28E491EA00338427 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9C28E491EA00338427 /* License.swift */; };
+		BD489F9F28E4992800338427 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9E28E4992800338427 /* ProfileView.swift */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
 		BD5C0AF028E20F3800E1BBCC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */; };
@@ -185,6 +186,7 @@
 		BD489F9828E4916100338427 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		BD489F9A28E4917300338427 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		BD489F9C28E491EA00338427 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		BD489F9E28E4992800338427 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BD5C0AED28E20F1200E1BBCC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 			children = (
 				BD489F9A28E4917300338427 /* LicenseView.swift */,
 				BD489F9828E4916100338427 /* LicenseViewController.swift */,
+				BD489F9E28E4992800338427 /* ProfileView.swift */,
 				BD19225D28DC9F0100726ECF /* SettingCell.swift */,
 				BD19225628DC99C900726ECF /* SettingView.swift */,
 				BD9FA51B28CF162500E8D68B /* SettingViewController.swift */,
@@ -1146,6 +1149,7 @@
 				BDDAB6DD28D20EB400C021BC /* SectionHeaderView.swift in Sources */,
 				BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */,
 				BD39C49928E46A08007AC73C /* CommitRange.swift in Sources */,
+				BD489F9F28E4992800338427 /* ProfileView.swift in Sources */,
 				BD621A2D28DB764E008CFBB8 /* Priority.swift in Sources */,
 				BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */,
 				BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */,

@@ -13,24 +13,35 @@ import OOTD_UIKit
 final class SettingView: BaseView {
 
     let navigationBar = ODSNavigationBar()
+    lazy var profileVStackView = UIStackView(arrangedSubviews: [profileView, gitHubRegistrationButton])
+    let profileView = ProfileView()
     let gitHubRegistrationButton = UIButton()
     let collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    var user: String? {
+        return UserDefaults.standard.string(forKey: "gitHubAccount")
+    }
+    
     override func configureAttributes() {
         backgroundColor = .white
-        
+
         navigationBar.do {
             $0.title = "설정"
         }
         
+        profileVStackView.do {
+            $0.axis = .vertical
+            $0.distribution = .fillEqually
+        }
+        
+        profileView.do {
+            $0.isHidden = false
+            $0.isHidden = user == nil
+        }
+        
         gitHubRegistrationButton.do {
-            if let nickname = UserDefaults.standard.string(forKey: "gitHubAccount") {
-                $0.setTitleColor(.grey900, for: .normal)
-                $0.setTitle("\(nickname)님 환영합니다.", for: .normal)
-                $0.setImage(nil, for: .normal)
-            } else {
-                $0.setImage(.imgGitHubReg, for: .normal)
-            }
+            $0.setImage(.imgGitHubReg, for: .normal)
+            $0.isHidden = user != nil
         }
         
         collectionView.do {
@@ -45,21 +56,28 @@ final class SettingView: BaseView {
     }
     
     override func configureLayout() {
-        addSubviews(navigationBar, gitHubRegistrationButton, collectionView)
+        addSubviews(navigationBar, profileVStackView, collectionView)
         
         navigationBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(safeAreaLayoutGuide)
             $0.height.equalTo(44.adjustedHeight)
         }
         
-        gitHubRegistrationButton.snp.makeConstraints {
+        profileVStackView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.directionalHorizontalEdges.equalToSuperview().inset(Spacing.s20)
+        }
+        
+        profileView.snp.makeConstraints {
+            $0.height.equalTo(120)
+        }
+
+        gitHubRegistrationButton.snp.makeConstraints {
             $0.height.equalTo(120)
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(gitHubRegistrationButton.snp.bottom)
+            $0.top.equalTo(profileVStackView.snp.bottom)
             $0.directionalHorizontalEdges.bottom.equalToSuperview()
         }
     }
