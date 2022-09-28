@@ -78,6 +78,8 @@ extension SettingViewController: UICollectionViewDataSource {
         let row = SettingSection.allCases[indexPath.section].contents[indexPath.row]
         
         switch row {
+        case .tokenConfig:
+            presentAlert(title: "준비중이에요.")
         case .backupAndRestore:
             presentAlert(title: "준비중이에요.")
         case .license:
