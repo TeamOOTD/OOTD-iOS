@@ -26,6 +26,7 @@ public final class ODSTagView: BaseView {
         contentLabel.do {
             $0.textColor = .white
             $0.font = .ootdFont(.bold, size: 10)
+            $0.textAlignment = .center
         }
     }
     

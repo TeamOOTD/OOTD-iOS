@@ -16,6 +16,7 @@ final class ProjectListCell: BaseCollectionViewCell {
     private let projectNameLabel = UILabel()
     private let projectDescriptionLabel = UILabel()
     private lazy var tagHStackView = UIStackView()
+    private let countLabel = UILabel()
     private let periodLabel = UILabel()
     private let statusLabel = ODSTagView()
     
@@ -47,6 +48,12 @@ final class ProjectListCell: BaseCollectionViewCell {
             $0.spacing = 4
         }
         
+        countLabel.do {
+            $0.isHidden = true
+            $0.textColor = .grey800
+            $0.font = .ootdFont(.regular, size: 10)
+        }
+        
         periodLabel.do {
             $0.text = "2022.01 -> 2022.07"
             $0.textColor = .grey600
@@ -60,7 +67,7 @@ final class ProjectListCell: BaseCollectionViewCell {
     }
     
     override func configureLayout() {
-        contentView.addSubviews(logoImageView, projectNameLabel, projectDescriptionLabel, tagHStackView, periodLabel, statusLabel)
+        contentView.addSubviews(logoImageView, projectNameLabel, projectDescriptionLabel, tagHStackView, countLabel, periodLabel, statusLabel)
         
         logoImageView.snp.makeConstraints {
             $0.size.equalTo(64)
@@ -81,6 +88,12 @@ final class ProjectListCell: BaseCollectionViewCell {
         tagHStackView.snp.makeConstraints {
             $0.leading.equalTo(logoImageView.snp.trailing).offset(Spacing.s16)
             $0.top.equalTo(projectDescriptionLabel.snp.bottom).offset(2)
+            $0.trailing.equalToSuperview().inset(40)
+        }
+        
+        countLabel.snp.makeConstraints {
+            $0.centerY.equalTo(tagHStackView)
+            $0.leading.equalTo(tagHStackView.snp.trailing).offset(4)
         }
         
         periodLabel.snp.makeConstraints {
@@ -102,11 +115,16 @@ extension ProjectListCell {
             $0.removeFromSuperview()
         }
         
-        tags.forEach { tag in
+        for (index, tag) in tags.enumerated() where index < 4 {
             let tagView = ODSTagView()
             tagView.content = tag
             tagView.backgroundColor = .grey700
             tagHStackView.addArrangedSubview(tagView)
+        }
+        
+        if tags.count > 4 {
+            countLabel.isHidden = false
+            countLabel.text = "+\(tags.count - 4)"
         }
     }
     
