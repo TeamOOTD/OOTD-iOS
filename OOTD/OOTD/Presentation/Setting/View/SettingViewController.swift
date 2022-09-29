@@ -47,6 +47,7 @@ final class SettingViewController: BaseViewController {
         dateComponents.day = date.day
         guard let today = Calendar.current.date(from: dateComponents) else { return }
         let todo = repository.fetchByDate(by: today, keyPath: "date")
+        rootView.profileView.commit = UserDefaults.standard.integer(forKey: "todayCommit")
         rootView.profileView.todoCount = todo.count
     }
     
@@ -91,11 +92,11 @@ extension SettingViewController: UICollectionViewDataSource {
         
         switch row {
         case .tokenConfig:
-            presentAlert(title: "준비중이에요.")
+            pushToViewController(TokenViewController())
         case .backupAndRestore:
             presentAlert(title: "준비중이에요.")
         case .license:
-            pushToLicenseViewController()
+            pushToViewController(LicenseViewController())
         default:
             return
         }
@@ -108,9 +109,8 @@ extension SettingViewController: UICollectionViewDataSource {
         
         return version
     }
-    
-    private func pushToLicenseViewController() {
-        let viewController = LicenseViewController()
+
+    private func pushToViewController(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
