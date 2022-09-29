@@ -91,7 +91,7 @@ extension TokenViewController {
     @objc func confirmButtonTapped(_ sender: UIButton) {
         guard let token = textField.text else { return }
         presentAlert(title: "\(token)이 맞나요?") { [weak self] _ in
-            UserDefaults.standard.set(token, forKey: "accessToken")
+            UserDefaults.standard.set("Bearer \(token)", forKey: "accessToken")
             self?.changeRootToTabBarController()
         }
     }
