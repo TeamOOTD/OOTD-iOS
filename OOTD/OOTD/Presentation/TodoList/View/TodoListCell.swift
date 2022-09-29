@@ -48,6 +48,7 @@ final class TodoListCell: BaseCollectionViewCell {
         }
         
         contentLabel.do {
+            $0.text = "오늘 날짜 리스트 표시 안되는 이슈 수"
             $0.textColor = .grey900
             $0.font = .ootdFont(.regular, size: 14)
         }
@@ -70,20 +71,21 @@ final class TodoListCell: BaseCollectionViewCell {
             $0.centerY.equalToSuperview()
         }
         
+        optionButton.snp.makeConstraints {
+            $0.size.equalTo(24.adjustedWidth)
+            $0.trailing.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        
         contentLabel.snp.makeConstraints {
             $0.leading.equalTo(checkBoxButton.snp.trailing).offset(Spacing.s4)
             $0.centerY.equalTo(checkBoxButton.snp.centerY)
+            $0.trailing.equalTo(optionButton.snp.leading).offset(-80)
         }
         
         tagHStackView.snp.makeConstraints {
             $0.leading.equalTo(contentLabel.snp.trailing).offset(Spacing.s8)
             $0.centerY.equalTo(contentLabel.snp.centerY)
-        }
-        
-        optionButton.snp.makeConstraints {
-            $0.size.equalTo(24.adjustedWidth)
-            $0.trailing.equalToSuperview()
-            $0.centerY.equalToSuperview()
         }
     }
 }
@@ -130,3 +132,15 @@ extension TodoListCell {
         }
     }
 }
+
+// MARK: - Preview
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct Preview: PreviewProvider {
+    static var previews: some View {
+        TodoListCell().showPreview(.iPhone13Mini)
+    }
+}
+#endif
