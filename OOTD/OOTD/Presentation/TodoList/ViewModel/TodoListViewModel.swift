@@ -95,6 +95,7 @@ final class TodoListViewModel: TodoListViewModelProtocol {
                 }.filter {
                     return $0.type == "PushEvent" || $0.type == "PullRequestEvent" || $0.type == "CreateEvent" || $0.type == "IssuesEvent"
                 }
+                UserDefaults.standard.set(events.count, forKey: "todayCommit")
                 commitCount.value = events.count
             }
         }

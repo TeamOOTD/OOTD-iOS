@@ -13,16 +13,35 @@ import OOTD_UIKit
 
 final class GitHubRegistrationViewController: BaseViewController {
     
+    private let navigationBar = ODSNavigationBar()
     private let messageLabel = UILabel()
     private let gitHubNicknameTextField = ODSTextField()
     private lazy var buttonVStackView = UIStackView(arrangedSubviews: [confirmButton, registrationButton])
     private lazy var confirmButton = ODSButton(.enabled)
     private lazy var registrationButton = ODSButton(.sub)
-    
+
     private let manager = GitHubManager(apiService: APIManager(), environment: .development)
+    var isNavigationBarHidden = true {
+        didSet {
+            navigationBar.isHidden = isNavigationBarHidden
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
     
     override func configureAttributes() {
         view.backgroundColor = .white
+        
+        navigationBar.do {
+            $0.isHidden = isNavigationBarHidden
+            $0.leftBarItem = .back
+            $0.title = "깃허브 계정 등록하기"
+            $0.leftButton.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
+        }
         
         messageLabel.do {
             $0.text = """
@@ -59,10 +78,15 @@ final class GitHubRegistrationViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        view.addSubviews(messageLabel, gitHubNicknameTextField, buttonVStackView)
+        view.addSubviews(navigationBar, messageLabel, gitHubNicknameTextField, buttonVStackView)
+        
+        navigationBar.snp.makeConstraints {
+            $0.top.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(44)
+        }
         
         messageLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(60)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(60)
             $0.centerX.equalToSuperview()
         }
         
@@ -88,6 +112,10 @@ final class GitHubRegistrationViewController: BaseViewController {
 }
 
 extension GitHubRegistrationViewController {
+    
+    @objc func popViewController() {
+        navigationController?.popViewController(animated: true)
+    }
     
     @objc func confirmButtonTapped(_ sender: UIButton) {
         guard let username = gitHubNicknameTextField.text else { return }

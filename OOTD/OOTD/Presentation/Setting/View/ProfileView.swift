@@ -21,6 +21,12 @@ final class ProfileView: BaseView {
     private let todoView = UIView()
     private let todoCountLabel = UILabel()
     
+    var commit = 0 {
+        didSet {
+            commitCountLabel.text = "오늘 커밋 \(String(describing: commit))개"
+        }
+    }
+    
     var todoCount = 0 {
         didSet {
             todoCountLabel.text = "오늘 할 일 \(todoCount)개"
@@ -32,6 +38,10 @@ final class ProfileView: BaseView {
         makeRounded(radius: 12)
         layer.borderColor = UIColor.grey900.cgColor
         layer.borderWidth = 1
+
+        if let commit = UserDefaults.standard.object(forKey: "todayCommit") as? Int {
+            self.commit = commit
+        }
         
         usernameLabel.do {
             if let nickname = UserDefaults.standard.string(forKey: "gitHubAccount") {
@@ -55,7 +65,7 @@ final class ProfileView: BaseView {
         }
         
         commitCountLabel.do {
-            $0.text = "오늘 커밋 0개"
+            $0.text = "오늘 커밋 \(commit)개"
             $0.textColor = .grey800
             $0.font = .ootdFont(.bold, size: 14)
         }
@@ -65,7 +75,6 @@ final class ProfileView: BaseView {
         }
         
         todoCountLabel.do {
-            $0.text = "오늘 할 일 0개"
             $0.textColor = .grey800
             $0.font = .ootdFont(.bold, size: 14)
         }
