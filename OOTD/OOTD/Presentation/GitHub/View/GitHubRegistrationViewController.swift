@@ -15,6 +15,7 @@ final class GitHubRegistrationViewController: BaseViewController {
     
     private let navigationBar = ODSNavigationBar()
     private let messageLabel = UILabel()
+    private let descriptionLabel = UILabel()
     private let gitHubNicknameTextField = ODSTextField()
     private lazy var buttonVStackView = UIStackView(arrangedSubviews: [confirmButton, registrationButton])
     private lazy var confirmButton = ODSButton(.enabled)
@@ -54,6 +55,17 @@ final class GitHubRegistrationViewController: BaseViewController {
             $0.numberOfLines = 0
         }
         
+        descriptionLabel.do {
+            $0.text = """
+            앱 내에서 Personal access 토큰을 등록해보세요.
+            Private Repository 커밋 기록까지 확인할 수 있어요.
+            """
+            $0.textColor = .grey500
+            $0.textAlignment = .center
+            $0.font = .ootdFont(.regular, size: 14)
+            $0.numberOfLines = 0
+        }
+        
         gitHubNicknameTextField.do {
             $0.font = UIFont.systemFont(ofSize: 14)
             $0.placeholder = "본인의 GitHub 계정을 정확하게 입력해주세요."
@@ -78,7 +90,7 @@ final class GitHubRegistrationViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        view.addSubviews(navigationBar, messageLabel, gitHubNicknameTextField, buttonVStackView)
+        view.addSubviews(navigationBar, messageLabel, descriptionLabel, gitHubNicknameTextField, buttonVStackView)
         
         navigationBar.snp.makeConstraints {
             $0.top.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
@@ -90,8 +102,13 @@ final class GitHubRegistrationViewController: BaseViewController {
             $0.centerX.equalToSuperview()
         }
         
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(messageLabel.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+        }
+        
         gitHubNicknameTextField.snp.makeConstraints {
-            $0.top.equalTo(messageLabel.snp.bottom).offset(30)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(30)
             $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(Spacing.s20)
             $0.height.equalTo(40)
         }
