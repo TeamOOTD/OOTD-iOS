@@ -15,7 +15,7 @@ protocol TodoBottomSheetCollectionViewAdapterDataSource: AnyObject {
     var todo: Todo { get }
     var block: [ODSBasicBlockCell.BasicBlockType] { get }
     var numberOfSections: Int { get }
-    var projects: [(String, UIImage?)] { get }
+    var projects: [(Project, UIImage?)] { get }
     
     func fetchSection(section: Int) -> TodoBottomSheetSection
     func numberOfItems(section: Int) -> Int
@@ -204,7 +204,7 @@ extension TodoBottomSheetCollectionViewAdapter {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = sectionType.sectionInsets
         section.boundarySupplementaryItems = [generateHeader()]
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = 5
         
         if sectionType == .priority || sectionType == .project {
             section.orthogonalScrollingBehavior = .continuous
@@ -218,7 +218,7 @@ extension TodoBottomSheetCollectionViewAdapter {
 
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(40)
+            heightDimension: .estimated(30)
         )
         let headerElement = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,

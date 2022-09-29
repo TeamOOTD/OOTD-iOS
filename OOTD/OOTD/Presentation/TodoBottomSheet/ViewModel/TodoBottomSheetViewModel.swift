@@ -117,9 +117,9 @@ extension TodoBottomSheetViewModelImpl: TodoBottomSheetCollectionViewAdapterData
         return [.algorithm, .blog, .commit, .study, .direct]
     }
     
-    var projects: [(String, UIImage?)] {
+    var projects: [(Project, UIImage?)] {
         projectRepository.fetchAll().map {
-            return ($0.id, try! projectRepository.fetchImage(filename: "\($0.id).jpeg"))
+            return ($0, try! projectRepository.fetchImage(filename: "\($0.id).jpeg"))
         }
     }
     
