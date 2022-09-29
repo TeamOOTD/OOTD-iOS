@@ -224,26 +224,22 @@ extension TodoListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return 2
+        return 1
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
-        let commitAlpha = CommitRange.classify(commit: viewModel.commitCount.value)
         let todo = viewModel.fetchTodo(for: date)
         let todoAlpha = TodoRange.classify(todo: viewModel.calculateTodoPercent(for: todo))
-        let commitColor: UIColor = UIColor.green800.withAlphaComponent(commitAlpha)
         let yellowColor: UIColor = UIColor.yellow800.withAlphaComponent(todoAlpha)
         
-        return [commitColor, yellowColor]
+        return [yellowColor]
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        let commitAlpha = CommitRange.classify(commit: viewModel.commitCount.value)
         let todo = viewModel.fetchTodo(for: date)
         let todoAlpha = TodoRange.classify(todo: viewModel.calculateTodoPercent(for: todo))
-        let commitColor: UIColor = UIColor.green800.withAlphaComponent(commitAlpha)
         let yellowColor: UIColor = UIColor.yellow800.withAlphaComponent(todoAlpha)
         
-        return [commitColor, yellowColor]
+        return [yellowColor]
     }
 }
