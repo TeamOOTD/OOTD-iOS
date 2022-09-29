@@ -72,5 +72,13 @@ extension TagFieldCell {
                 viewModel.tech.accept(textField.tags.map { $0.text })
             }
         }
+        
+        tagField.onDidRemoveTag = { textField, _ in
+            if section == .member {
+                viewModel.member.accept(textField.tags.map { $0.text })
+            } else {
+                viewModel.tech.accept(textField.tags.map { $0.text })
+            }
+        }
     }
 }

@@ -130,15 +130,3 @@ extension TodoListCell {
         }
     }
 }
-
-// MARK: - Preview
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct Preview: PreviewProvider {
-    static var previews: some View {
-        TodoListCell().showPreview(.iPhone13Mini)
-    }
-}
-#endif
