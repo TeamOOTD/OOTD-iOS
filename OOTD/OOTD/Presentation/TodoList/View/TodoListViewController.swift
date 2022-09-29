@@ -57,10 +57,6 @@ final class TodoListViewController: BaseViewController {
             $0.addTarget(self, action: #selector(segmentedControlTapped), for: .valueChanged)
         }
         
-        navigationBar.do {
-            $0.rightBarItem = .timer
-        }
-        
         headerView.do {
             $0.date = dateFormatter.string(from: viewModel.currentDate.value)
             $0.commitCount = viewModel.commitCount.value
