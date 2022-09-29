@@ -114,8 +114,6 @@ extension TodoListCell {
         tags.removeAll()
         if data.priority != 3 {
             tags.append(("중요도 " + priority.rawValue, priority.color))
-        } else {
-            tags.append(("중요도 없음", priority.color))
         }
     }
     
