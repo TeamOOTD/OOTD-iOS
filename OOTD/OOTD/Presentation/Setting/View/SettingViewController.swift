@@ -21,11 +21,17 @@ final class SettingViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
         fetchTodo()
     }
     
     override func configureAttributes() {
         super.configureAttributes()
+        
+        rootView.gitHubRegistrationButton.do {
+            $0.addTarget(self, action: #selector(pushToGitHubViewController), for: .touchUpInside)
+        }
         
         rootView.collectionView.do {
             $0.delegate = self
@@ -42,6 +48,12 @@ final class SettingViewController: BaseViewController {
         guard let today = Calendar.current.date(from: dateComponents) else { return }
         let todo = repository.fetchByDate(by: today, keyPath: "date")
         rootView.profileView.todoCount = todo.count
+    }
+    
+    @objc func pushToGitHubViewController() {
+        let viewController = GitHubRegistrationViewController()
+        viewController.isNavigationBarHidden = false
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

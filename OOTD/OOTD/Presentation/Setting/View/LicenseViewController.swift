@@ -18,6 +18,12 @@ final class LicenseViewController: BaseViewController {
         self.view = rootView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     override func configureAttributes() {
         super.configureAttributes()
         
