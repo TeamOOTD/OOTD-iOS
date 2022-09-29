@@ -88,7 +88,7 @@ final class ProjectListCell: BaseCollectionViewCell {
         tagHStackView.snp.makeConstraints {
             $0.leading.equalTo(logoImageView.snp.trailing).offset(Spacing.s16)
             $0.top.equalTo(projectDescriptionLabel.snp.bottom).offset(2)
-            $0.trailing.equalToSuperview().inset(40)
+            $0.trailing.lessThanOrEqualToSuperview().inset(40)
         }
         
         countLabel.snp.makeConstraints {
