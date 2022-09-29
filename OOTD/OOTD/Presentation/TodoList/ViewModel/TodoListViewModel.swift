@@ -24,6 +24,15 @@ final class TodoListViewModel: TodoListViewModelProtocol {
     private let repository: StorageRepository<Todo>?
     private let manager: GitHubManager
     
+    var today: Date {
+        let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        var dateComponents = DateComponents()
+        dateComponents.year = date.year
+        dateComponents.month = date.month
+        dateComponents.day = date.day
+        guard let today = Calendar.current.date(from: dateComponents) else { return Date() }
+        return today
+    }
     var todos: ObservableHelper<[Todo]> = ObservableHelper([])
     var currentDate: ObservableHelper<Date> = ObservableHelper(Date())
     var commitCount = ObservableHelper(0)
@@ -40,6 +49,7 @@ final class TodoListViewModel: TodoListViewModelProtocol {
         self.repository = repository
         self.manager = manager
         
+        currentDate.value = today
         fetchTodayCommit()
     }
     

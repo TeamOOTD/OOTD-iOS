@@ -34,7 +34,7 @@ final class SettingViewController: BaseViewController {
     }
     
     private func fetchTodo() {
-        var date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         var dateComponents = DateComponents()
         dateComponents.year = date.year
         dateComponents.month = date.month
