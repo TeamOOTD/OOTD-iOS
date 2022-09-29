@@ -17,7 +17,7 @@ final class TodoListViewController: BaseViewController {
     
     private let navigationBar = ODSNavigationBar()
     private let headerView = TodoListHeaderView()
-    private let scopeSegmentedControl = ODSSegmentedControl(buttonTitles: ["주간", "월간"])
+    private let scopeSegmentedControl = UISegmentedControl(items: ["주간", "월간"])
     private let scrollView = UIScrollView()
     private lazy var containerVStackView = UIStackView(arrangedSubviews: [calendarView, collectionView])
     private let calendarView = FSCalendar()
@@ -52,9 +52,9 @@ final class TodoListViewController: BaseViewController {
         }
         
         scopeSegmentedControl.do {
-            $0.delegate = self
-            $0.selectorViewColor = .yellow600
             $0.backgroundColor = .green600
+            $0.selectedSegmentIndex = 0
+            $0.addTarget(self, action: #selector(segmentedControlTapped), for: .valueChanged)
         }
         
         navigationBar.do {
@@ -200,9 +200,10 @@ extension TodoListViewController: TodoListCollectionViewAdapterDelegate {
     }
 }
 
-extension TodoListViewController: ODSSegmentedControlDelegate {
+extension TodoListViewController {
     
-    func segmentedControl(_ segmentedControl: ODSSegmentedControl, to index: Int) {
+    @objc func segmentedControlTapped(_ sender: UIButton) {
+        let index = scopeSegmentedControl.selectedSegmentIndex
         calendarView.setScope(index == 0 ? .week : .month, animated: true)
     }
 }
