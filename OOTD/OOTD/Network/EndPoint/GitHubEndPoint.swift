@@ -39,4 +39,13 @@ extension GitHubEndPoint: EndPoint {
             return "\(baseURL)/users/\(username)/events?per_page=100"
         }
     }
+    
+    func createRequest(environment: APIEnvironment) -> NetworkRequest {
+        var headers: [String: String] = [:]
+        headers["Authorization"] = "Bearer " + (environment.token ?? "")
+        return NetworkRequest(url: getURL(from: environment),
+                              httpMethod: method,
+                              requestBody: body,
+                              headers: headers)
+    }
 }

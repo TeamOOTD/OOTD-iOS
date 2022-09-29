@@ -83,6 +83,7 @@
 		BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */; };
 		BDB65B9428D0BE8100679C02 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9328D0BE8100679C02 /* TabBarItem.swift */; };
 		BDB65B9628D1ADBE00679C02 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */; };
+		BDD2A48228E5AECD00AAB92D /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2A48128E5AECD00AAB92D /* TokenViewController.swift */; };
 		BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */ = {isa = PBXBuildFile; productRef = BDD5F8B428DD9B1D003F3B03 /* WSTagsField */; };
 		BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */; };
 		BDD5F8BC28DDFA0C003F3B03 /* ProjectListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */; };
@@ -242,6 +243,7 @@
 		BDB65B9128D0B6B200679C02 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		BDB65B9328D0BE8100679C02 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		BDB65B9528D1ADBE00679C02 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
+		BDD2A48128E5AECD00AAB92D /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		BDD5F8B628DD9E81003F3B03 /* TagFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFieldCell.swift; sourceTree = "<group>"; };
 		BDD5F8BB28DDFA0C003F3B03 /* ProjectListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListEmptyView.swift; sourceTree = "<group>"; };
 		BDD5F8C028DE14CF003F3B03 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -678,6 +680,7 @@
 				BD19225D28DC9F0100726ECF /* SettingCell.swift */,
 				BD19225628DC99C900726ECF /* SettingView.swift */,
 				BD9FA51B28CF162500E8D68B /* SettingViewController.swift */,
+				BDD2A48128E5AECD00AAB92D /* TokenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1170,6 +1173,7 @@
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
 				BD5C0AF228E20F6A00E1BBCC /* HTTPMethod.swift in Sources */,
 				BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */,
+				BDD2A48228E5AECD00AAB92D /* TokenViewController.swift in Sources */,
 				BD5C0AF428E20F9D00E1BBCC /* NetworkRequest.swift in Sources */,
 				BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
