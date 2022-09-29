@@ -20,10 +20,15 @@ extension TodoBottomSheetSection {
 
     var itemSize: NSCollectionLayoutSize {
         switch self {
-        case .priority, .todo, .input, .project:
+        case .priority, .todo, .input:
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalHeight(1)
+            )
+        case .project:
+            return NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .estimated(80)
             )
         }
     }
@@ -38,7 +43,7 @@ extension TodoBottomSheetSection {
         case .project:
             return NSCollectionLayoutSize(
                 widthDimension: .absolute(64),
-                heightDimension: .absolute(64)
+                heightDimension: .estimated(80)
             )
         case .todo, .input:
             return NSCollectionLayoutSize(

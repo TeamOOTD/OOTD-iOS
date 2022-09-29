@@ -180,7 +180,7 @@ extension TodoBottomSheetViewController: TodoBottomSheetCollectionViewAdapterDel
     
     func projectCategoryCellTapped(at index: Int) {
         if index < viewModel.projects.count {
-            viewModel.projectID.value = viewModel.projects[index].0
+            viewModel.projectID.value = viewModel.projects[index].0.id
         } else {
             viewModel.projectID.value = ""
         }
