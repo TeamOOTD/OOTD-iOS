@@ -60,8 +60,8 @@ final class ProjectCategoryCell: BaseCollectionViewCell {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(projectButton.snp.bottom).offset(4)
-            $0.centerX.equalTo(projectButton)
             $0.bottom.equalToSuperview()
+            $0.directionalHorizontalEdges.equalToSuperview()
         }
     }
     
