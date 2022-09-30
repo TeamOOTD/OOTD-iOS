@@ -7,7 +7,6 @@
 
 import UIKit
 
-import AcknowList
 import OOTD_Core
 
 final class LicenseViewController: BaseViewController {
