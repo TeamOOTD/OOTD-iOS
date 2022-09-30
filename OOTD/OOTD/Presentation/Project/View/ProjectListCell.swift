@@ -75,8 +75,14 @@ final class ProjectListCell: BaseCollectionViewCell {
             $0.centerY.equalToSuperview()
         }
         
+        statusLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(Spacing.s16)
+            $0.centerY.equalTo(projectNameLabel.snp.centerY)
+        }
+        
         projectNameLabel.snp.makeConstraints {
             $0.leading.equalTo(logoImageView.snp.trailing).offset(Spacing.s16)
+            $0.trailing.equalToSuperview().inset(Spacing.s64)
             $0.top.equalTo(logoImageView.snp.top).inset(Spacing.s4)
         }
         
@@ -99,11 +105,6 @@ final class ProjectListCell: BaseCollectionViewCell {
         periodLabel.snp.makeConstraints {
             $0.leading.equalTo(logoImageView.snp.trailing).offset(Spacing.s16)
             $0.top.equalTo(tagHStackView.snp.bottom).offset(2)
-        }
-        
-        statusLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(Spacing.s16)
-            $0.centerY.equalTo(projectNameLabel.snp.centerY)
         }
     }
 }
