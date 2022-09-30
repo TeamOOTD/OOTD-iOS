@@ -25,7 +25,6 @@
 		BD39C49128E3EF4A007AC73C /* OOTD_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */; };
 		BD39C49928E46A08007AC73C /* CommitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49828E46A08007AC73C /* CommitRange.swift */; };
 		BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49A28E46A1B007AC73C /* TodoRange.swift */; };
-		BD489F9528E48EFE00338427 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = BD489F9428E48EFE00338427 /* AcknowList */; };
 		BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9828E4916100338427 /* LicenseViewController.swift */; };
 		BD489F9B28E4917300338427 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9A28E4917300338427 /* LicenseView.swift */; };
 		BD489F9D28E491EA00338427 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9C28E491EA00338427 /* License.swift */; };
@@ -287,7 +286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD5F8B528DD9B1D003F3B03 /* WSTagsField in Frameworks */,
-				BD489F9528E48EFE00338427 /* AcknowList in Frameworks */,
 				BD9FA52828CF171600E8D68B /* SnapKit in Frameworks */,
 				BDD5F8C628DF318E003F3B03 /* RxCocoa in Frameworks */,
 				BD9FA52E28CF17AB00E8D68B /* FSCalendar in Frameworks */,
@@ -966,7 +964,6 @@
 				BDD5F8C728DF318E003F3B03 /* RxSwift */,
 				BD39C48D28E3DBC4007AC73C /* Realm */,
 				BD39C48F28E3DBC4007AC73C /* RealmSwift */,
-				BD489F9428E48EFE00338427 /* AcknowList */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
@@ -1053,7 +1050,6 @@
 				BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */,
-				BD489F9328E48EFE00338427 /* XCRemoteSwiftPackageReference "AcknowList" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
@@ -1625,14 +1621,6 @@
 				version = 10.30.0;
 			};
 		};
-		BD489F9328E48EFE00338427 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/vtourraine/AcknowList.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		BD9FA52628CF171600E8D68B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1693,11 +1681,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		BD489F9428E48EFE00338427 /* AcknowList */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD489F9328E48EFE00338427 /* XCRemoteSwiftPackageReference "AcknowList" */;
-			productName = AcknowList;
 		};
 		BD9FA52728CF171600E8D68B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
