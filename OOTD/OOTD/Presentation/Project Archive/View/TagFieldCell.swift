@@ -33,6 +33,7 @@ final class TagFieldCell: BaseCollectionViewCell {
             $0.selectedTextColor = .white
             $0.placeholderAlwaysVisible = true
             $0.font = .systemFont(ofSize: 14)
+            $0.acceptTagOption = .space
         }
     }
     
