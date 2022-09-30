@@ -30,7 +30,7 @@ final class TokenViewController: BaseViewController {
         
         navigationBar.do {
             $0.leftBarItem = .back
-            $0.title = "토근 등록하기"
+            $0.title = "토큰 등록하기"
             $0.leftButton.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
         }
 
