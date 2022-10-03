@@ -1,0 +1,8 @@
+app_identifier("com.taekki.OOTD") # The bundle identifier of your app
+apple_id("taehyeon.dev@gmail.com") # Your Apple Developer Portal username
+
+itc_team_id("123946849") # App Store Connect Team ID
+team_id("W7P3R7ZL78") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

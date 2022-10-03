@@ -1,0 +1,62 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    increment_build_number(xcodeproj: "OOTD.xcodeproj", build_number: date_based_build_number)
+    build_app(scheme: "OOTD")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+end
+
+require('date')
+
+# 오늘 날짜
+def today_formatted
+  Date.today.strftime('%y%m%d')
+end
+
+# 기본 날짜 기반 빌드 넘버
+def default_build_number
+  "#{today_formatted}1"
+end
+
+# 날짜 기반 빌드 넘버
+def date_based_build_number
+  current_build_number = get_build_number(xcodeproj: "OOTD.xcodeproj")
+
+  build_date = current_build_number[0..5]
+  build_version = current_build_number[6..-1]
+
+  if (!build_date || !build_version) || (build_date.empty? || build_version.empty?)
+    return default_build_number
+  end
+
+  begin
+    build_date_object = Date.strptime(build_date, '%y%m%d')
+  rescue
+    return default_build_number
+  end
+
+  if build_date_object >= Date.today
+    new_version = build_version.to_i + 1
+    return "#{today_formatted}%d" % new_version
+  end
+
+  return default_build_number
+end
