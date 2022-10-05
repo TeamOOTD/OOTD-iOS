@@ -57,4 +57,5 @@ extension UIImage {
     public static var imgGitHubReg: UIImage? { .load(named: "img.github.registration")}
     public static var imgProjectEmpty: UIImage? { .load(named: "img.project.empty")}
     public static var imgSplash: UIImage? { .load(named: "img.splash")}
+    public static var imgTodoEmpty: UIImage? { .load(named: "img.todo.empty")}
 }
