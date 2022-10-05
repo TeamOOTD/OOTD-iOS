@@ -62,12 +62,12 @@ extension ProjectViewController {
 extension ProjectViewController {
     
     private func bindCollectionView() {
-        viewModel.projects
-            .filter { [weak self] in
-                self?.rootView.collectionView.backgroundView = $0.isEmpty ? self?.emptyView : nil
-                return $0.isNotEmpty
-            }
-            .bind(to: rootView.collectionView.rx.items(
+        viewModel.projects.bind { [weak self] projects in
+            self?.rootView.collectionView.backgroundView = projects.isEmpty ? self?.emptyView : nil
+        }
+        .disposed(by: disposeBag)
+        
+        viewModel.projects.bind(to: rootView.collectionView.rx.items(
                 cellIdentifier: ProjectListCell.reuseIdentifier,
                 cellType: ProjectListCell.self)) { [weak self] _, elem, cell in
                     let image = self?.viewModel.fetchImage(filename: elem.id)
