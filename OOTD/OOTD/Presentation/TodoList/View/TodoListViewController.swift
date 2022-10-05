@@ -19,12 +19,13 @@ final class TodoListViewController: BaseViewController {
     private let headerView = TodoListHeaderView()
     private let scopeSegmentedControl = UISegmentedControl(items: ["주간", "월간"])
     private let scrollView = UIScrollView()
-    private lazy var containerVStackView = UIStackView(arrangedSubviews: [calendarView, collectionView])
+    private lazy var containerVStackView = UIStackView(arrangedSubviews: [calendarView, collectionView, emptyView])
     private let calendarView = FSCalendar()
     private let collectionView = BaseCollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
+    private let emptyView = UIImageView()
     
     // MARK: - Properties
     
@@ -92,6 +93,10 @@ final class TodoListViewController: BaseViewController {
         collectionView.do {
             $0.backgroundColor = .clear
         }
+        
+        emptyView.do {
+            $0.image = .imgTodoEmpty
+        }
     }
     
     override func configureLayout() {
@@ -132,14 +137,20 @@ final class TodoListViewController: BaseViewController {
         collectionView.snp.makeConstraints {
             $0.directionalHorizontalEdges.equalToSuperview().inset(Spacing.s24)
         }
+
+        emptyView.snp.makeConstraints {
+            $0.width.equalTo(200)
+            $0.height.equalTo(220)
+        }
     }
     
     override func bind() {
         adapter.adapterDataSource = viewModel
         viewModel.fetchTodos()
         
-        viewModel.todos.bind { [weak self] _ in
+        viewModel.todos.bind { [weak self] todos in
             self?.viewModel.calculateTodoPercent()
+            self?.emptyView.isHidden = todos.isNotEmpty
             self?.collectionView.reloadData()
             self?.calendarView.reloadData()
         }
