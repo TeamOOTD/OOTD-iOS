@@ -69,9 +69,8 @@ final class SettingItemCell: BaseCollectionViewCell, View {
 }
 
 extension SettingItemCell {
-//
-//    func configure(_ title: String, desc: String? = nil) {
-//        titleLabel.text = title
-//        descLabel.text = desc
-//    }
+    func configure(_ title: String, desc: String? = nil) {
+        titleLabel.text = title
+        descLabel.text = desc
+    }
 }

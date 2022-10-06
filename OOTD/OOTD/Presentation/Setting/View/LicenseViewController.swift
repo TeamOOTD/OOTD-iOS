@@ -49,7 +49,7 @@ extension LicenseViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(cellType: SettingItemCell.self, for: indexPath)
-//        cell.configure(License.allCases[indexPath.row].rawValue)
+        cell.configure(License.allCases[indexPath.row].rawValue)
         return cell
     }
     
