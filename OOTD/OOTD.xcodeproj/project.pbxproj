@@ -23,6 +23,7 @@
 		BD1BBB8528EEC655009C793F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD1BBB8428EEC655009C793F /* RxSwift */; };
 		BD1BBB8828EECEBA009C793F /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = BD1BBB8728EECEBA009C793F /* RxDataSources */; };
 		BD1BBB8B28EECF4A009C793F /* SettingViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1BBB8A28EECF4A009C793F /* SettingViewSection.swift */; };
+		BD1BBB8D28EED138009C793F /* SettingItemCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1BBB8C28EED138009C793F /* SettingItemCellReactor.swift */; };
 		BD39C48528E31166007AC73C /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48428E31166007AC73C /* UICollectionView+.swift */; };
 		BD39C48B28E37522007AC73C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48A28E37522007AC73C /* SplashViewController.swift */; };
 		BD39C48E28E3DBC4007AC73C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48D28E3DBC4007AC73C /* Realm */; };
@@ -186,6 +187,7 @@
 		BD19C4CE28DC569800D209A1 /* PeriodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCell.swift; sourceTree = "<group>"; };
 		BD1BBB8228EE9442009C793F /* SettingViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewReactor.swift; sourceTree = "<group>"; };
 		BD1BBB8A28EECF4A009C793F /* SettingViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewSection.swift; sourceTree = "<group>"; };
+		BD1BBB8C28EED138009C793F /* SettingItemCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemCellReactor.swift; sourceTree = "<group>"; };
 		BD39C48428E31166007AC73C /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		BD39C48A28E37522007AC73C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BD39C49828E46A08007AC73C /* CommitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitRange.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1BBB8228EE9442009C793F /* SettingViewReactor.swift */,
+				BD1BBB8C28EED138009C793F /* SettingItemCellReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1196,6 +1199,7 @@
 				BDB2016228D99F16003FF3A3 /* ObservableHelper.swift in Sources */,
 				BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */,
 				BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */,
+				BD1BBB8D28EED138009C793F /* SettingItemCellReactor.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoListCell.swift in Sources */,
 				BD1BBB8328EE9442009C793F /* SettingViewReactor.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,

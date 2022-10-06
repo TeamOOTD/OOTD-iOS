@@ -34,9 +34,9 @@ extension SettingViewSection: SectionModelType {
     }
 }
 
-enum SettingViewSectionItem: String {
-    case token = "토큰 설정"
-    case backupAndRestore = "백업/복구"
-    case license = "오픈 라이선스"
-    case appVersion = "앱 버전"
+enum SettingViewSectionItem {
+    case token(SettingItemCellReactor)
+    case backupAndRestore(SettingItemCellReactor)
+    case license(SettingItemCellReactor)
+    case appVersion(SettingItemCellReactor)
 }
