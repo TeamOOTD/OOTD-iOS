@@ -21,21 +21,40 @@ final class SettingViewReactor: Reactor {
     }
     
     struct State {
+        var sections: [SettingViewSection] = []
         
+        init(sections: [SettingViewSection]) {
+            self.sections = sections
+        }
     }
     
     let initialState: State
     
     init() {
-        self.initialState = State()
-    }
-    
-    func mutate(action: Action) -> Observable<Mutation> {
+        let configSection = SettingViewSection.config([
+            .token(SettingItemCellReactor(title: "토큰 설정", detail: nil, isUnderlineHidden: true))
+        ])
+          
+        let dataSection = SettingViewSection.config([
+            .backupAndRestore(SettingItemCellReactor(title: "백업/복구", detail: nil, isUnderlineHidden: true))
+        ])
         
+        let aboutSection = SettingViewSection.config([
+            .license(SettingItemCellReactor(title: "오픈 라이선스", detail: nil)),
+            .appVersion(SettingItemCellReactor(title: "앱 버전", detail: SettingViewReactor.appVersion(), isUnderlineHidden: true))
+        ])
+        
+        let sections = [configSection] + [dataSection] + [aboutSection]
+        self.initialState = State(sections: sections)
     }
-    
-    func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
-        return newState
+}
+
+extension SettingViewReactor {
+    static func appVersion() -> String? {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String
+        else { return nil }
+        
+        return version
     }
 }
