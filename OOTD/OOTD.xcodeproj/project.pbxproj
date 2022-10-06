@@ -18,6 +18,7 @@
 		BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */; };
 		BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */; };
 		BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CE28DC569800D209A1 /* PeriodCell.swift */; };
+		BD1BBB8028EE925C009C793F /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD1BBB7F28EE925C009C793F /* ReactorKit */; };
 		BD39C48528E31166007AC73C /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48428E31166007AC73C /* UICollectionView+.swift */; };
 		BD39C48B28E37522007AC73C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48A28E37522007AC73C /* SplashViewController.swift */; };
 		BD39C48E28E3DBC4007AC73C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48D28E3DBC4007AC73C /* Realm */; };
@@ -295,6 +296,7 @@
 				BDD8CA2D28CF1FD100668B70 /* OOTD_Core.framework in Frameworks */,
 				BD39C49028E3DBC4007AC73C /* RealmSwift in Frameworks */,
 				BD9FA52B28CF174B00E8D68B /* Then in Frameworks */,
+				BD1BBB8028EE925C009C793F /* ReactorKit in Frameworks */,
 				BDD5F8C828DF318E003F3B03 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -964,6 +966,7 @@
 				BDD5F8C728DF318E003F3B03 /* RxSwift */,
 				BD39C48D28E3DBC4007AC73C /* Realm */,
 				BD39C48F28E3DBC4007AC73C /* RealmSwift */,
+				BD1BBB7F28EE925C009C793F /* ReactorKit */,
 			);
 			productName = OOTD;
 			productReference = BD9FA4CF28CF135100E8D68B /* OOTD.app */;
@@ -1050,6 +1053,7 @@
 				BDD5F8BD28DE0072003F3B03 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BD1BBB7E28EE925C009C793F /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			productRefGroup = BD9FA4D028CF135100E8D68B /* Products */;
 			projectDirPath = "";
@@ -1613,6 +1617,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BD1BBB7E28EE925C009C793F /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1672,6 +1684,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BD1BBB7F28EE925C009C793F /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD1BBB7E28EE925C009C793F /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
 		BD39C48D28E3DBC4007AC73C /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD39C48C28E3DBC4007AC73C /* XCRemoteSwiftPackageReference "realm-swift" */;
