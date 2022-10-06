@@ -345,14 +345,6 @@
 			path = ODSSegmentedControl;
 			sourceTree = "<group>";
 		};
-		BD19225828DC9A5C00726ECF /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				BD489F9C28E491EA00338427 /* LicenseViewSection.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		BD19C4C228DC40F900D209A1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +375,7 @@
 		BD1BBB8928EECF3F009C793F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				BD489F9C28E491EA00338427 /* LicenseViewSection.swift */,
 				BD1BBB8A28EECF4A009C793F /* SettingViewSection.swift */,
 			);
 			path = Section;
@@ -662,7 +655,6 @@
 		BD9FA50A28CF14F500E8D68B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				BD19225828DC9A5C00726ECF /* Helper */,
 				BD1BBB8928EECF3F009C793F /* Section */,
 				BD9FA50E28CF154A00E8D68B /* View */,
 				BD1BBB8128EE93D9009C793F /* ViewModel */,
