@@ -19,6 +19,8 @@
 		BD19C4CD28DC4E6500D209A1 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */; };
 		BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4CE28DC569800D209A1 /* PeriodCell.swift */; };
 		BD1BBB8028EE925C009C793F /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD1BBB7F28EE925C009C793F /* ReactorKit */; };
+		BD1BBB8328EE9442009C793F /* SettingViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1BBB8228EE9442009C793F /* SettingViewReactor.swift */; };
+		BD1BBB8528EEC655009C793F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD1BBB8428EEC655009C793F /* RxSwift */; };
 		BD39C48528E31166007AC73C /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48428E31166007AC73C /* UICollectionView+.swift */; };
 		BD39C48B28E37522007AC73C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C48A28E37522007AC73C /* SplashViewController.swift */; };
 		BD39C48E28E3DBC4007AC73C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD39C48D28E3DBC4007AC73C /* Realm */; };
@@ -180,6 +182,7 @@
 		BD19C4CA28DC4E1800D209A1 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		BD19C4CC28DC4E6500D209A1 /* LogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
 		BD19C4CE28DC569800D209A1 /* PeriodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCell.swift; sourceTree = "<group>"; };
+		BD1BBB8228EE9442009C793F /* SettingViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewReactor.swift; sourceTree = "<group>"; };
 		BD39C48428E31166007AC73C /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		BD39C48A28E37522007AC73C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BD39C49828E46A08007AC73C /* CommitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitRange.swift; sourceTree = "<group>"; };
@@ -305,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1BBB8528EEC655009C793F /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +364,14 @@
 			children = (
 				BDD5F8CE28DF796D003F3B03 /* ProjectArchiveItemViewModel.swift */,
 				BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BD1BBB8128EE93D9009C793F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BBB8228EE9442009C793F /* SettingViewReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -640,6 +652,7 @@
 			children = (
 				BD19225828DC9A5C00726ECF /* Helper */,
 				BD9FA50E28CF154A00E8D68B /* View */,
+				BD1BBB8128EE93D9009C793F /* ViewModel */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -986,6 +999,9 @@
 			dependencies = (
 			);
 			name = "OOTD-Core";
+			packageProductDependencies = (
+				BD1BBB8428EEC655009C793F /* RxSwift */,
+			);
 			productName = "OOTD-Core";
 			productReference = BDD8CA2728CF1FD100668B70 /* OOTD_Core.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1165,6 +1181,7 @@
 				BD19C4CF28DC569800D209A1 /* PeriodCell.swift in Sources */,
 				BD621A2728DA15C5008CFBB8 /* TodoBottomSheetState.swift in Sources */,
 				BDDAB6DF28D2142400C021BC /* TodoListCell.swift in Sources */,
+				BD1BBB8328EE9442009C793F /* SettingViewReactor.swift in Sources */,
 				BD8B408D28D46C7100A4E810 /* InputCell.swift in Sources */,
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
 				BD5C0B0128E2117100E1BBCC /* GitHubManager.swift in Sources */,
@@ -1688,6 +1705,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD1BBB7E28EE925C009C793F /* XCRemoteSwiftPackageReference "ReactorKit" */;
 			productName = ReactorKit;
+		};
+		BD1BBB8428EEC655009C793F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDD5F8C428DF318D003F3B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		BD39C48D28E3DBC4007AC73C /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
