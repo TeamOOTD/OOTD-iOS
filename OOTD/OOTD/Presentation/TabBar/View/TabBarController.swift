@@ -59,7 +59,9 @@ extension TabBarController {
                 viewController = UINavigationController(rootViewController: projectViewController)
                 
             case .profile:
-                viewController = UINavigationController(rootViewController: SettingViewController(reactor: SettingViewReactor()))
+                let repository = StorageRepository<Todo>()
+                let reactor = SettingViewReactor(repository: repository)
+                viewController = UINavigationController(rootViewController: SettingViewController(reactor: reactor))
             }
             
             viewController.tabBarItem = tabBarItem.asTabBarItem()

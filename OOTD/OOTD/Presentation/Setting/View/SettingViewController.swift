@@ -14,10 +14,15 @@ import RxDataSources
 
 final class SettingViewController: BaseViewController, View {
     
-    private let repository = StorageRepository<Todo>()
+    // MARK: - UI Components
+    
     private let rootView = SettingView()
     
+    // MARK: - Properties
+    
     private let dataSource: RxCollectionViewSectionedReloadDataSource<SettingViewSection>
+    
+    // MARK: - Initializer
     
     init(reactor: SettingViewReactor) {
         defer { self.reactor = reactor }
@@ -25,37 +30,12 @@ final class SettingViewController: BaseViewController, View {
         super.init()
     }
     
-    private static func dataSourceFactory() -> RxCollectionViewSectionedReloadDataSource<SettingViewSection> {
-        return .init { _, collectionView, indexPath, sectionItem in
-            let cell = collectionView.dequeueReusableCell(cellType: SettingItemCell.self, for: indexPath)
-            switch sectionItem {
-            case let .token(reactor):
-                cell.reactor = reactor
-                
-            case let .backupAndRestore(reactor):
-                cell.reactor = reactor
-                
-            case let .license(reactor):
-                cell.reactor = reactor
-                
-            case let .appVersion(reactor):
-                cell.reactor = reactor
-            }
-            return cell
-        }
-    }
+    // MARK: - Life Cycles
     
     override func loadView() {
         self.view = rootView
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tabBarController?.tabBar.isHidden = false
-        fetchTodo()
-    }
-    
+
     override func configureAttributes() {
         super.configureAttributes()
         
@@ -64,13 +44,33 @@ final class SettingViewController: BaseViewController, View {
         }
     }
     
+    // MARK: - Binding
+    
     func bind(reactor: SettingViewReactor) {
         // State
         reactor.state.map { $0.sections }
             .bind(to: rootView.collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        reactor.state.map { ($0.commit, $0.todo) }
+            .subscribe { [weak self] in
+                self?.rootView.profileView.commit = $0
+                self?.rootView.profileView.todoCount = $1
+            }
+            .disposed(by: disposeBag)
+
         // View
+        self.rx.viewWillAppear
+            .map { _ in Reactor.Action.fetch }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.rx.viewWillAppear
+            .subscribe { [weak self] _ in
+                self?.tabBarController?.tabBar.isHidden = false
+            }
+            .disposed(by: self.disposeBag)
+        
         rootView.collectionView.rx.itemSelected
             .subscribe { [weak self] indexPath in
                 guard let sectionItem = self?.dataSource[indexPath] else { return }
@@ -92,22 +92,44 @@ final class SettingViewController: BaseViewController, View {
             }
             .disposed(by: disposeBag)
     }
-    
-    private func fetchTodo() {
-        let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-        var dateComponents = DateComponents()
-        dateComponents.year = date.year
-        dateComponents.month = date.month
-        dateComponents.day = date.day
-        guard let today = Calendar.current.date(from: dateComponents) else { return }
-        let todo = repository.fetchByDate(by: today, keyPath: "date")
-        rootView.profileView.commit = UserDefaults.standard.integer(forKey: "todayCommit")
-        rootView.profileView.todoCount = todo.count
+}
+
+extension SettingViewController {
+    private static func dataSourceFactory() -> RxCollectionViewSectionedReloadDataSource<SettingViewSection> {
+        return .init { _, collectionView, indexPath, sectionItem in
+            let cell = collectionView.dequeueReusableCell(cellType: SettingItemCell.self, for: indexPath)
+            switch sectionItem {
+            case let .token(reactor):
+                cell.reactor = reactor
+                
+            case let .backupAndRestore(reactor):
+                cell.reactor = reactor
+                
+            case let .license(reactor):
+                cell.reactor = reactor
+                
+            case let .appVersion(reactor):
+                cell.reactor = reactor
+            }
+            return cell
+        }
     }
     
     @objc func pushToGitHubViewController() {
         let viewController = GitHubRegistrationViewController()
         viewController.isNavigationBarHidden = false
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension Reactive where Base: UIViewController {
+    var viewDidLoad: Observable<Bool> {
+        return methodInvoked(#selector(Base.viewDidLoad))
+            .map { $0.first as? Bool ?? false }
+    }
+    
+    var viewWillAppear: Observable<Bool> {
+        return methodInvoked(#selector(Base.viewWillAppear))
+            .map { $0.first as? Bool ?? false }
     }
 }

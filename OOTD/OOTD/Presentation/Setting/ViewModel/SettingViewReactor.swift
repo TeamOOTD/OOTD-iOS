@@ -13,24 +13,27 @@ import RxSwift
 
 final class SettingViewReactor: Reactor {
     enum Action {
-        
+        case fetch
     }
     
     enum Mutation {
-        
+        case updateProfileCard(Int, Int)
     }
     
     struct State {
         var sections: [SettingViewSection] = []
+        var commit: Int = 0
+        var todo: Int = 0
         
         init(sections: [SettingViewSection]) {
             self.sections = sections
         }
     }
     
+    let repository: StorageRepository<Todo>
     let initialState: State
     
-    init() {
+    init(repository: StorageRepository<Todo>) {
         let configSection = SettingViewSection.config([
             .token(SettingItemCellReactor(title: "토큰 설정", detail: nil, isUnderlineHidden: true))
         ])
@@ -46,6 +49,28 @@ final class SettingViewReactor: Reactor {
         
         let sections = [configSection] + [dataSection] + [aboutSection]
         self.initialState = State(sections: sections)
+        self.repository = repository
+    }
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .fetch:
+            let profileInformation = fetchProfileInformation()
+            return fetchProfileInformation()
+                .map {
+                    Mutation.updateProfileCard($0, $1)
+                }
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        switch mutation {
+        case let .updateProfileCard(commit, todo):
+            newState.commit = commit
+            newState.todo = todo
+            return newState
+        }
     }
 }
 
@@ -56,5 +81,19 @@ extension SettingViewReactor {
         else { return nil }
         
         return version
+    }
+    
+    private func fetchProfileInformation() -> Observable<(commit: Int, todo: Int)> {
+        let emptyResult: (Int, Int) = (0, 0)
+        let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        var dateComponents = DateComponents()
+        dateComponents.year = date.year
+        dateComponents.month = date.month
+        dateComponents.day = date.day
+        
+        let commit = UserDefaults.standard.integer(forKey: "todayCommit")
+        guard let today = Calendar.current.date(from: dateComponents) else { return .just(emptyResult) }
+        let todo = repository.fetchByDate(by: today, keyPath: "date")
+        return .just((commit, todo.count))
     }
 }
