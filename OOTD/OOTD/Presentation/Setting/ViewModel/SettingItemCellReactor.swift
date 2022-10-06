@@ -14,12 +14,17 @@ final class SettingItemCellReactor: Reactor {
     
     struct State {
         var title: String?
+        var detail: String?
+        var isUnderlineHidden: Bool = false
     }
     
     let initialState: State
     
-    init(title: String?) {
-        self.initialState = State(title: title)
-        _ = self.state
+    init(
+        title: String?,
+        detail: String?,
+        isUnderlineHidden: Bool = false
+    ) {
+        self.initialState = State(title: title, detail: detail, isUnderlineHidden: isUnderlineHidden)
     }
 }

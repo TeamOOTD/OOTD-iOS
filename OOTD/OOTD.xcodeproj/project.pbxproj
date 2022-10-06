@@ -11,7 +11,7 @@
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD19225728DC99C900726ECF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225628DC99C900726ECF /* SettingView.swift */; };
 		BD19225A28DC9A6700726ECF /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225928DC9A6700726ECF /* SettingSection.swift */; };
-		BD19225E28DC9F0100726ECF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225D28DC9F0100726ECF /* SettingCell.swift */; };
+		BD19225E28DC9F0100726ECF /* SettingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225D28DC9F0100726ECF /* SettingItemCell.swift */; };
 		BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */; };
 		BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */; };
 		BD19C4C928DC423900D209A1 /* ProjectArchiveSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */; };
@@ -178,7 +178,7 @@
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD19225628DC99C900726ECF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BD19225928DC9A6700726ECF /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
-		BD19225D28DC9F0100726ECF /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		BD19225D28DC9F0100726ECF /* SettingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemCell.swift; sourceTree = "<group>"; };
 		BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveViewModel.swift; sourceTree = "<group>"; };
 		BD19C4C828DC423900D209A1 /* ProjectArchiveSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveSection.swift; sourceTree = "<group>"; };
@@ -706,7 +706,7 @@
 				BD489F9A28E4917300338427 /* LicenseView.swift */,
 				BD489F9828E4916100338427 /* LicenseViewController.swift */,
 				BD489F9E28E4992800338427 /* ProfileView.swift */,
-				BD19225D28DC9F0100726ECF /* SettingCell.swift */,
+				BD19225D28DC9F0100726ECF /* SettingItemCell.swift */,
 				BD19225628DC99C900726ECF /* SettingView.swift */,
 				BD9FA51B28CF162500E8D68B /* SettingViewController.swift */,
 				BDD2A48128E5AECD00AAB92D /* TokenViewController.swift */,
@@ -1214,7 +1214,7 @@
 				BD5C0AF428E20F9D00E1BBCC /* NetworkRequest.swift in Sources */,
 				BD19C4CB28DC4E1800D209A1 /* MemoCell.swift in Sources */,
 				BD70EB0728D8AB4D0063DE18 /* Repository.swift in Sources */,
-				BD19225E28DC9F0100726ECF /* SettingCell.swift in Sources */,
+				BD19225E28DC9F0100726ECF /* SettingItemCell.swift in Sources */,
 				BD9FA51828CF160E00E8D68B /* GitHubRegistrationViewController.swift in Sources */,
 				BD9FA51228CF156800E8D68B /* TodoListViewController.swift in Sources */,
 				BD70EB0528D8AAC80063DE18 /* Entity.swift in Sources */,

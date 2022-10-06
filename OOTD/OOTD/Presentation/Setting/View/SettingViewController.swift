@@ -8,11 +8,42 @@
 import UIKit
 
 import OOTD_Core
+import ReactorKit
+import RxCocoa
+import RxDataSources
 
-final class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController, View {
     
     private let repository = StorageRepository<Todo>()
     private let rootView = SettingView()
+    
+    private let dataSource: RxCollectionViewSectionedReloadDataSource<SettingViewSection>
+    
+    init(reactor: SettingViewReactor) {
+        defer { self.reactor = reactor }
+        self.dataSource = SettingViewController.dataSourceFactory()
+        super.init()
+    }
+    
+    private static func dataSourceFactory() -> RxCollectionViewSectionedReloadDataSource<SettingViewSection> {
+        return .init { _, collectionView, indexPath, sectionItem in
+            let cell = collectionView.dequeueReusableCell(cellType: SettingItemCell.self, for: indexPath)
+            switch sectionItem {
+            case let .token(reactor):
+                cell.reactor = reactor
+                
+            case let .backupAndRestore(reactor):
+                cell.reactor = reactor
+                
+            case let .license(reactor):
+                cell.reactor = reactor
+                
+            case let .appVersion(reactor):
+                cell.reactor = reactor
+            }
+            return cell
+        }
+    }
     
     override func loadView() {
         self.view = rootView
@@ -31,11 +62,35 @@ final class SettingViewController: BaseViewController {
         rootView.gitHubRegistrationButton.do {
             $0.addTarget(self, action: #selector(pushToGitHubViewController), for: .touchUpInside)
         }
+    }
+    
+    func bind(reactor: SettingViewReactor) {
+        // State
+        reactor.state.map { $0.sections }
+            .bind(to: rootView.collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
-        rootView.collectionView.do {
-            $0.delegate = self
-            $0.dataSource = self
-        }
+        // View
+        rootView.collectionView.rx.itemSelected
+            .subscribe { [weak self] indexPath in
+                guard let sectionItem = self?.dataSource[indexPath] else { return }
+                switch sectionItem {
+                case .token:
+                    let viewController = TokenViewController()
+                    self?.navigationController?.pushViewController(viewController, animated: true)
+                    
+                case .backupAndRestore:
+                    self?.presentAlert(title: "준비중이에요.")
+                    
+                case .license:
+                    let viewController = LicenseViewController()
+                    self?.navigationController?.pushViewController(viewController, animated: true)
+                    
+                default:
+                    return
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     private func fetchTodo() {
@@ -53,63 +108,6 @@ final class SettingViewController: BaseViewController {
     @objc func pushToGitHubViewController() {
         let viewController = GitHubRegistrationViewController()
         viewController.isNavigationBarHidden = false
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension SettingViewController: UICollectionViewDelegate {}
-
-extension SettingViewController: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return SettingSection.allCases.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SettingSection.allCases[section].numberOfRowInSection
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(cellType: SettingCell.self, for: indexPath)
-        let row = SettingSection.allCases[indexPath.section].contents[indexPath.row]
-        
-        switch row {
-        case .appVersion:
-            cell.configure(row.rawValue, desc: fetchAppVersion())
-        default:
-            cell.configure(row.rawValue)
-        }
-
-        if SettingSection.allCases[indexPath.section].contents.indices.last == indexPath.row {
-            cell.lineView.isHidden = true
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let row = SettingSection.allCases[indexPath.section].contents[indexPath.row]
-        
-        switch row {
-        case .tokenConfig:
-            pushToViewController(TokenViewController())
-        case .backupAndRestore:
-            presentAlert(title: "준비중이에요.")
-        case .license:
-            pushToViewController(LicenseViewController())
-        default:
-            return
-        }
-    }
-    
-    private func fetchAppVersion() -> String? {
-        guard let dictionary = Bundle.main.infoDictionary,
-              let version = dictionary["CFBundleShortVersionString"] as? String
-        else { return nil }
-        
-        return version
-    }
-
-    private func pushToViewController(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

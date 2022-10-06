@@ -9,12 +9,15 @@ import UIKit
 
 import OOTD_Core
 import OOTD_UIKit
+import ReactorKit
 
-final class SettingCell: BaseCollectionViewCell {
+final class SettingItemCell: BaseCollectionViewCell, View {
 
     let titleLabel = UILabel()
     let descLabel = UILabel()
     let lineView = UIView()
+    
+    var disposeBag = DisposeBag()
 
     override func configureAttributes() {
         backgroundColor = .clear
@@ -25,7 +28,6 @@ final class SettingCell: BaseCollectionViewCell {
         }
         
         descLabel.do {
-            $0.text = "test"
             $0.textColor = .grey500
             $0.font = .ootdFont(.medium, size: 12)
         }
@@ -54,12 +56,22 @@ final class SettingCell: BaseCollectionViewCell {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    func bind(reactor: SettingItemCellReactor) {
+        reactor.state
+            .subscribe { [weak self] state in
+                self?.titleLabel.text = state.title
+                self?.descLabel.text = state.detail
+                self?.lineView.isHidden = state.isUnderlineHidden
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
-extension SettingCell {
-    
-    func configure(_ title: String, desc: String? = nil) {
-        titleLabel.text = title
-        descLabel.text = desc
-    }
+extension SettingItemCell {
+//
+//    func configure(_ title: String, desc: String? = nil) {
+//        titleLabel.text = title
+//        descLabel.text = desc
+//    }
 }
