@@ -10,7 +10,6 @@
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
 		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD19225728DC99C900726ECF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225628DC99C900726ECF /* SettingView.swift */; };
-		BD19225A28DC9A6700726ECF /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225928DC9A6700726ECF /* SettingSection.swift */; };
 		BD19225E28DC9F0100726ECF /* SettingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225D28DC9F0100726ECF /* SettingItemCell.swift */; };
 		BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */; };
 		BD19C4C728DC421000D209A1 /* ProjectArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */; };
@@ -177,7 +176,6 @@
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
 		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD19225628DC99C900726ECF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		BD19225928DC9A6700726ECF /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
 		BD19225D28DC9F0100726ECF /* SettingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemCell.swift; sourceTree = "<group>"; };
 		BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		BD19C4C628DC421000D209A1 /* ProjectArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveViewModel.swift; sourceTree = "<group>"; };
@@ -350,7 +348,6 @@
 		BD19225828DC9A5C00726ECF /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BD19225928DC9A6700726ECF /* SettingSection.swift */,
 				BD489F9C28E491EA00338427 /* License.swift */,
 			);
 			path = Helper;
@@ -1181,7 +1178,6 @@
 				BD70EABE28D81C8A0063DE18 /* ProjectView.swift in Sources */,
 				BD621A2F28DC39DC008CFBB8 /* ProjectArchiveViewController.swift in Sources */,
 				BDB2016B28D9CBC5003FF3A3 /* TodoBottomSheetSection.swift in Sources */,
-				BD19225A28DC9A6700726ECF /* SettingSection.swift in Sources */,
 				BD9FA51A28CF161B00E8D68B /* ProjectViewController.swift in Sources */,
 				BDDAB6DD28D20EB400C021BC /* SectionHeaderView.swift in Sources */,
 				BDD5F8C328DE14E7003F3B03 /* StorableProject.swift in Sources */,
