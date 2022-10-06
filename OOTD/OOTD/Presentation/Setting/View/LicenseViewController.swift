@@ -44,17 +44,17 @@ final class LicenseViewController: BaseViewController {
 extension LicenseViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return License.allCases.count
+        return LicenseViewSection.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(cellType: SettingItemCell.self, for: indexPath)
-        cell.configure(License.allCases[indexPath.row].rawValue)
+        cell.configure(LicenseViewSection.allCases[indexPath.row].rawValue)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let urlString = License.allCases[indexPath.row].urlString
+        let urlString = LicenseViewSection.allCases[indexPath.row].urlString
         openURL(urlString)
     }
     

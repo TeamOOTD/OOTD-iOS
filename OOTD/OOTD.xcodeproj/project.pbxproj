@@ -32,7 +32,7 @@
 		BD39C49B28E46A1B007AC73C /* TodoRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39C49A28E46A1B007AC73C /* TodoRange.swift */; };
 		BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9828E4916100338427 /* LicenseViewController.swift */; };
 		BD489F9B28E4917300338427 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9A28E4917300338427 /* LicenseView.swift */; };
-		BD489F9D28E491EA00338427 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9C28E491EA00338427 /* License.swift */; };
+		BD489F9D28E491EA00338427 /* LicenseViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9C28E491EA00338427 /* LicenseViewSection.swift */; };
 		BD489F9F28E4992800338427 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9E28E4992800338427 /* ProfileView.swift */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
@@ -192,7 +192,7 @@
 		BD39C49A28E46A1B007AC73C /* TodoRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRange.swift; sourceTree = "<group>"; };
 		BD489F9828E4916100338427 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		BD489F9A28E4917300338427 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
-		BD489F9C28E491EA00338427 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		BD489F9C28E491EA00338427 /* LicenseViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewSection.swift; sourceTree = "<group>"; };
 		BD489F9E28E4992800338427 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BD5C0AED28E20F1200E1BBCC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 		BD19225828DC9A5C00726ECF /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BD489F9C28E491EA00338427 /* License.swift */,
+				BD489F9C28E491EA00338427 /* LicenseViewSection.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -662,8 +662,8 @@
 		BD9FA50A28CF14F500E8D68B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				BD1BBB8928EECF3F009C793F /* Section */,
 				BD19225828DC9A5C00726ECF /* Helper */,
+				BD1BBB8928EECF3F009C793F /* Section */,
 				BD9FA50E28CF154A00E8D68B /* View */,
 				BD1BBB8128EE93D9009C793F /* ViewModel */,
 			);
@@ -1202,7 +1202,7 @@
 				BD8B408828D4558E00A4E810 /* PriorityCell.swift in Sources */,
 				BD5C0B0128E2117100E1BBCC /* GitHubManager.swift in Sources */,
 				BDD5F8B728DD9E81003F3B03 /* TagFieldCell.swift in Sources */,
-				BD489F9D28E491EA00338427 /* License.swift in Sources */,
+				BD489F9D28E491EA00338427 /* LicenseViewSection.swift in Sources */,
 				BD70EB1728D9890C0063DE18 /* TodoListCollectionViewAdapter.swift in Sources */,
 				BD5C0AF228E20F6A00E1BBCC /* HTTPMethod.swift in Sources */,
 				BD489F9928E4916100338427 /* LicenseViewController.swift in Sources */,
