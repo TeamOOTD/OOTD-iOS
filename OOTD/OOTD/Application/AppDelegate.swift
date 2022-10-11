@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         FirebaseApp.configure()
+        
         requestRemoteNotificationAuthorization(application)
         Messaging.messaging().delegate = self
-        fetchFCMToken()
         
         return true
     }
@@ -49,16 +49,6 @@ extension AppDelegate {
         )
         
         application.registerForRemoteNotifications()
-    }
-    
-    private func fetchFCMToken() {
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FCM registration token: \(token)")
-            }
-        }
     }
 }
 
