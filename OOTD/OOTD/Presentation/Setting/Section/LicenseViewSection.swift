@@ -5,7 +5,7 @@
 //  Created by taekki on 2022/09/28.
 //
 
-enum License: String, CaseIterable {
+enum LicenseViewSection: String, CaseIterable {
     case fscalendar             = "FSCalendar"
     case iqKeyboardManagerSwift = "IQKeyboardManagerSwift"
     case realm                  = "Realm"
@@ -15,7 +15,7 @@ enum License: String, CaseIterable {
     case wsTagsField            = "WSTagsField"
 }
 
-extension License {
+extension LicenseViewSection {
     var urlString: String {
         switch self {
         case .fscalendar:

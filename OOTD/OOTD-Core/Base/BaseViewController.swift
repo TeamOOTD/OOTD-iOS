@@ -7,7 +7,13 @@
 
 import UIKit
 
+import RxSwift
+
 open class BaseViewController: UIViewController {
+    
+    // MARK: - Rx
+    
+    public var disposeBag = DisposeBag()
 
     public init() {
         super.init(nibName: nil, bundle: nil)

@@ -24,7 +24,7 @@ final class LicenseView: BaseView {
         }
 
         collectionView.do {
-            $0.register(SettingCell.self)
+            $0.register(SettingItemCell.self)
             
             let layout = UICollectionViewFlowLayout()
             layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 44)

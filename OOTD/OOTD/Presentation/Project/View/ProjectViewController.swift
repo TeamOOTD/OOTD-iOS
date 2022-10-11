@@ -15,7 +15,6 @@ import OOTD_UIKit
 final class ProjectViewController: BaseViewController {
     
     private let viewModel: ProjectListViewModel!
-    private let disposeBag = DisposeBag()
     
     private let rootView = ProjectView()
     private let emptyView = ProjectListEmptyView()
