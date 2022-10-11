@@ -29,6 +29,7 @@
 		BD489F9B28E4917300338427 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9A28E4917300338427 /* LicenseView.swift */; };
 		BD489F9D28E491EA00338427 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9C28E491EA00338427 /* License.swift */; };
 		BD489F9F28E4992800338427 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD489F9E28E4992800338427 /* ProfileView.swift */; };
+		BD51B1A228F54C51005748F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD51B1A128F54C51005748F5 /* GoogleService-Info.plist */; };
 		BD5C0AEC28E20EC300E1BBCC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */; };
 		BD5C0AEE28E20F1200E1BBCC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AED28E20F1200E1BBCC /* APIError.swift */; };
 		BD5C0AF028E20F3800E1BBCC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */; };
@@ -187,6 +188,7 @@
 		BD489F9A28E4917300338427 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		BD489F9C28E491EA00338427 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		BD489F9E28E4992800338427 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BD51B1A128F54C51005748F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD5C0AEB28E20EC300E1BBCC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		BD5C0AED28E20F1200E1BBCC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BD5C0AEF28E20F3800E1BBCC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9FA4E028CF135600E8D68B /* Info.plist */,
+				BD51B1A128F54C51005748F5 /* GoogleService-Info.plist */,
 				BD9FA50228CF13E000E8D68B /* Application */,
 				BD9FA52328CF16D300E8D68B /* Common */,
 				BD9FA50528CF14A400E8D68B /* Data */,
@@ -1067,6 +1070,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD51B1A228F54C51005748F5 /* GoogleService-Info.plist in Resources */,
 				BD9FA53528CF1AB800E8D68B /* .swiftlint.yml in Resources */,
 				BD9FA4DF28CF135600E8D68B /* LaunchScreen.storyboard in Resources */,
 				BD9FA4DC28CF135600E8D68B /* Assets.xcassets in Resources */,
