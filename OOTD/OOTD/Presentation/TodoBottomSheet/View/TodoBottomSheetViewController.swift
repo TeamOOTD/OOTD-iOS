@@ -100,10 +100,22 @@ final class TodoBottomSheetViewController: BaseViewController {
         adapter.adapterDataSource = viewModel
         
         viewModel.state.bind { [weak self] state in
-            self?.deleteButton.isHidden = state == .create
-            self?.doneButton.title = state == .create ? "확인" : "수정"
-            self?.doneButton.actionHandler = {
-                state == .create ? self?.createTodo() : self?.updateTodo()
+            guard let self else { return }
+            
+            self.deleteButton.isHidden = state == .create
+            self.doneButton.title = state == .create ? "확인" : "수정"
+            self.doneButton.actionHandler = {
+                if (self.viewModel.todoType.value == 3 ||
+                    self.viewModel.todoType.value == 4) &&
+                    self.viewModel.contents.value.isEmpty {
+                    self.presentAlert(title: "내용을 채워주세요!")
+                } else {
+                    if state == .create {
+                        self.createTodo()
+                    } else {
+                        self.updateTodo()
+                    }
+                }
             }
         }
         
