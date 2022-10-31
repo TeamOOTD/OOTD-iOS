@@ -240,9 +240,6 @@
 		BD9FA51928CF161B00E8D68B /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		BD9FA51B28CF162500E8D68B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BD9FA51D28CF162F00E8D68B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		BD9FA51F28CF165900E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		BD9FA52128CF166300E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		BD9FA52428CF16E600E8D68B /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BD9FA53428CF1AB800E8D68B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BDB2016128D99F16003FF3A3 /* ObservableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHelper.swift; sourceTree = "<group>"; };
 		BDB2016528D9C94C003FF3A3 /* TodoBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBottomSheetViewModel.swift; sourceTree = "<group>"; };
@@ -610,7 +607,6 @@
 			isa = PBXGroup;
 			children = (
 				BD5C0AF728E2100D00E1BBCC /* DTO */,
-				BD9FA51F28CF165900E8D68B /* .gitkeep */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -621,7 +617,6 @@
 				BD70EB0C28D8B2750063DE18 /* Repository */,
 				BD70EB0128D8A9B90063DE18 /* Interface */,
 				BD70EB0028D8A8990063DE18 /* Entity */,
-				BD9FA52128CF166300E8D68B /* .gitkeep */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -726,7 +721,6 @@
 		BD9FA52328CF16D300E8D68B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BD9FA52428CF16E600E8D68B /* .gitkeep */,
 				BDB2016128D99F16003FF3A3 /* ObservableHelper.swift */,
 			);
 			path = Common;
