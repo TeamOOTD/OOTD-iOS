@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BD15700028D05ACE00155712 /* ODSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD156FFF28D05ACE00155712 /* ODSButton.swift */; };
-		BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15700228D0651A00155712 /* ODSSegmentedControl.swift */; };
 		BD19225728DC99C900726ECF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225628DC99C900726ECF /* SettingView.swift */; };
 		BD19225E28DC9F0100726ECF /* SettingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19225D28DC9F0100726ECF /* SettingItemCell.swift */; };
 		BD19C4C428DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */; };
@@ -178,7 +177,6 @@
 
 /* Begin PBXFileReference section */
 		BD156FFF28D05ACE00155712 /* ODSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSButton.swift; sourceTree = "<group>"; };
-		BD15700228D0651A00155712 /* ODSSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSSegmentedControl.swift; sourceTree = "<group>"; };
 		BD19225628DC99C900726ECF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BD19225D28DC9F0100726ECF /* SettingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemCell.swift; sourceTree = "<group>"; };
 		BD19C4C328DC411300D209A1 /* ProjectArchiveCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectArchiveCollectionViewAdapter.swift; sourceTree = "<group>"; };
@@ -344,14 +342,6 @@
 				BD156FFF28D05ACE00155712 /* ODSButton.swift */,
 			);
 			path = ODSButton;
-			sourceTree = "<group>";
-		};
-		BD15700128D0650400155712 /* ODSSegmentedControl */ = {
-			isa = PBXGroup;
-			children = (
-				BD15700228D0651A00155712 /* ODSSegmentedControl.swift */,
-			);
-			path = ODSSegmentedControl;
 			sourceTree = "<group>";
 		};
 		BD19C4C228DC40F900D209A1 /* Helper */ = {
@@ -869,7 +859,6 @@
 				BD156FFE28D05ABC00155712 /* ODSButton */,
 				BDD5F90C28E1A0F4003F3B03 /* ODSDatePickerViewController */,
 				BDD8CABB28CF73A400668B70 /* ODSNavigationBar */,
-				BD15700128D0650400155712 /* ODSSegmentedControl */,
 				BDD8CAC328CF824800668B70 /* ODSTagView */,
 				BDB65B8B28D0799100679C02 /* ODSTextField */,
 				BDB65B8E28D0B5AC00679C02 /* Preview */,
@@ -1266,7 +1255,6 @@
 				BDB65B9228D0B6B200679C02 /* PreviewProvider.swift in Sources */,
 				BDD8CACB28CF8BA300668B70 /* ODSBasicBlockCell.swift in Sources */,
 				BDD8CAAE28CF4A5200668B70 /* UIColor+.swift in Sources */,
-				BD15700328D0651A00155712 /* ODSSegmentedControl.swift in Sources */,
 				BDD8CAB828CF4E5A00668B70 /* Spacing.swift in Sources */,
 				BDD5F90E28E1A10A003F3B03 /* ODSDatePickerViewController.swift in Sources */,
 				BDD8CAA928CF41A600668B70 /* Font.swift in Sources */,
