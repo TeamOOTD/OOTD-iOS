@@ -2,7 +2,7 @@
 > 📝 · 개발자를 위한 투두 리스트, 오오투두  
 > 📅 · 2022.09.07 ~ 2022.10.07
 
-<img width="1002" alt="오오투두_스크린샷" src="https://github.com/TeamOOTD/OOTD-iOS/assets/61109660/ca2422af-9b15-4250-bb31-d4e2b3ddaf96">
+<img width="1002" alt="오오투두_스크린샷" src="./Assets/screenshot-ootd.png">
 
 ## Summary
 #### ▪️ 투두 작성
