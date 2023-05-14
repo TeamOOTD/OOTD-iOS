@@ -122,7 +122,7 @@ private lazy var adapter = TodoListCollectionViewAdapter(
 #### ▪️ 문제 상황
 ||
 |:--:|
-|<img src = "https://github.com/TeamOOTD/OOTD-iOS/assets/61109660/09474566-5a27-4324-89a0-f81affaae0a9" width = "350" />|
+|<img src = "https://github.com/TeamOOTD/OOTD-iOS/assets/61109660/78987618-3399-4aa2-8ba4-d9ce545b6369" width = "350" />|
 
 빨간색 영역을 CollectionView로 구현하고 있는 상황입니다. 투두 항목이 추가 될 때마다 CollectionView 내부의 Contents의 높이는 증가하게 됩니다. 처음부터 CollectionView의 높이를 하드코딩해서 고정시켜버리면 단순히 스크 롤되는 형태로 원하는 동작을 얻어낼 수가 없었습니다. CollectionView 영역의 높이가 Contents의 높이에 따라서 조절되기를 원했습니다.
 
